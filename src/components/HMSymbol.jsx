@@ -1,0 +1,32 @@
+export default function HMSymbol({ size = 48, theme = "dark" }) {
+  const amber = theme === "amber" ? "#07080D" : "#D4891E"
+  const teal  = theme === "amber" ? "#07080D" : "#1EC8A8"
+  const h = Math.round(size * 1.1)
+
+  return (
+    <svg
+      width={size}
+      height={h}
+      viewBox="0 0 88 110"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-label="Henrique Moreira"
+      role="img"
+    >
+      {/* H left stem */}
+      <line x1="0"  y1="0"  x2="0"  y2="110" stroke={amber} strokeWidth="8" strokeLinecap="round"/>
+      {/* H crossbar at 42% */}
+      <line x1="0"  y1="46" x2="44" y2="46"  stroke={amber} strokeWidth="6" strokeLinecap="round"/>
+      {/* Shared stem */}
+      <line x1="44" y1="0"  x2="44" y2="110" stroke={amber} strokeWidth="8" strokeLinecap="round"/>
+      {/* M left diagonal */}
+      <line x1="44" y1="0"  x2="66" y2="56"  stroke={amber} strokeWidth="7" strokeLinecap="round"/>
+      {/* M right diagonal */}
+      <line x1="66" y1="56" x2="88" y2="0"   stroke={amber} strokeWidth="7" strokeLinecap="round"/>
+      {/* M right stem – gap at bottom */}
+      <line x1="88" y1="0"  x2="88" y2="100" stroke={amber} strokeWidth="8" strokeLinecap="round"/>
+      {/* Teal accent – centered on H left stem */}
+      <line x1="-10" y1="55" x2="12" y2="55" stroke={teal}  strokeWidth="4" strokeLinecap="round"/>
+    </svg>
+  )
+}
