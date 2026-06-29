@@ -225,7 +225,7 @@ function Story({ isLight }) {
     { label: 'Background', value: 'International Business Management · Packaging · Forest Industry' },
     { label: 'Enterprise Tools', value: 'SAP · Power BI · CRM · BW' },
     { label: 'Markets', value: 'Portugal · South East Europe · EMEA' },
-    { label: 'Building', value: 'Lycaon · Velu · Grantemia · DisclAI · Litrix' },
+    { label: 'Building', value: 'Lycaon · Velu · Grantemia · DisclAI · Litrix · GRYPS' },
     { label: 'Stack', value: 'React · Next.js · Supabase · Vercel · Cloudflare · Claude · Gemini' },
     { label: 'Focus', value: 'AI products · EU compliance · B2B intelligence' },
   ]
@@ -368,6 +368,7 @@ function Work({ isLight }) {
             <ProductCard n="03" accent="#5BA89A" category="Research Intelligence · Finland & EU" name="GRANTEMIA" tagline='"2,400 active funders. One researcher. One perfect match."' description="AI-matched grant discovery for Finnish and EU researchers. Tracks deadlines, surfaces new announcements, manages the application pipeline – so researchers spend time on research, not spreadsheets." tags={['AI Matching', 'Deadline Intelligence', 'Funding Discovery']} challenge="The funding landscape never stops moving. Most researchers only ever see a fraction of what they're eligible for." status="Personal project" isLight={isLight} />
             <ProductCard n="04" accent="#D4891E" category="EU AI Act Compliance" name="DISCLAI" tagline='"The EU AI Act requires you to label every AI interaction. August 2026 is closer than you think."' description="Automated, machine-readable AI disclosure for every customer-facing product – chatbots, generated content, automated decisions. Compliant in minutes, not months." tags={['Automated Disclosure', 'Regulatory Compliance', 'Machine-readable Labels']} challenge="Compliance too complex to implement consistently will always fail at the moment it matters most." status="Personal project" isLight={isLight} />
             <ProductCard n="05" accent="#C8A050" category="AI Literacy Compliance · EU" name="LITRIX" tagline='"Your company has been breaking EU AI law since February 2025."' description="EU law mandates AI literacy training for all staff using AI systems – since February 2025. Most companies don't know the obligation exists. Litrix is being built to address that, with proof." tags={['Literacy Training', 'Compliance Proof', 'Audit Trail']} challenge="The hardest regulation to comply with is the one you didn't know existed." status="Personal project" isLight={isLight} />
+            <ProductCard n="06" accent="#4FA8FF" category="Satellite Connectivity Intelligence" name="GRYPS" tagline='"Satellite connectivity should be as simple to manage as any other network."' description="Intelligence platform for satellite connectivity operations. Monitors link quality, predicts outages, and surfaces actionable signals across LEO, MEO, and GEO constellations – built for operators who can't afford blind spots." tags={['Link Intelligence', 'Outage Prediction', 'Constellation Monitoring']} challenge="Satellite networks are uniquely opaque. Ground teams react to outages they could have seen coming." status="Personal project" isLight={isLight} />
           </div>
 
         </div>
@@ -444,7 +445,7 @@ export default function Portfolio({ theme = 'dark' }) {
       "url": "https://henriquemoreira.eu",
       "email": "hqe.moreira@gmail.com",
       "jobTitle": "AI Builder & Systems Thinker",
-      "description": "AI builder and systems thinker based in Espoo, Finland. Building LYCAON, Velu, Grantemia, DisclAI and Litrix – intelligence tools for the decade ahead.",
+      "description": "AI builder and systems thinker based in Espoo, Finland. Building LYCAON, Velu, Grantemia, DisclAI, Litrix and GRYPS – intelligence tools for the decade ahead.",
       "address": { "@type": "PostalAddress", "addressLocality": "Espoo", "addressCountry": "FI" },
       "sameAs": ["https://www.linkedin.com/in/hqemoreira"],
       "knowsAbout": ["Artificial Intelligence", "Systems Thinking", "B2B SaaS", "EU AI Act", "Supply Chain", "International Business"],
