@@ -217,7 +217,7 @@ function Hero({ isLight }) {
 
 function Story({ isLight }) {
   const isMobile = useIsMobile()
-  const languages    = ['Portuguese · native', 'Spanish', 'Catalan', 'Finnish', 'English']
+  const languages    = ['Portuguese · native', 'Spanish', 'Catalan', 'English', 'Finnish', 'French']
   const headingColor = isLight ? '#1A0E04' : '#F0E8D8'
   const bodyColor    = isLight ? '#2A1A08' : '#B8AE9A'
   const pillColor    = isLight ? '#5A3A10' : '#C8B890'
@@ -257,7 +257,7 @@ function Story({ isLight }) {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '18px', marginBottom: '28px' }}>
               {[
                 "Systems thinking forged across two decades and multiple industries. Not methodology – necessity.",
-                "Five languages. Enough countries to lose count. The world stops feeling foreign when you stop treating it as one.",
+                "Six languages. Enough countries to lose count. The world stops feeling foreign when you stop treating it as one.",
                 "Now building intelligence that thinks ahead. The rest is in the work.",
               ].map((para, i) => (
                 <p key={i} style={{ fontFamily: "'Lora', serif", fontSize: isMobile ? '15px' : '16px', lineHeight: '1.85', color: bodyColor, letterSpacing: '0.01em' }}>{para}</p>
