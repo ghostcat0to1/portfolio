@@ -196,8 +196,10 @@ function Hero({ isLight }) {
         <div style={{ fontFamily: "'Lora', serif", fontSize: 'clamp(16px, 2vw, 22px)', fontStyle: 'italic', color: isLight ? 'rgba(80,40,5,0.85)' : 'rgba(240,232,216,0.75)', lineHeight: 1.6, maxWidth: '520px', margin: '0 auto 32px', letterSpacing: '0.01em' }}>
           18 years reading markets. Now building the tools that read them for you.
         </div>
-        <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '10px', color: taglineColor, lineHeight: 1.75, maxWidth: '500px', margin: '0 auto 36px', letterSpacing: '0.02em' }}>
-          PT · 39.40°N 8.22°W&nbsp;&nbsp;·&nbsp;&nbsp;AD · 42.51°N 1.52°E&nbsp;&nbsp;·&nbsp;&nbsp;ES · 40.46°N 3.75°W&nbsp;&nbsp;·&nbsp;&nbsp;GR · 39.07°N 21.82°E&nbsp;&nbsp;·&nbsp;&nbsp;BE · 50.50°N 4.47°E&nbsp;&nbsp;·&nbsp;&nbsp;FI · 61.92°N 25.75°E
+        <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '10px', color: taglineColor, lineHeight: 1.75, maxWidth: '500px', margin: '0 auto 36px', letterSpacing: '0.02em', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '4px 0' }}>
+          {['PT · 39.40°N 8.22°W', 'AD · 42.51°N 1.52°E', 'ES · 40.46°N 3.75°W', 'GR · 39.07°N 21.82°E', 'BE · 50.50°N 4.47°E', 'FI · 61.92°N 25.75°E'].map((c, i, a) => (
+            <span key={c} style={{ whiteSpace: 'nowrap' }}>{c}{i < a.length - 1 ? <span style={{ margin: '0 8px', opacity: 0.4 }}>·</span> : null}</span>
+          ))}
         </div>
         <div style={{ display: 'flex', gap: '10px', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '72px' }}>
           {['Systems Thinker', 'AI Builder', 'Global Citizen'].map(pill => (
@@ -215,7 +217,7 @@ function Hero({ isLight }) {
 
 function Story({ isLight }) {
   const isMobile = useIsMobile()
-  const languages    = ['Portuguese', 'English', 'Spanish', 'Catalan', 'French']
+  const languages    = ['Portuguese · native', 'Spanish', 'Catalan', 'Finnish', 'English']
   const headingColor = isLight ? '#1A0E04' : '#F0E8D8'
   const bodyColor    = isLight ? '#2A1A08' : '#B8AE9A'
   const pillColor    = isLight ? '#5A3A10' : '#C8B890'
@@ -283,7 +285,7 @@ function Story({ isLight }) {
   )
 }
 
-function ProductCard({ n, accent, category, name, tagline, description, tags, challenge, status, isLight }) {
+function ProductCard({ n, accent, category, name, tagline, description, tags, challenge, status, href, isLight }) {
   const cardBg         = isLight ? 'rgba(255,248,235,0.95)' : '#0A0908'
   const cardBorder     = isLight ? 'rgba(212,137,30,0.12)' : 'rgba(255,255,255,0.03)'
   const nameColor      = isLight ? '#1A0E04' : '#F0E8D8'
@@ -308,6 +310,15 @@ function ProductCard({ n, accent, category, name, tagline, description, tags, ch
         <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '7.5px', color: accent, opacity: 0.6, letterSpacing: '0.2em', textTransform: 'uppercase' }}>The challenge – </span>
         <span style={{ fontFamily: "'Lora', serif", fontSize: '12.5px', fontStyle: 'italic', color: challengeColor, lineHeight: 1.6 }}>{challenge}</span>
       </div>
+      {href && (
+        <a href={href} target="_blank" rel="noreferrer" style={{ textDecoration: 'none', marginTop: '4px' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '8px 18px', border: `1px solid ${accent}`, borderRadius: '1px', fontFamily: "'Syne', sans-serif", fontSize: '9px', fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase', color: accent, transition: 'all 0.2s', cursor: 'pointer' }}
+            onMouseEnter={e => { e.currentTarget.style.background = accent; e.currentTarget.style.color = '#07080D' }}
+            onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = accent }}>
+            Visit {name} ↗
+          </div>
+        </a>
+      )}
     </div>
   )
 }
@@ -362,13 +373,13 @@ function Work({ isLight }) {
             </div>
           </div>
 
-          {/* 2x2 grid */}
+          {/* grid */}
           <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '4px' }}>
-            <ProductCard n="02" accent="#1EC8A8" category="Operational Intelligence · B2B" name="VELU" tagline='"The operational clarity enterprise teams take for granted – built for everyone else."' description="Five intelligence modules covering pipeline, email performance, market signals, competitive position, and operational health. No enterprise price tag. No analyst required." tags={['Pipeline Intelligence', 'Market Signals', 'Competitive Watch']} challenge="Enterprise analytics costs six figures. SMBs deserve the same clarity without the complexity." status="Personal project" isLight={isLight} />
-            <ProductCard n="03" accent="#5BA89A" category="Research Intelligence · Finland & EU" name="GRANTEMIA" tagline='"2,400 active funders. One researcher. One perfect match."' description="AI-matched grant discovery for Finnish and EU researchers. Tracks deadlines, surfaces new announcements, manages the application pipeline – so researchers spend time on research, not spreadsheets." tags={['AI Matching', 'Deadline Intelligence', 'Funding Discovery']} challenge="The funding landscape never stops moving. Most researchers only ever see a fraction of what they're eligible for." status="Personal project" isLight={isLight} />
-            <ProductCard n="04" accent="#B8334C" category="EU AI Act Compliance · R&D Prototype" name="DISCLAI" tagline='"Three-tier multilingual compliance infrastructure — 24 EU languages, 27 Member States, pre-vetted legal taxonomy."' description="Generates Transparency Notices, Fundamental Rights Impact Assessments, and Harm Taxonomies for AI systems under Regulation 2024/1689. Legal terminology sourced verbatim from the Official Journal. Non-commercial research prototype built in Espoo." tags={['FRIA · Article 27', 'Harm Taxonomy · Article 9', '24 Official EU Languages', 'Pre-vetted Legal Terms']} challenge="Legal compliance documents get copied and pasted by lawyers who have never touched the regulation. The result is boilerplate that fails the first audit." status="R&D prototype" isLight={isLight} />
-            <ProductCard n="05" accent="#C8A050" category="AI Literacy Compliance · EU" name="LITRIX" tagline='"Your company has been breaking EU AI law since February 2025."' description="EU law mandates AI literacy training for all staff using AI systems – since February 2025. Most companies don't know the obligation exists. Litrix is being built to address that, with proof." tags={['Literacy Training', 'Compliance Proof', 'Audit Trail']} challenge="The hardest regulation to comply with is the one you didn't know existed." status="Personal project" isLight={isLight} />
-            <ProductCard n="06" accent="#4FA8FF" category="Satellite Connectivity Intelligence" name="GRYPS" tagline='"Satellite connectivity should be as simple to manage as any other network."' description="Intelligence platform for satellite connectivity operations. Monitors link quality, predicts outages, and surfaces actionable signals across LEO, MEO, and GEO constellations – built for operators who can't afford blind spots." tags={['Link Intelligence', 'Outage Prediction', 'Constellation Monitoring']} challenge="Satellite networks are uniquely opaque. Ground teams react to outages they could have seen coming." status="Personal project" isLight={isLight} />
+            <ProductCard n="02" accent="#4FA8FF" category="Satellite Connectivity Intelligence" name="GRYPS" tagline='"Satellite connectivity should be as simple to manage as any other network."' description="Intelligence platform for satellite connectivity operations. Monitors link quality, predicts outages, and surfaces actionable signals across LEO, MEO, and GEO constellations – built for operators who can't afford blind spots." tags={['Link Intelligence', 'Outage Prediction', 'Constellation Monitoring']} challenge="Satellite networks are uniquely opaque. Ground teams react to outages they could have seen coming." status="Live" href="https://gryps.vercel.app" isLight={isLight} />
+            <ProductCard n="03" accent="#1EC8A8" category="Operational Intelligence · B2B" name="VELU" tagline='"The operational clarity enterprise teams take for granted – built for everyone else."' description="Five intelligence modules covering pipeline, email performance, market signals, competitive position, and operational health. No enterprise price tag. No analyst required." tags={['Pipeline Intelligence', 'Market Signals', 'Competitive Watch']} challenge="Enterprise analytics costs six figures. SMBs deserve the same clarity without the complexity." status="Personal project" isLight={isLight} />
+            <ProductCard n="04" accent="#5BA89A" category="Research Intelligence · Finland & EU" name="GRANTEMIA" tagline='"2,400 active funders. One researcher. One perfect match."' description="AI-matched grant discovery for Finnish and EU researchers. Tracks deadlines, surfaces new announcements, manages the application pipeline – so researchers spend time on research, not spreadsheets." tags={['AI Matching', 'Deadline Intelligence', 'Funding Discovery']} challenge="The funding landscape never stops moving. Most researchers only ever see a fraction of what they're eligible for." status="Personal project" isLight={isLight} />
+            <ProductCard n="05" accent="#B8334C" category="EU AI Act Compliance · R&D Prototype" name="DISCLAI" tagline='"Three-tier multilingual compliance infrastructure — 24 EU languages, 27 Member States, pre-vetted legal taxonomy."' description="Generates Transparency Notices, Fundamental Rights Impact Assessments, and Harm Taxonomies for AI systems under Regulation 2024/1689. Legal terminology sourced verbatim from the Official Journal. Non-commercial research prototype built in Espoo." tags={['FRIA · Article 27', 'Harm Taxonomy · Article 9', '24 Official EU Languages', 'Pre-vetted Legal Terms']} challenge="Legal compliance documents get copied and pasted by lawyers who have never touched the regulation. The result is boilerplate that fails the first audit." status="R&D prototype" isLight={isLight} />
+            <ProductCard n="06" accent="#C8A050" category="AI Literacy Compliance · EU" name="LITRIX" tagline='"Your company has been breaking EU AI law since February 2025."' description="EU law mandates AI literacy training for all staff using AI systems – since February 2025. Most companies don't know the obligation exists. Litrix is being built to address that, with proof." tags={['Literacy Training', 'Compliance Proof', 'Audit Trail']} challenge="The hardest regulation to comply with is the one you didn't know existed." status="Personal project" isLight={isLight} />
           </div>
 
         </div>
