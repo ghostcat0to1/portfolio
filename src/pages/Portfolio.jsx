@@ -376,7 +376,7 @@ function Work({ isLight }) {
                   <div key={tag} style={{ padding: '5px 14px', border: '1px solid rgba(240,168,40,0.3)', borderRadius: '100px', fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', color: isLight ? '#8A6A20' : '#8A7A50', letterSpacing: '0.12em' }}>{tag}</div>
                 ))}
               </div>
-              <a href="https://lycaon.eu" target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}>
+              <a href="https://lycaon.vercel.app" target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}>
                 <div style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', padding: '12px 26px', border: '1px solid #F0A828', borderRadius: '1px', fontFamily: "'Syne', sans-serif", fontSize: '10px', fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#F0A828', transition: 'all 0.2s', cursor: 'pointer' }}
                   onMouseEnter={e => { e.currentTarget.style.background = '#F0A828'; e.currentTarget.style.color = '#07080D' }}
                   onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#F0A828' }}>
