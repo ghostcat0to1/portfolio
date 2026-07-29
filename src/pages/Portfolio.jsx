@@ -297,7 +297,6 @@ function ProductCard({ n, accent, category, name, tagline, description, tags, ch
         <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', color: accent, opacity: 0.6, letterSpacing: '0.1em' }}>{n}</div>
         <div style={{ fontFamily: "'Syne', sans-serif", fontSize: '9px', fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', color: accent, flex: 1 }}>{category}</div>
         <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '7.5px', color: accent, opacity: 0.7, letterSpacing: '0.1em', padding: '3px 8px', border: `1px solid ${accent}40`, borderRadius: '100px' }}>{status}</div>
-        <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '7.5px', color: accent, opacity: 0.5, letterSpacing: '0.1em', padding: '3px 8px', border: `1px solid ${accent}30`, borderRadius: '100px' }}>Non-commercial Research Project</div>
       </div>
       <div style={{ fontFamily: "'Fraunces', serif", fontSize: 'clamp(28px, 3.5vw, 40px)', fontWeight: 200, fontStyle: 'italic', color: nameColor, letterSpacing: '-0.03em', lineHeight: 0.9 }}>{name}</div>
       <div style={{ fontFamily: "'Lora', serif", fontSize: '14px', fontStyle: 'italic', color: accent, lineHeight: 1.65 }}>{tagline}</div>
@@ -338,8 +337,11 @@ function Work({ isLight }) {
         <h2 style={{ fontFamily: "'Fraunces', serif", fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: 200, fontStyle: 'italic', color: headingColor, lineHeight: 1.1, letterSpacing: '-0.02em', marginBottom: '12px' }}>
           What I explore.<br /><span style={{ color: '#D4891E' }}>What I bring.</span>
         </h2>
-        <div style={{ fontFamily: "'Lora', serif", fontSize: '13px', fontStyle: 'italic', color: isLight ? '#8A6A30' : '#4A4030', marginBottom: '40px', textAlign: 'center' }}>
+        <div style={{ fontFamily: "'Lora', serif", fontSize: '13px', fontStyle: 'italic', color: isLight ? '#8A6A30' : '#4A4030', marginBottom: '12px', textAlign: 'center' }}>
           Personal R&D projects – built independently as research and learning initiatives.
+        </div>
+        <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '9px', letterSpacing: '0.18em', color: isLight ? '#8A6A30' : '#6A5A3A', textAlign: 'center', marginBottom: '40px' }}>
+          LYCAON · Velu · Grantemia · GRYPS · DisclAI · Litrix — Non-commercial Research Projects
         </div>
       </RevealWrapper>
       <RevealWrapper delay={150}>
@@ -353,7 +355,6 @@ function Work({ isLight }) {
                 <div style={{ fontFamily: "'Syne', sans-serif", fontSize: '10px', fontWeight: 700, letterSpacing: '0.3em', textTransform: 'uppercase', color: '#F0A828' }}>Anticipatory Intelligence</div>
                 <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to right, rgba(240,168,40,0.2), transparent)', maxWidth: '120px' }} />
                 <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', color: isLight ? '#8A6A20' : '#8A7A60', letterSpacing: '0.1em', padding: '4px 10px', border: '1px solid rgba(240,168,40,0.3)', borderRadius: '100px' }}>Personal project</div>
-                <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', color: isLight ? '#8A6A20' : '#8A7A60', letterSpacing: '0.1em', padding: '4px 10px', border: '1px solid rgba(240,168,40,0.2)', borderRadius: '100px', opacity: 0.7 }}>Non-commercial Research Project</div>
               </div>
               <div style={{ fontFamily: "'Fraunces', serif", fontSize: 'clamp(36px, 5vw, 56px)', fontWeight: 200, fontStyle: 'italic', color: isLight ? '#1A0E04' : '#F0E8D8', letterSpacing: '-0.03em', lineHeight: 0.9, marginBottom: '16px' }}>LYCAON</div>
               <div style={{ fontFamily: "'Lora', serif", fontSize: '17px', fontStyle: 'italic', color: taglineColor, lineHeight: 1.8, maxWidth: '560px', margin: '0 auto', marginBottom: '24px' }}>"Not what is. What comes next."</div>
