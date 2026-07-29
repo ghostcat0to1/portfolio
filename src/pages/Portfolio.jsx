@@ -194,7 +194,7 @@ function Hero({ isLight }) {
           <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to left, transparent, rgba(212,137,30,0.35))' }} />
         </div>
         <div style={{ fontFamily: "'Lora', serif", fontSize: 'clamp(16px, 2vw, 22px)', fontStyle: 'italic', color: isLight ? 'rgba(80,40,5,0.85)' : 'rgba(240,232,216,0.75)', lineHeight: 1.6, maxWidth: '520px', margin: '0 auto 32px', letterSpacing: '0.01em' }}>
-          18 years in Nordic forest industry commercial operations — now building AI-native tools for the same sector.
+          18 years in Nordic forest industry commercial operations — now building AI-native products for the industries that need them most.
         </div>
         <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '10px', color: taglineColor, lineHeight: 1.75, maxWidth: '500px', margin: '0 auto 36px', letterSpacing: '0.02em', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '4px 0' }}>
           {['PT · 39.40°N 8.22°W', 'AD · 42.51°N 1.52°E', 'ES · 40.46°N 3.75°W', 'GR · 39.07°N 21.82°E', 'BE · 50.50°N 4.47°E', 'FI · 61.92°N 25.75°E'].map((c, i, a) => (
@@ -227,8 +227,9 @@ function Story({ isLight }) {
     { label: 'Background', value: 'International Business Management · Packaging · Forest Industry' },
     { label: 'Enterprise Tools', value: 'SAP · Power BI · CRM · BW' },
     { label: 'Markets', value: 'Portugal · South East Europe · EMEA' },
-    { label: 'Building', value: 'Lycaon · Velu · Grantemia · DisclAI · Litrix · GRYPS' },
-    { label: 'Stack', value: 'React · Next.js · Supabase · Vercel · Cloudflare · Claude · Gemini' },
+    { label: 'Building', value: 'LYCAON · GRYPS · Velu · Grantemia' },
+    { label: 'Earlier Work', value: 'DisclAI · Litrix · Iraun — explored, shelved' },
+    { label: 'Stack', value: 'React · Next.js · Neon · Vercel · Resend · Cloudflare · Mistral' },
     { label: 'Focus', value: 'AI products · EU compliance · B2B intelligence' },
   ]
   return (
@@ -285,18 +286,24 @@ function Story({ isLight }) {
   )
 }
 
-function ProductCard({ n, accent, category, name, tagline, description, tags, challenge, status, href, isLight }) {
+function ProductCard({ n, accent, category, name, tagline, description, tags, challenge, status, nonCommercial, href, isLight }) {
   const cardBg         = isLight ? 'rgba(255,248,235,0.95)' : '#0A0908'
   const cardBorder     = isLight ? 'rgba(212,137,30,0.12)' : 'rgba(255,255,255,0.03)'
   const nameColor      = isLight ? '#1A0E04' : '#F0E8D8'
   const descColor      = isLight ? '#2A1A08' : '#8A8278'
   const challengeColor = isLight ? '#5A3A10' : '#5A5248'
+  const neutralColor   = isLight ? '#5A5040' : '#8A8070'
   return (
     <div style={{ background: cardBg, border: `1px solid ${cardBorder}`, borderLeft: `3px solid ${accent}`, borderRadius: '2px', padding: '32px 30px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
         <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', color: accent, opacity: 0.6, letterSpacing: '0.1em' }}>{n}</div>
         <div style={{ fontFamily: "'Syne', sans-serif", fontSize: '9px', fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', color: accent, flex: 1 }}>{category}</div>
-        <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '7.5px', color: accent, opacity: 0.7, letterSpacing: '0.1em', padding: '3px 8px', border: `1px solid ${accent}40`, borderRadius: '100px' }}>{status}</div>
+        <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
+          <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '7.5px', color: accent, opacity: 0.7, letterSpacing: '0.1em', padding: '3px 8px', border: `1px solid ${accent}40`, borderRadius: '100px' }}>{status}</div>
+          {nonCommercial && (
+            <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '7.5px', color: neutralColor, letterSpacing: '0.1em', padding: '3px 8px', border: `1px dashed ${neutralColor}60`, borderRadius: '100px' }}>Non-commercial Research Project</div>
+          )}
+        </div>
       </div>
       <div style={{ fontFamily: "'Fraunces', serif", fontSize: 'clamp(28px, 3.5vw, 40px)', fontWeight: 200, fontStyle: 'italic', color: nameColor, letterSpacing: '-0.03em', lineHeight: 0.9 }}>{name}</div>
       <div style={{ fontFamily: "'Lora', serif", fontSize: '14px', fontStyle: 'italic', color: accent, lineHeight: 1.65 }}>{tagline}</div>
@@ -350,11 +357,14 @@ function Work({ isLight }) {
           <div style={{ background: lycaonBg, border: `1px solid ${lycaonBorder}`, borderLeft: '4px solid #F0A828', borderRadius: '2px', padding: isMobile ? '24px 20px' : '40px 44px', position: 'relative', overflow: 'hidden' }}>
             <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', background: 'radial-gradient(ellipse at 0% 50%, rgba(240,168,40,0.06) 0%, transparent 55%)' }} />
             <div style={{ position: 'relative' }}>
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '14px', marginBottom: '20px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '14px', marginBottom: '20px', flexWrap: 'wrap' }}>
                 <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', color: '#F0A828', opacity: 0.6, letterSpacing: '0.1em' }}>01</div>
                 <div style={{ fontFamily: "'Syne', sans-serif", fontSize: '10px', fontWeight: 700, letterSpacing: '0.3em', textTransform: 'uppercase', color: '#F0A828' }}>Anticipatory Intelligence</div>
                 <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to right, rgba(240,168,40,0.2), transparent)', maxWidth: '120px' }} />
-                <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', color: isLight ? '#8A6A20' : '#8A7A60', letterSpacing: '0.1em', padding: '4px 10px', border: '1px solid rgba(240,168,40,0.3)', borderRadius: '100px' }}>Personal project</div>
+                <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
+                  <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', color: isLight ? '#8A6A20' : '#8A7A60', letterSpacing: '0.1em', padding: '4px 10px', border: '1px solid rgba(240,168,40,0.3)', borderRadius: '100px' }}>Personal project</div>
+                  <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', color: isLight ? '#5A5040' : '#8A8070', letterSpacing: '0.1em', padding: '4px 10px', border: `1px dashed ${isLight ? '#5A504060' : '#8A807060'}`, borderRadius: '100px' }}>Non-commercial Research Project</div>
+                </div>
               </div>
               <div style={{ fontFamily: "'Fraunces', serif", fontSize: 'clamp(36px, 5vw, 56px)', fontWeight: 200, fontStyle: 'italic', color: isLight ? '#1A0E04' : '#F0E8D8', letterSpacing: '-0.03em', lineHeight: 0.9, marginBottom: '16px' }}>LYCAON</div>
               <div style={{ fontFamily: "'Lora', serif", fontSize: '17px', fontStyle: 'italic', color: taglineColor, lineHeight: 1.8, maxWidth: '560px', margin: '0 auto', marginBottom: '24px' }}>"Not what is. What comes next."</div>
@@ -378,9 +388,9 @@ function Work({ isLight }) {
 
           {/* grid */}
           <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '4px' }}>
-            <ProductCard n="02" accent="#4FA8FF" category="Satellite Connectivity Intelligence" name="GRYPS" tagline='"Satellite connectivity should be as simple to manage as any other network."' description="Intelligence platform for satellite connectivity operations. Monitors link quality, predicts outages, and surfaces actionable signals across LEO, MEO, and GEO constellations – built for operators who can't afford blind spots." tags={['Link Intelligence', 'Outage Prediction', 'Constellation Monitoring']} challenge="Satellite networks are uniquely opaque. Ground teams react to outages they could have seen coming." status="Live" href="https://gryps.vercel.app" isLight={isLight} />
-            <ProductCard n="03" accent="#1EC8A8" category="Operational Intelligence · B2B" name="VELU" tagline='"The operational clarity enterprise teams take for granted – built for everyone else."' description="Five intelligence modules covering pipeline, email performance, market signals, competitive position, and operational health. No enterprise price tag. No analyst required." tags={['Pipeline Intelligence', 'Market Signals', 'Competitive Watch']} challenge="Enterprise analytics costs six figures. SMBs deserve the same clarity without the complexity." status="Personal project" isLight={isLight} />
-            <ProductCard n="04" accent="#5BA89A" category="Research Intelligence · Finland & EU" name="GRANTEMIA" tagline='"2,400 active funders. One researcher. One perfect match."' description="AI-matched grant discovery for Finnish and EU researchers. Tracks deadlines, surfaces new announcements, manages the application pipeline – so researchers spend time on research, not spreadsheets." tags={['AI Matching', 'Deadline Intelligence', 'Funding Discovery']} challenge="The funding landscape never stops moving. Most researchers only ever see a fraction of what they're eligible for." status="Personal project" isLight={isLight} />
+            <ProductCard n="02" accent="#4FA8FF" category="Satellite Connectivity Intelligence" name="GRYPS" tagline='"Satellite connectivity should be as simple to manage as any other network."' description="Intelligence platform for satellite connectivity operations. Monitors link quality, predicts outages, and surfaces actionable signals across LEO, MEO, and GEO constellations – built for operators who can't afford blind spots." tags={['Link Intelligence', 'Outage Prediction', 'Constellation Monitoring']} challenge="Satellite networks are uniquely opaque. Ground teams react to outages they could have seen coming." status="Live" nonCommercial href="https://gryps.vercel.app" isLight={isLight} />
+            <ProductCard n="03" accent="#1EC8A8" category="Operational Intelligence · B2B" name="VELU" tagline='"The operational clarity enterprise teams take for granted – built for everyone else."' description="Five intelligence modules covering pipeline, email performance, market signals, competitive position, and operational health. No enterprise price tag. No analyst required." tags={['Pipeline Intelligence', 'Market Signals', 'Competitive Watch']} challenge="Enterprise analytics costs six figures. SMBs deserve the same clarity without the complexity." status="Personal project" nonCommercial isLight={isLight} />
+            <ProductCard n="04" accent="#5BA89A" category="Research Intelligence · Finland & EU" name="GRANTEMIA" tagline='"2,400 active funders. One researcher. One perfect match."' description="AI-matched grant discovery for Finnish and EU researchers. Tracks deadlines, surfaces new announcements, manages the application pipeline – so researchers spend time on research, not spreadsheets." tags={['AI Matching', 'Deadline Intelligence', 'Funding Discovery']} challenge="The funding landscape never stops moving. Most researchers only ever see a fraction of what they're eligible for." status="Personal project" nonCommercial isLight={isLight} />
           </div>
 
           {/* Earlier Work */}
@@ -393,12 +403,28 @@ function Work({ isLight }) {
             <div style={{ fontFamily: "'Lora', serif", fontSize: '12px', fontStyle: 'italic', color: isLight ? '#8A6A30' : '#4A4030', textAlign: 'center', marginBottom: '20px' }}>
               Explored and shelved — built for learning, not currently active.
             </div>
-            <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '4px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)', gap: '4px' }}>
               <ProductCard n="05" accent="#B8334C" category="EU AI Act Compliance · R&D Prototype" name="DISCLAI" tagline='"Three-tier multilingual compliance infrastructure — 24 EU languages, 27 Member States, pre-vetted legal taxonomy."' description="Generates Transparency Notices, Fundamental Rights Impact Assessments, and Harm Taxonomies for AI systems under Regulation 2024/1689. Legal terminology sourced verbatim from the Official Journal. Non-commercial research prototype built in Espoo." tags={['FRIA · Article 27', 'Harm Taxonomy · Article 9', '24 Official EU Languages', 'Pre-vetted Legal Terms']} challenge="Legal compliance documents get copied and pasted by lawyers who have never touched the regulation. The result is boilerplate that fails the first audit." status="R&D prototype" isLight={isLight} />
               <ProductCard n="06" accent="#C8A050" category="AI Literacy Compliance · EU" name="LITRIX" tagline='"Your company has been breaking EU AI law since February 2025."' description="EU law mandates AI literacy training for all staff using AI systems – since February 2025. Most companies don't know the obligation exists. Litrix is being built to address that, with proof." tags={['Literacy Training', 'Compliance Proof', 'Audit Trail']} challenge="The hardest regulation to comply with is the one you didn't know existed." status="Personal project" isLight={isLight} />
+              <ProductCard n="07" accent="#8A7ADB" category="Founder Ops · AI Assistant" name="IRAUN" tagline='"A second brain for a solo founder running six products at once."' description="Personal AI intelligence layer built as a founder-ops assistant: morning briefings, telemetry, and observer logic across every active product. Reached a working state at iraun.vercel.app; not maintained as an active product." tags={['Morning Briefings', 'Telemetry', 'Observer Logic']} challenge="A solo founder is the bottleneck for their own context-switching. Iraun was an attempt to externalize that." status="Working prototype" href="https://iraun.vercel.app" isLight={isLight} />
             </div>
             <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '8.5px', letterSpacing: '0.15em', color: isLight ? '#8A6A30' : '#5A5040', textAlign: 'center', marginTop: '28px' }}>
               Mistral · Neon · Vercel · Resend — solo-built, zero infrastructure overhead by design.
+            </div>
+          </div>
+
+          {/* Internal Tooling */}
+          <div style={{ marginTop: '48px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '16px' }}>
+              <div style={{ flex: 1, height: '1px', background: isLight ? 'rgba(212,137,30,0.15)' : 'rgba(255,255,255,0.05)' }} />
+              <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', letterSpacing: '0.35em', textTransform: 'uppercase', color: isLight ? '#8A6A30' : '#6A5A3A' }}>Internal Tooling · Founder Operations</div>
+              <div style={{ flex: 1, height: '1px', background: isLight ? 'rgba(212,137,30,0.15)' : 'rgba(255,255,255,0.05)' }} />
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr', gap: '4px' }}>
+              <ProductCard n="—" accent="#6A93B0" category="Founder Operations Dashboard" name="FORGE" tagline='"One dashboard for every product, deployment, and session across the portfolio."' description="Private founder-operations dashboard tracking all active products, deployments, and session history in one place. Actively built and maintained — not a customer-facing product, and intentionally private: no live link, requires authentication." tags={['Deployment Tracking', 'Session History', 'Private / Internal']} challenge="Running six products solo means state lives in six different places. Forge is where it all comes together." status="Active · Private" isLight={isLight} />
+            </div>
+            <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '8.5px', letterSpacing: '0.15em', color: isLight ? '#8A6A30' : '#5A5040', textAlign: 'center', marginTop: '20px' }}>
+              Built with Claude Code.
             </div>
           </div>
 

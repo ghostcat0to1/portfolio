@@ -631,7 +631,7 @@ export default function LycaonPage({ theme = 'dark' }) {
         {/* ── FOOTER ── */}
         <footer style={{ marginTop: "100px", paddingTop: "32px", borderTop: `1px solid ${isLight ? 'rgba(212,137,30,0.2)' : 'rgba(212,137,30,0.08)'}`, textAlign: "center" }}>
           <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: "10px", letterSpacing: "0.18em", color: textMuted, lineHeight: 2 }}>
-            © 2026 Lycaon · Espoo, Finland · Non-commercial R&D prototype · No registered company · No revenue generated
+            © 2026 LYCAON · Espoo, Finland · Non-commercial R&D prototype · No registered company · No revenue generated
           </div>
           <a href="mailto:hello@lycaon.eu" style={{ display: "inline-block", marginTop: "8px", fontFamily: "'JetBrains Mono', monospace", fontSize: "10px", letterSpacing: "0.15em", color: "#D4891E", textDecoration: "none", opacity: 0.8 }}>
             hello@lycaon.eu
