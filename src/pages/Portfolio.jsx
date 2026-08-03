@@ -183,9 +183,15 @@ function Hero({ isLight }) {
     <section id="hero" style={{ position: 'relative', height: '100vh', minHeight: '800px', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
       <canvas ref={canvasRef} style={{ position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none' }} />
       <div style={{ position: 'relative', zIndex: 5, textAlign: 'center', padding: '0 32px' }}>
-        <div style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', marginBottom: '40px', padding: '9px 22px', border: `1px solid ${isLight ? 'rgba(212,137,30,0.3)' : 'rgba(212,137,30,0.16)'}`, borderRadius: '100px', background: isLight ? 'rgba(212,137,30,0.08)' : 'rgba(212,137,30,0.04)' }}>
-          <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#D4891E', display: 'inline-block', animation: 'hmPulse 2.2s ease-in-out infinite', flexShrink: 0 }} />
-          <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '9px', letterSpacing: '0.44em', color: '#D4891E', textTransform: 'uppercase', opacity: 1 }}>Vila Nova de Gaia → Espoo</span>
+        <div style={{ display: 'flex', gap: '10px', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '40px' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', padding: '9px 22px', border: `1px solid ${isLight ? 'rgba(212,137,30,0.3)' : 'rgba(212,137,30,0.16)'}`, borderRadius: '100px', background: isLight ? 'rgba(212,137,30,0.08)' : 'rgba(212,137,30,0.04)' }}>
+            <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#D4891E', display: 'inline-block', animation: 'hmPulse 2.2s ease-in-out infinite', flexShrink: 0 }} />
+            <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '9px', letterSpacing: '0.44em', color: '#D4891E', textTransform: 'uppercase', opacity: 1 }}>Vila Nova de Gaia → Espoo</span>
+          </div>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', padding: '9px 22px', border: `1px solid ${isLight ? 'rgba(30,200,168,0.3)' : 'rgba(30,200,168,0.18)'}`, borderRadius: '100px', background: isLight ? 'rgba(30,200,168,0.08)' : 'rgba(30,200,168,0.05)' }}>
+            <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#1EC8A8', display: 'inline-block', animation: 'hmPulse 2.2s ease-in-out infinite', flexShrink: 0 }} />
+            <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '9px', letterSpacing: '0.44em', color: '#1EC8A8', textTransform: 'uppercase', opacity: 1 }}>Open to opportunities</span>
+          </div>
         </div>
         <h1 style={{ margin: 0, animation: 'hmTitleIn 1.4s cubic-bezier(0.16,1,0.3,1) both' }}>
           <span style={{ display: 'block', fontFamily: "'Fraunces', serif", fontSize: 'clamp(72px, 13vw, 136px)', fontWeight: 200, fontStyle: 'italic', letterSpacing: '-0.04em', lineHeight: 0.88, color: titleColor, textShadow: isLight ? 'none' : '0 0 120px rgba(212,137,30,0.12)' }}>HENRIQUE</span>
@@ -333,6 +339,24 @@ function ProductCard({ n, accent, category, name, tagline, description, tags, ch
   )
 }
 
+function EarlierWorkItem({ accent, name, description, href, isLight }) {
+  const nameColor = isLight ? '#1A0E04' : '#F0E8D8'
+  const descColor = isLight ? '#4A3A20' : '#7A7268'
+  const cardBg    = isLight ? 'rgba(255,248,235,0.6)' : 'rgba(255,255,255,0.015)'
+  const content = (
+    <div style={{ background: cardBg, borderLeft: `2px solid ${accent}`, padding: '12px 18px', textAlign: 'left', display: 'flex', flexDirection: 'column', gap: '5px', height: '100%' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+        <span style={{ fontFamily: "'Syne', sans-serif", fontSize: '11px', fontWeight: 700, letterSpacing: '0.15em', color: nameColor }}>{name}</span>
+        <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '6.5px', letterSpacing: '0.1em', color: accent, opacity: 0.75, textTransform: 'uppercase', padding: '2px 7px', border: `1px dashed ${accent}70`, borderRadius: '100px' }}>Personal</span>
+      </div>
+      <div style={{ fontFamily: "'Lora', serif", fontSize: '12px', fontStyle: 'italic', color: descColor, lineHeight: 1.55 }}>{description}</div>
+    </div>
+  )
+  return href
+    ? <a href={href} target="_blank" rel="noreferrer" style={{ textDecoration: 'none', display: 'block', height: '100%' }}>{content}</a>
+    : content
+}
+
 function Work({ isLight }) {
   const isMobile    = useIsMobile()
   const headingColor = isLight ? '#1A0E04' : '#F0E8D8'
@@ -407,9 +431,9 @@ function Work({ isLight }) {
               Explored and shelved — built for learning, not currently active.
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)', gap: '4px' }}>
-              <ProductCard n="05" accent="#B8334C" category="EU AI Act Compliance · R&D Prototype" name="DISCLAI" tagline='"Three-tier multilingual compliance infrastructure — 24 EU languages, 27 Member States, pre-vetted legal taxonomy."' description="Generates Transparency Notices, Fundamental Rights Impact Assessments, and Harm Taxonomies for AI systems under Regulation 2024/1689. Legal terminology sourced verbatim from the Official Journal. Non-commercial research prototype built in Espoo." tags={['FRIA · Article 27', 'Harm Taxonomy · Article 9', '24 Official EU Languages', 'Pre-vetted Legal Terms']} challenge="Legal compliance documents get copied and pasted by lawyers who have never touched the regulation. The result is boilerplate that fails the first audit." status="R&D prototype" nonCommercial isLight={isLight} />
-              <ProductCard n="06" accent="#C8A050" category="AI Literacy Compliance · EU" name="LITRIX" tagline='"Your company has been breaking EU AI law since February 2025."' description="EU law mandates AI literacy training for all staff using AI systems – since February 2025. Most companies don't know the obligation exists. Litrix is being built to address that, with proof." tags={['Literacy Training', 'Compliance Proof', 'Audit Trail']} challenge="The hardest regulation to comply with is the one you didn't know existed." status="Personal project" nonCommercial isLight={isLight} />
-              <ProductCard n="07" accent="#8A7ADB" category="Personal Ops · AI Assistant" name="IRAUN" tagline='"A second brain for managing several personal projects at once."' description="Personal AI intelligence layer built as a personal-ops assistant: morning briefings, telemetry, and observer logic across every active project. Reached a working state at iraun.vercel.app; not maintained as an active project." tags={['Morning Briefings', 'Telemetry', 'Observer Logic']} challenge="Managing many personal projects alone creates constant context-switching. Iraun was an attempt to externalize that." status="Working prototype" nonCommercial href="https://iraun.vercel.app" isLight={isLight} />
+              <EarlierWorkItem accent="#B8334C" name="DISCLAI" description="EU AI Act compliance documents — transparency notices, impact assessments, harm taxonomies." isLight={isLight} />
+              <EarlierWorkItem accent="#C8A050" name="LITRIX" description="AI literacy training compliance under EU law, since February 2025." isLight={isLight} />
+              <EarlierWorkItem accent="#8A7ADB" name="IRAUN" description="A personal AI ops assistant for managing several projects at once." href="https://iraun.vercel.app" isLight={isLight} />
             </div>
             <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '8.5px', letterSpacing: '0.15em', color: isLight ? '#8A6A30' : '#5A5040', textAlign: 'center', marginTop: '28px' }}>
               Mistral · Neon · Vercel · Resend — solo-built, zero infrastructure overhead by design.
