@@ -1,4 +1,5 @@
 import LycaonDemo from '../components/LycaonDemo'
+import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion'
 import { useEffect, useRef, useState } from 'react'
 
 function useIsMobile() {
@@ -12,15 +13,12 @@ function useIsMobile() {
 }
 
 
-function useParticles(canvasRef, isLight) {
+function useParticles(canvasRef, isLight, reducedMotion) {
   useEffect(() => {
     const canvas = canvasRef.current
     if (!canvas) return
     const ctx = canvas.getContext('2d')
     let animId
-    const resize = () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight }
-    resize()
-    window.addEventListener('resize', resize)
     const particles = Array.from({ length: 70 }, (_, i) => {
       const tier = i < 6 ? 'alpha' : i < 24 ? 'beta' : 'omega'
       return {
@@ -52,7 +50,6 @@ function useParticles(canvasRef, isLight) {
         })
       })
       particles.forEach(p => {
-        p.pulse += 0.02
         const pm = p.tier === 'alpha' ? Math.sin(p.pulse) * 0.2 + 0.8 : 1
         const r = p.color === 'teal' ? 30 : 212
         const g = p.color === 'teal' ? 200 : 137
@@ -69,17 +66,22 @@ function useParticles(canvasRef, isLight) {
         ctx.arc(p.x, p.y, p.size * pm, 0, Math.PI * 2)
         ctx.fillStyle = `rgba(${r},${g},${b2},${p.opacity * pm * opMult})`
         ctx.fill()
-        p.x += p.vx; p.y += p.vy
-        if (p.x < -10) p.x = canvas.width + 10
-        if (p.x > canvas.width + 10) p.x = -10
-        if (p.y < -10) p.y = canvas.height + 10
-        if (p.y > canvas.height + 10) p.y = -10
+        if (!reducedMotion) {
+          p.pulse += 0.02
+          p.x += p.vx; p.y += p.vy
+          if (p.x < -10) p.x = canvas.width + 10
+          if (p.x > canvas.width + 10) p.x = -10
+          if (p.y < -10) p.y = canvas.height + 10
+          if (p.y > canvas.height + 10) p.y = -10
+        }
       })
-      animId = requestAnimationFrame(draw)
+      if (!reducedMotion) animId = requestAnimationFrame(draw)
     }
-    draw()
+    const resize = () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; draw() }
+    resize()
+    window.addEventListener('resize', resize)
     return () => { cancelAnimationFrame(animId); window.removeEventListener('resize', resize) }
-  }, [canvasRef, isLight])
+  }, [canvasRef, isLight, reducedMotion])
 }
 
 function useScrollReveal(ref, options = {}) {
@@ -170,7 +172,8 @@ function SectionEyebrow({ children, color = '#D4891E' }) {
 
 function Hero({ isLight }) {
   const canvasRef = useRef(null)
-  useParticles(canvasRef, isLight)
+  const reducedMotion = usePrefersReducedMotion()
+  useParticles(canvasRef, isLight, reducedMotion)
   const titleColor   = isLight ? '#1A0E04' : '#F0E8D8'
   const taglineColor = isLight ? 'rgba(140,80,10,0.7)' : 'rgba(212,137,30,0.45)'
   const pillColor    = isLight ? '#7A5A20' : '#A09070'
@@ -478,10 +481,6 @@ function Contact({ isLight }) {
 export default function Portfolio({ theme = 'dark' }) {
   const isLight = theme === 'light'
   useEffect(() => {
-    const link = document.createElement('link')
-    link.href = "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;1,9..144,200;1,9..144,300&family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Syne:wght@400;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap"
-    link.rel = 'stylesheet'
-    document.head.appendChild(link)
     const style = document.createElement('style')
     style.id = 'portfolio-styles'
     style.textContent = `
@@ -515,7 +514,6 @@ export default function Portfolio({ theme = 'dark' }) {
     document.head.appendChild(schema)
 
     return () => {
-      document.head.removeChild(link)
       const s = document.getElementById('portfolio-styles')
       if (s) document.head.removeChild(s)
       const sc = document.getElementById('portfolio-schema')

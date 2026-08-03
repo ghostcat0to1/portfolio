@@ -40,10 +40,6 @@ export default function LycaonDemo() {
   const runSequenceRef = useRef(null)  // holds latest runSequence, so the loop can self-schedule without a TDZ self-reference
 
   useEffect(() => {
-    const link = document.createElement('link')
-    link.href = "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@1,9..144,200&family=Lora:ital,wght@0,400;1,400&family=Syne:wght@700&family=JetBrains+Mono:wght@400&display=swap"
-    link.rel = 'stylesheet'
-    document.head.appendChild(link)
     const style = document.createElement('style')
     style.id = 'lycaon-demo-css'
     style.textContent = `
@@ -55,7 +51,6 @@ export default function LycaonDemo() {
     `
     document.head.appendChild(style)
     return () => {
-      document.head.removeChild(link)
       const s = document.getElementById('lycaon-demo-css')
       if (s) document.head.removeChild(s)
     }
