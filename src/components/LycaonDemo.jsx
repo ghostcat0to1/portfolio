@@ -37,6 +37,7 @@ export default function LycaonDemo() {
   const lycaonRef     = useRef(null)   // the LYCAON heading
   const btnRef        = useRef(null)   // the Dispatch button
   const inputRef      = useRef(null)   // the textarea
+  const runSequenceRef = useRef(null)  // holds latest runSequence, so the loop can self-schedule without a TDZ self-reference
 
   useEffect(() => {
     const link = document.createElement('link')
@@ -173,13 +174,17 @@ export default function LycaonDemo() {
     t += 3000
     schedule(() => setContentOpacity(0), t)
     t += 1000
-    schedule(runSequence, t + 500)
+    schedule(() => runSequenceRef.current(), t + 500)
   }, [clearAll, schedule, toPercent])
 
   useEffect(() => {
-    runSequence()
+    runSequenceRef.current = runSequence
+  }, [runSequence])
+
+  useEffect(() => {
+    schedule(runSequence, 0)
     return clearAll
-  }, [runSequence, clearAll])
+  }, [runSequence, clearAll, schedule])
 
   return (
     <section style={{ position:'relative', zIndex:5, padding:'100px 32px 120px', borderTop:'1px solid rgba(212,137,30,0.06)' }}>
