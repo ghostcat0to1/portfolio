@@ -184,10 +184,10 @@ function Hero({ isLight }) {
           <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#D4891E', display: 'inline-block', animation: 'hmPulse 2.2s ease-in-out infinite', flexShrink: 0 }} />
           <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '9px', letterSpacing: '0.44em', color: '#D4891E', textTransform: 'uppercase', opacity: 1 }}>Vila Nova de Gaia → Espoo</span>
         </div>
-        <div style={{ animation: 'hmTitleIn 1.4s cubic-bezier(0.16,1,0.3,1) both' }}>
-          <div style={{ fontFamily: "'Fraunces', serif", fontSize: 'clamp(72px, 13vw, 136px)', fontWeight: 200, fontStyle: 'italic', letterSpacing: '-0.04em', lineHeight: 0.88, color: titleColor, textShadow: isLight ? 'none' : '0 0 120px rgba(212,137,30,0.12)' }}>HENRIQUE</div>
-          <div style={{ fontFamily: "'Fraunces', serif", fontSize: 'clamp(72px, 13vw, 136px)', fontWeight: 200, fontStyle: 'italic', letterSpacing: '-0.04em', lineHeight: 0.88, color: '#D4891E', textShadow: isLight ? 'none' : '0 0 80px rgba(212,137,30,0.3)', marginBottom: '36px' }}>MOREIRA</div>
-        </div>
+        <h1 style={{ margin: 0, animation: 'hmTitleIn 1.4s cubic-bezier(0.16,1,0.3,1) both' }}>
+          <span style={{ display: 'block', fontFamily: "'Fraunces', serif", fontSize: 'clamp(72px, 13vw, 136px)', fontWeight: 200, fontStyle: 'italic', letterSpacing: '-0.04em', lineHeight: 0.88, color: titleColor, textShadow: isLight ? 'none' : '0 0 120px rgba(212,137,30,0.12)' }}>HENRIQUE</span>
+          <span style={{ display: 'block', fontFamily: "'Fraunces', serif", fontSize: 'clamp(72px, 13vw, 136px)', fontWeight: 200, fontStyle: 'italic', letterSpacing: '-0.04em', lineHeight: 0.88, color: '#D4891E', textShadow: isLight ? 'none' : '0 0 80px rgba(212,137,30,0.3)', marginBottom: '36px' }}>MOREIRA</span>
+        </h1>
         <div style={{ display: 'flex', alignItems: 'center', gap: '16px', maxWidth: '300px', margin: '0 auto 28px' }}>
           <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to right, transparent, rgba(212,137,30,0.35))' }} />
           <svg width="20" height="16" viewBox="0 0 20 16" fill="none"><path d="M10 1 L19 15 L10 11 L1 15 Z" stroke="#D4891E" strokeWidth="0.8" strokeOpacity="0.65" fill="rgba(212,137,30,0.05)" /></svg>
