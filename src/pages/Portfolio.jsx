@@ -99,7 +99,7 @@ function useScrollReveal(ref, options = {}) {
     )
     observer.observe(el)
     return () => observer.disconnect()
-  }, [ref])
+  }, [ref, options.threshold])
 }
 
 function RevealWrapper({ children, delay = 0 }) {

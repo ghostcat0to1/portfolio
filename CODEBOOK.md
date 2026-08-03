@@ -103,12 +103,6 @@ Animated SVG monogram — the HM brand mark. Uses canvas or SVG path animation. 
 
 ---
 
-## WildDog (`WildDog.jsx`)
-
-Animated SVG wolf/dog illustration — decorative element for the portfolio hero.
-
----
-
 ## LycaonDemo (`LycaonDemo.jsx`)
 
 Live embed of the LYCAON interface. Shows the intelligence platform running inside the portfolio page.
@@ -138,7 +132,6 @@ portfolio/
 │   └── components/
 │       ├── Nav.jsx         # Fixed nav — HMSymbol + theme toggle
 │       ├── HMSymbol.jsx    # Animated HM monogram SVG
-│       ├── WildDog.jsx     # Animated wolf illustration
 │       └── LycaonDemo.jsx  # LYCAON live demo embed
 ├── public/
 │   ├── favicon.svg
