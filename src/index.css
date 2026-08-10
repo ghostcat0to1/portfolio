@@ -2,6 +2,11 @@
 html { scroll-behavior: smooth; }
 body { background: #07080D; overflow-x: hidden; max-width: 100vw; }
 
+/* Hero title/badge rhythm — keep clamp readable when svh is short (laptop + browser chrome) */
+@supports not (height: 100svh) {
+  #hero { min-height: 100vh !important; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after {

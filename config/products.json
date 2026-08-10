@@ -13,7 +13,7 @@
     "status": "registered",
     "vercelHosted": true,
     "outboundFrom": "grantemia@henriquemoreira.eu",
-    "notes": "Nameservers currently on Vercel. Move to Cloudflare before inbound hello@grantemia.fi works. Code currently sends as hello@grantemia.fi — must switch to grantemia@henriquemoreira.eu until Resend is upgraded."
+    "notes": "Outbound code uses grantemia@henriquemoreira.eu (commit 64582ab). Inbound hello@grantemia.fi on Cloudflare Email Routing — retest delivery later. Keep FI+PT email changes in parallel."
   },
   {
     "product": "removed",
@@ -21,7 +21,7 @@
     "status": "not_registered",
     "vercelHosted": true,
     "outboundFrom": "removed@henriquemoreira.eu",
-    "notes": "Register domain first. Outbound via shared Resend domain."
+    "notes": "Domain not registered yet (NXDOMAIN). Outbound can ship now as removed@henriquemoreira.eu. Inbound hello@grantemia.pt waits on register → Cloudflare zone → Email Routing (mirror FI). Keep FI+PT email changes in parallel."
   },
   {
     "product": "lycaon",
