@@ -1,0 +1,4 @@
+{
+  "sendingDomain": "henriquemoreira.eu",
+  "notes": "Resend free plan allows 1 verified domain. Keep henriquemoreira.eu as the only Resend domain. Every product sends as <product>@henriquemoreira.eu. Product domains (velu.fi, grantemia.fi, …) are for inbound hello@ only via Cloudflare Email Routing."
+}
