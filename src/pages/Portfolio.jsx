@@ -314,7 +314,7 @@ function Story({ isLight }) {
     { label: 'Background', value: 'International Business Management · Packaging · Forest Industry' },
     { label: 'Corporate Tools', value: 'SAP · Power BI · CRM · BW' },
     { label: 'Regions', value: 'Portugal · South East Europe · EMEA' },
-    { label: 'Building', value: 'LYCAON · GRYPS · Velu · Grantemia' },
+    { label: 'Building', value: 'LYCAON · GRYPS · Velu · Grantemia FI/PT' },
     { label: 'Earlier Work', value: 'DisclAI · Litrix · Iraun — explored, shelved' },
     { label: 'Stack', value: 'React · Next.js · Neon · Vercel · Resend · Cloudflare · Mistral' },
     { label: 'Focus', value: 'AI research · EU compliance · Systems Intelligence' },
@@ -373,25 +373,36 @@ function Story({ isLight }) {
   )
 }
 
-function ProductCard({ n, accent, category, name, tagline, description, tags, challenge, status, nonCommercial, href, isLight }) {
+function ProductCard({ n, accent, category, name, tagline, description, tags, challenge, status, nonCommercial, href, isLight, centerCategory = false }) {
   const cardBg         = isLight ? 'rgba(255,248,235,0.95)' : '#0A0908'
   const cardBorder     = isLight ? 'rgba(212,137,30,0.12)' : 'rgba(255,255,255,0.03)'
   const nameColor      = isLight ? '#1A0E04' : '#F0E8D8'
   const descColor      = isLight ? '#2A1A08' : '#8A8278'
   const challengeColor = isLight ? '#5A3A10' : '#5A5248'
   const neutralColor   = isLight ? '#5A5040' : '#8A8070'
+  const statusBadges = (
+    <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', ...(centerCategory ? { justifySelf: 'end', justifyContent: 'flex-end' } : {}) }}>
+      <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '7.5px', color: accent, opacity: 0.7, letterSpacing: '0.1em', padding: '3px 8px', border: `1px solid ${accent}40`, borderRadius: '100px' }}>{status}</div>
+      {nonCommercial && (
+        <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '7.5px', color: neutralColor, letterSpacing: '0.1em', padding: '3px 8px', border: `1px dashed ${neutralColor}60`, borderRadius: '100px' }}>Non-commercial Research Project</div>
+      )}
+    </div>
+  )
   return (
     <div style={{ background: cardBg, border: `1px solid ${cardBorder}`, borderLeft: `3px solid ${accent}`, borderRadius: '2px', padding: '32px 30px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
-        <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', color: accent, opacity: 0.6, letterSpacing: '0.1em' }}>{n}</div>
-        <div style={{ fontFamily: "'Syne', sans-serif", fontSize: '9px', fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', color: accent, flex: 1 }}>{category}</div>
-        <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
-          <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '7.5px', color: accent, opacity: 0.7, letterSpacing: '0.1em', padding: '3px 8px', border: `1px solid ${accent}40`, borderRadius: '100px' }}>{status}</div>
-          {nonCommercial && (
-            <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '7.5px', color: neutralColor, letterSpacing: '0.1em', padding: '3px 8px', border: `1px dashed ${neutralColor}60`, borderRadius: '100px' }}>Non-commercial Research Project</div>
-          )}
+      {centerCategory ? (
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', alignItems: 'center', gap: '10px' }}>
+          <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', color: accent, opacity: 0.6, letterSpacing: '0.1em', justifySelf: 'start' }}>{n}</div>
+          <div style={{ fontFamily: "'Syne', sans-serif", fontSize: '9px', fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', color: accent, textAlign: 'center' }}>{category}</div>
+          {statusBadges}
         </div>
-      </div>
+      ) : (
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
+          <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', color: accent, opacity: 0.6, letterSpacing: '0.1em' }}>{n}</div>
+          <div style={{ fontFamily: "'Syne', sans-serif", fontSize: '9px', fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', color: accent, flex: 1 }}>{category}</div>
+          {statusBadges}
+        </div>
+      )}
       <div style={{ fontFamily: "'Fraunces', serif", fontSize: 'clamp(28px, 3.5vw, 40px)', fontWeight: 200, fontStyle: 'italic', color: nameColor, letterSpacing: '-0.03em', lineHeight: 0.9 }}>{name}</div>
       <div style={{ fontFamily: "'Lora', serif", fontSize: '14px', fontStyle: 'italic', color: accent, lineHeight: 1.65 }}>{tagline}</div>
       <div style={{ fontFamily: "'Lora', serif", fontSize: '13.5px', color: descColor, lineHeight: 1.75, textAlign: 'left' }}>{description}</div>
@@ -453,7 +464,7 @@ function Work({ isLight }) {
           Personal R&D projects – built independently as research and learning initiatives.
         </div>
         <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '9px', letterSpacing: '0.18em', color: isLight ? '#8A6A30' : '#6A5A3A', textAlign: 'center', marginBottom: '40px' }}>
-          LYCAON · GRYPS · Velu · Grantemia — Non-commercial Research Projects
+          LYCAON · GRYPS · Velu · Grantemia FI/PT — Non-commercial Research Projects
         </div>
       </RevealWrapper>
       <RevealWrapper delay={150}>
@@ -495,7 +506,8 @@ function Work({ isLight }) {
           <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '4px' }}>
             <ProductCard n="02" accent="#4FA8FF" category="Satellite Connectivity Intelligence" name="GRYPS" tagline='"Satellite connectivity should be as simple to manage as any other network."' description="Intelligence platform for satellite connectivity operations. Monitors link quality, predicts outages, and surfaces actionable signals across LEO, MEO, and GEO constellations – built for operators who can't afford blind spots." tags={['Link Intelligence', 'Outage Prediction', 'Constellation Monitoring']} challenge="Satellite networks are uniquely opaque. Ground teams react to outages they could have seen coming." status="Live" nonCommercial href="https://gryps.vercel.app" isLight={isLight} />
             <ProductCard n="03" accent="#1EC8A8" category="Operational Intelligence" name="VELU" tagline='"The operational clarity big organisations take for granted – explored here for everyone else."' description="Five intelligence modules covering pipeline, email performance, market signals, competitive position, and operational health. No analyst required." tags={['Pipeline Intelligence', 'Market Signals', 'Competitive Watch']} challenge="Large analytics suites are notoriously complex and costly to run. This project explores a simpler alternative." status="Personal project" nonCommercial href="https://velu.fi" isLight={isLight} />
-            <ProductCard n="04" accent="#5BA89A" category="Research Intelligence · Finland & EU" name="GRANTEMIA" tagline='"2,400 active funders. One researcher. One perfect match."' description="AI-matched grant discovery for Finnish and EU researchers — with a Portugal twin for the same product loop. Tracks deadlines, surfaces new announcements, manages the application pipeline – so researchers spend time on research, not spreadsheets." tags={['AI Matching', 'Deadline Intelligence', 'Funding Discovery']} challenge="The funding landscape never stops moving. Most researchers only ever see a fraction of what they're eligible for." status="Personal project" nonCommercial href="https://grantemia.fi" isLight={isLight} />
+            <ProductCard n="04" accent="#5BA89A" category="Research Intelligence · Finland & EU" name="GRANTEMIA" tagline='"2,400 active funders. One researcher. One perfect match."' description="AI-matched grant discovery for Finnish and EU researchers. Tracks deadlines, surfaces new announcements, manages the application pipeline – so researchers spend time on research, not spreadsheets." tags={['AI Matching', 'Deadline Intelligence', 'Funding Discovery']} challenge="The funding landscape never stops moving. Most researchers only ever see a fraction of what they're eligible for." status="Personal project" nonCommercial href="https://grantemia.fi" isLight={isLight} />
+            <ProductCard n="05" accent="#4A9B8C" category="Research Intelligence · Portugal & EU" name="GRANTEMIA" tagline='"Portuguese funding landscape. Same matching loop. Different map."' description="AI-matched grant discovery for Portuguese and EU researchers. Same product loop as the Finland twin — deadlines, announcements, and application pipeline — tuned to Portugal's funding terrain." tags={['AI Matching', 'Deadline Intelligence', 'Funding Discovery']} challenge="Portugal's funding map is fragmented across national and EU programmes. Most researchers never see the full picture." status="Personal project" nonCommercial href="https://removed.vercel.app" isLight={isLight} />
           </div>
 
           {/* Earlier Work */}
@@ -526,7 +538,7 @@ function Work({ isLight }) {
               <div style={{ flex: 1, height: '1px', background: isLight ? 'rgba(212,137,30,0.15)' : 'rgba(255,255,255,0.05)' }} />
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr', gap: '4px' }}>
-              <ProductCard n="—" accent="#6A93B0" category="Personal Projects Dashboard" name="FORGE" tagline='"One dashboard for every personal project, deployment, and session in one place."' description="Private dashboard tracking personal coding projects, deployments, and session history in one place. Built for personal use and intentionally private: no live link, requires authentication." tags={['Deployment Tracking', 'Session History', 'Private / Internal']} challenge="Keeping track of several personal projects means state lives in many different places. Forge is where it all comes together." status="Active · Private" isLight={isLight} />
+              <ProductCard n="—" accent="#6A93B0" category="Personal Projects Dashboard" name="FORGE" tagline='"One dashboard for every personal project, deployment, and session in one place."' description="Private dashboard tracking personal coding projects, deployments, and session history in one place. Built for personal use and intentionally private: no live link, requires authentication." tags={['Deployment Tracking', 'Session History', 'Private / Internal']} challenge="Keeping track of several personal projects means state lives in many different places. Forge is where it all comes together." status="Active · Private" centerCategory isLight={isLight} />
             </div>
             <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '8.5px', letterSpacing: '0.15em', color: isLight ? '#8A6A30' : '#5A5040', textAlign: 'center', marginTop: '20px' }}>
               Built with Claude Code.
@@ -540,12 +552,13 @@ function Work({ isLight }) {
 }
 
 function Contact({ isLight }) {
+  const isMobile = useIsMobile()
   const headingColor = isLight ? '#1A0E04' : '#F0E8D8'
   const bodyColor    = isLight ? '#2A1A08' : '#B0A888'
   const footerColor  = isLight ? '#8A6A30' : '#8A8070'
   const dividerColor = isLight ? 'rgba(212,137,30,0.2)' : 'rgba(255,255,255,0.04)'
   return (
-    <Section id="contact" isLight={isLight} style={{ textAlign: 'center' }}>
+    <Section id="contact" isLight={isLight} style={{ textAlign: 'center', paddingBottom: isMobile ? '40px' : '56px' }}>
       <RevealWrapper>
         <SectionEyebrow>Contact</SectionEyebrow>
         <h2 style={{ fontFamily: "'Fraunces', serif", fontSize: 'clamp(40px, 6vw, 80px)', fontWeight: 200, fontStyle: 'italic', color: headingColor, lineHeight: 1.05, letterSpacing: '-0.03em', marginBottom: '24px' }}>
@@ -554,7 +567,7 @@ function Contact({ isLight }) {
         <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '10px', color: bodyColor, lineHeight: 1.7, maxWidth: '440px', margin: '0 auto 52px' }}>
           Whether you're building something, exploring AI, or simply want to connect – reach out.
         </div>
-        <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '80px' }}>
+        <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '40px' }}>
           <a href="mailto:hqe.moreira@gmail.com" style={{ textDecoration: 'none' }}>
             <div style={{ padding: '14px 32px', background: '#D4891E', color: '#07080D', fontFamily: "'Syne', sans-serif", fontSize: '11px', fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase', borderRadius: '1px', transition: 'all 0.2s' }}
               onMouseEnter={e => e.currentTarget.style.boxShadow = '0 0 32px rgba(212,137,30,0.5)'}
@@ -570,7 +583,7 @@ function Contact({ isLight }) {
             </div>
           </a>
         </div>
-        <div style={{ borderTop: `1px solid ${dividerColor}`, paddingTop: '40px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px' }}>
+        <div style={{ borderTop: `1px solid ${dividerColor}`, paddingTop: '24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px' }}>
           <div style={{ fontFamily: "'Fraunces', serif", fontSize: '18px', fontStyle: 'italic', fontWeight: 300, color: footerColor, letterSpacing: '0.02em' }}>H·M</div>
           <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', color: footerColor, letterSpacing: '0.3em', textTransform: 'uppercase' }}>Vila Nova de Gaia → Espoo</div>
           <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', color: footerColor, letterSpacing: '0.2em' }}>© {new Date().getFullYear()} Henrique Moreira</div>
