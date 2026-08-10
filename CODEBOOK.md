@@ -156,4 +156,4 @@ None — the portfolio is fully static. No API keys, no backend.
 | *(none)* | — | — |
 | Vercel Analytics (`@vercel/analytics/react`) | — | Cookieless |
 
-No advertising trackers. Optional future privacy blurb may mention Vercel Analytics without requiring a cookie banner.
+No advertising trackers. Google Fonts load from Google CDN (IP visible to Google) — disclose in a future privacy blurb; not a first-party cookie and no banner required for current storage. Optional privacy blurb may mention Vercel Analytics without requiring a cookie banner.
