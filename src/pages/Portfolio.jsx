@@ -172,6 +172,7 @@ function SectionEyebrow({ children, color = '#D4891E' }) {
 
 function Hero({ isLight }) {
   const canvasRef = useRef(null)
+  const isMobile = useIsMobile()
   const reducedMotion = usePrefersReducedMotion()
   useParticles(canvasRef, isLight, reducedMotion)
   const titleColor   = isLight ? '#1A0E04' : '#F0E8D8'
@@ -179,45 +180,122 @@ function Hero({ isLight }) {
   const pillColor    = isLight ? '#7A5A20' : '#A09070'
   const pillBorder   = isLight ? 'rgba(212,137,30,0.3)' : 'rgba(212,137,30,0.18)'
   const scrollColor  = isLight ? '#8A6A30' : '#8A8070'
+  const coords = [
+    'PT · 39.40°N 8.22°W', 'AD · 42.51°N 1.52°E',
+    'ES · 40.46°N 3.75°W', 'GR · 39.07°N 21.82°E',
+    'BE · 50.50°N 4.47°E', 'FI · 61.92°N 25.75°E',
+  ]
+  // Fixed 100vh + overflow:hidden clipped badges/pills on typical laptop heights.
+  // Grow with content; keep a full-viewport minimum; clip only the canvas layer.
   return (
-    <section id="hero" style={{ position: 'relative', height: '100vh', minHeight: '800px', display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
-      <canvas ref={canvasRef} style={{ position: 'absolute', inset: 0, zIndex: 0, pointerEvents: 'none' }} />
-      <div style={{ position: 'relative', zIndex: 5, textAlign: 'center', padding: '0 32px' }}>
-        <div style={{ display: 'flex', gap: '10px', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '40px' }}>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', padding: '9px 22px', border: `1px solid ${isLight ? 'rgba(212,137,30,0.3)' : 'rgba(212,137,30,0.16)'}`, borderRadius: '100px', background: isLight ? 'rgba(212,137,30,0.08)' : 'rgba(212,137,30,0.04)' }}>
+    <section id="hero" style={{
+      position: 'relative',
+      minHeight: '100svh',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: isMobile ? '88px 20px 40px' : '100px 40px 48px',
+      boxSizing: 'border-box',
+    }}>
+      <div style={{ position: 'absolute', inset: 0, zIndex: 0, overflow: 'hidden', pointerEvents: 'none' }} aria-hidden>
+        <canvas ref={canvasRef} style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }} />
+      </div>
+      <div style={{ position: 'relative', zIndex: 5, textAlign: 'center', width: '100%', maxWidth: '920px' }}>
+        <div style={{
+          display: 'flex', gap: '10px', justifyContent: 'center', flexWrap: 'wrap',
+          marginBottom: isMobile ? '28px' : '36px',
+        }}>
+          <div style={{
+            display: 'inline-flex', alignItems: 'center', gap: '10px',
+            padding: isMobile ? '8px 14px' : '9px 22px',
+            border: `1px solid ${isLight ? 'rgba(212,137,30,0.3)' : 'rgba(212,137,30,0.16)'}`,
+            borderRadius: '100px',
+            background: isLight ? 'rgba(212,137,30,0.08)' : 'rgba(212,137,30,0.04)',
+          }}>
             <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#D4891E', display: 'inline-block', animation: 'hmPulse 2.2s ease-in-out infinite', flexShrink: 0 }} />
-            <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '9px', letterSpacing: '0.44em', color: '#D4891E', textTransform: 'uppercase', opacity: 1 }}>Vila Nova de Gaia → Espoo</span>
+            <span style={{
+              fontFamily: "'JetBrains Mono', monospace",
+              fontSize: isMobile ? '8px' : '9px',
+              letterSpacing: isMobile ? '0.18em' : '0.28em',
+              color: '#D4891E', textTransform: 'uppercase',
+            }}>Vila Nova de Gaia → Espoo</span>
           </div>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', padding: '9px 22px', border: `1px solid ${isLight ? 'rgba(30,200,168,0.3)' : 'rgba(30,200,168,0.18)'}`, borderRadius: '100px', background: isLight ? 'rgba(30,200,168,0.08)' : 'rgba(30,200,168,0.05)' }}>
+          <div style={{
+            display: 'inline-flex', alignItems: 'center', gap: '10px',
+            padding: isMobile ? '8px 14px' : '9px 22px',
+            border: `1px solid ${isLight ? 'rgba(30,200,168,0.3)' : 'rgba(30,200,168,0.18)'}`,
+            borderRadius: '100px',
+            background: isLight ? 'rgba(30,200,168,0.08)' : 'rgba(30,200,168,0.05)',
+          }}>
             <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#1EC8A8', display: 'inline-block', animation: 'hmPulse 2.2s ease-in-out infinite', flexShrink: 0 }} />
-            <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '9px', letterSpacing: '0.44em', color: '#1EC8A8', textTransform: 'uppercase', opacity: 1 }}>Open to opportunities</span>
+            <span style={{
+              fontFamily: "'JetBrains Mono', monospace",
+              fontSize: isMobile ? '8px' : '9px',
+              letterSpacing: isMobile ? '0.18em' : '0.28em',
+              color: '#1EC8A8', textTransform: 'uppercase',
+            }}>Open to opportunities</span>
           </div>
         </div>
         <h1 style={{ margin: 0, animation: 'hmTitleIn 1.4s cubic-bezier(0.16,1,0.3,1) both' }}>
-          <span style={{ display: 'block', fontFamily: "'Fraunces', serif", fontSize: 'clamp(72px, 13vw, 136px)', fontWeight: 200, fontStyle: 'italic', letterSpacing: '-0.04em', lineHeight: 0.88, color: titleColor, textShadow: isLight ? 'none' : '0 0 120px rgba(212,137,30,0.12)' }}>HENRIQUE</span>
-          <span style={{ display: 'block', fontFamily: "'Fraunces', serif", fontSize: 'clamp(72px, 13vw, 136px)', fontWeight: 200, fontStyle: 'italic', letterSpacing: '-0.04em', lineHeight: 0.88, color: '#D4891E', textShadow: isLight ? 'none' : '0 0 80px rgba(212,137,30,0.3)', marginBottom: '36px' }}>MOREIRA</span>
+          <span style={{
+            display: 'block', fontFamily: "'Fraunces', serif",
+            fontSize: 'clamp(48px, 12vw, 136px)', fontWeight: 200, fontStyle: 'italic',
+            letterSpacing: '-0.04em', lineHeight: 0.9, color: titleColor,
+            textShadow: isLight ? 'none' : '0 0 120px rgba(212,137,30,0.12)',
+          }}>HENRIQUE</span>
+          <span style={{
+            display: 'block', fontFamily: "'Fraunces', serif",
+            fontSize: 'clamp(48px, 12vw, 136px)', fontWeight: 200, fontStyle: 'italic',
+            letterSpacing: '-0.04em', lineHeight: 0.9, color: '#D4891E',
+            textShadow: isLight ? 'none' : '0 0 80px rgba(212,137,30,0.3)',
+            marginBottom: isMobile ? '24px' : '32px',
+          }}>MOREIRA</span>
         </h1>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '16px', maxWidth: '300px', margin: '0 auto 28px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '16px', maxWidth: '300px', margin: '0 auto 24px' }}>
           <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to right, transparent, rgba(212,137,30,0.35))' }} />
-          <svg width="20" height="16" viewBox="0 0 20 16" fill="none"><path d="M10 1 L19 15 L10 11 L1 15 Z" stroke="#D4891E" strokeWidth="0.8" strokeOpacity="0.65" fill="rgba(212,137,30,0.05)" /></svg>
+          <svg width="20" height="16" viewBox="0 0 20 16" fill="none" aria-hidden><path d="M10 1 L19 15 L10 11 L1 15 Z" stroke="#D4891E" strokeWidth="0.8" strokeOpacity="0.65" fill="rgba(212,137,30,0.05)" /></svg>
           <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to left, transparent, rgba(212,137,30,0.35))' }} />
         </div>
-        <div style={{ fontFamily: "'Lora', serif", fontSize: 'clamp(16px, 2vw, 22px)', fontStyle: 'italic', color: isLight ? 'rgba(80,40,5,0.85)' : 'rgba(240,232,216,0.75)', lineHeight: 1.6, maxWidth: '520px', margin: '0 auto 32px', letterSpacing: '0.01em' }}>
+        <div style={{
+          fontFamily: "'Lora', serif", fontSize: 'clamp(15px, 2vw, 22px)', fontStyle: 'italic',
+          color: isLight ? 'rgba(80,40,5,0.85)' : 'rgba(240,232,216,0.75)',
+          lineHeight: 1.6, maxWidth: '520px', margin: '0 auto 28px', letterSpacing: '0.01em',
+        }}>
           18 years in Nordic forest industry commercial operations — now building AI-native products for the industries that need them most.
         </div>
-        <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '10px', color: taglineColor, lineHeight: 1.75, maxWidth: '500px', margin: '0 auto 36px', letterSpacing: '0.02em', display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '4px 0' }}>
-          {['PT · 39.40°N 8.22°W', 'AD · 42.51°N 1.52°E', 'ES · 40.46°N 3.75°W', 'GR · 39.07°N 21.82°E', 'BE · 50.50°N 4.47°E', 'FI · 61.92°N 25.75°E'].map((c, i, a) => (
-            <span key={c} style={{ whiteSpace: 'nowrap' }}>{c}{i < a.length - 1 ? <span style={{ margin: '0 8px', opacity: 0.4 }}>·</span> : null}</span>
+        <div style={{
+          fontFamily: "'JetBrains Mono', monospace",
+          fontSize: isMobile ? '9px' : '10px',
+          color: taglineColor,
+          lineHeight: 1.7,
+          maxWidth: isMobile ? '320px' : '560px',
+          margin: '0 auto 28px',
+          letterSpacing: '0.02em',
+          display: 'grid',
+          gridTemplateColumns: '1fr 1fr',
+          gap: isMobile ? '6px 12px' : '8px 24px',
+          justifyItems: isMobile ? 'start' : 'center',
+          textAlign: isMobile ? 'left' : 'center',
+        }}>
+          {coords.map((c) => (
+            <span key={c} style={{ whiteSpace: 'nowrap' }}>{c}</span>
           ))}
         </div>
-        <div style={{ display: 'flex', gap: '10px', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '72px' }}>
+        <div style={{
+          display: 'flex', gap: '10px', justifyContent: 'center', flexWrap: 'wrap',
+          marginBottom: isMobile ? '40px' : '56px',
+        }}>
           {['Systems Thinker', 'AI Builder', 'Global Citizen'].map(pill => (
-            <div key={pill} style={{ padding: '8px 18px', border: `1px solid ${pillBorder}`, borderRadius: '100px', fontFamily: "'Syne', sans-serif", fontSize: '9px', fontWeight: 700, letterSpacing: '0.2em', textTransform: 'uppercase', color: pillColor }}>{pill}</div>
+            <div key={pill} style={{
+              padding: '8px 18px', border: `1px solid ${pillBorder}`, borderRadius: '100px',
+              fontFamily: "'Syne', sans-serif", fontSize: '9px', fontWeight: 700,
+              letterSpacing: '0.16em', textTransform: 'uppercase', color: pillColor,
+            }}>{pill}</div>
           ))}
         </div>
         <div style={{ animation: 'hmBounce 2.4s ease-in-out infinite' }}>
           <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', letterSpacing: '0.3em', color: scrollColor, textTransform: 'uppercase', marginBottom: '10px' }}>Scroll</div>
-          <div style={{ width: '1px', height: '44px', background: 'linear-gradient(to bottom, #D4891E, transparent)', margin: '0 auto' }} />
+          <div style={{ width: '1px', height: isMobile ? '32px' : '44px', background: 'linear-gradient(to bottom, #D4891E, transparent)', margin: '0 auto' }} />
         </div>
       </div>
     </section>
@@ -416,8 +494,8 @@ function Work({ isLight }) {
           {/* grid */}
           <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '4px' }}>
             <ProductCard n="02" accent="#4FA8FF" category="Satellite Connectivity Intelligence" name="GRYPS" tagline='"Satellite connectivity should be as simple to manage as any other network."' description="Intelligence platform for satellite connectivity operations. Monitors link quality, predicts outages, and surfaces actionable signals across LEO, MEO, and GEO constellations – built for operators who can't afford blind spots." tags={['Link Intelligence', 'Outage Prediction', 'Constellation Monitoring']} challenge="Satellite networks are uniquely opaque. Ground teams react to outages they could have seen coming." status="Live" nonCommercial href="https://gryps.vercel.app" isLight={isLight} />
-            <ProductCard n="03" accent="#1EC8A8" category="Operational Intelligence" name="VELU" tagline='"The operational clarity big organisations take for granted – explored here for everyone else."' description="Five intelligence modules covering pipeline, email performance, market signals, competitive position, and operational health. No analyst required." tags={['Pipeline Intelligence', 'Market Signals', 'Competitive Watch']} challenge="Large analytics suites are notoriously complex and costly to run. This project explores a simpler alternative." status="Personal project" nonCommercial isLight={isLight} />
-            <ProductCard n="04" accent="#5BA89A" category="Research Intelligence · Finland & EU" name="GRANTEMIA" tagline='"2,400 active funders. One researcher. One perfect match."' description="AI-matched grant discovery for Finnish and EU researchers. Tracks deadlines, surfaces new announcements, manages the application pipeline – so researchers spend time on research, not spreadsheets." tags={['AI Matching', 'Deadline Intelligence', 'Funding Discovery']} challenge="The funding landscape never stops moving. Most researchers only ever see a fraction of what they're eligible for." status="Personal project" nonCommercial isLight={isLight} />
+            <ProductCard n="03" accent="#1EC8A8" category="Operational Intelligence" name="VELU" tagline='"The operational clarity big organisations take for granted – explored here for everyone else."' description="Five intelligence modules covering pipeline, email performance, market signals, competitive position, and operational health. No analyst required." tags={['Pipeline Intelligence', 'Market Signals', 'Competitive Watch']} challenge="Large analytics suites are notoriously complex and costly to run. This project explores a simpler alternative." status="Personal project" nonCommercial href="https://velu.fi" isLight={isLight} />
+            <ProductCard n="04" accent="#5BA89A" category="Research Intelligence · Finland & EU" name="GRANTEMIA" tagline='"2,400 active funders. One researcher. One perfect match."' description="AI-matched grant discovery for Finnish and EU researchers — with a Portugal twin for the same product loop. Tracks deadlines, surfaces new announcements, manages the application pipeline – so researchers spend time on research, not spreadsheets." tags={['AI Matching', 'Deadline Intelligence', 'Funding Discovery']} challenge="The funding landscape never stops moving. Most researchers only ever see a fraction of what they're eligible for." status="Personal project" nonCommercial href="https://grantemia.fi" isLight={isLight} />
           </div>
 
           {/* Earlier Work */}

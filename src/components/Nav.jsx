@@ -1,15 +1,29 @@
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import HMSymbol from './HMSymbol'
 
+function useIsMobileNav() {
+  const [isMobile, setIsMobile] = useState(
+    typeof window !== 'undefined' ? window.innerWidth < 768 : false
+  )
+  useEffect(() => {
+    const handler = () => setIsMobile(window.innerWidth < 768)
+    window.addEventListener('resize', handler)
+    return () => window.removeEventListener('resize', handler)
+  }, [])
+  return isMobile
+}
+
 export default function Nav({ theme, onToggleTheme }) {
   const isLight = theme === 'light'
+  const isMobile = useIsMobileNav()
   const border  = isLight ? 'rgba(212,137,30,0.2)' : 'rgba(212,137,30,0.08)'
   const bg      = isLight ? 'rgba(245,240,230,0.95)' : 'rgba(7,8,13,0.92)'
   return (
     <nav style={{
       position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
       display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-      padding: '14px 40px',
+      padding: isMobile ? '12px 16px' : '14px 40px',
       background: bg,
       backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)',
       borderBottom: `0.5px solid ${border}`,
