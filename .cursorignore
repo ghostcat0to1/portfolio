@@ -1,7 +1,8 @@
 .env
 .env.*
+*.pem
+*.key
 .vercel/
 node_modules/
 dist/
 build/
-.DS_Store
