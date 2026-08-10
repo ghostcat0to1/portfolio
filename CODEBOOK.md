@@ -144,3 +144,16 @@ portfolio/
 ## Environment variables
 
 None — the portfolio is fully static. No API keys, no backend.
+
+---
+
+## Cookies & ePrivacy
+
+**Banner required: No.** No first-party cookies or localStorage. Theme is in-memory only. Vercel Analytics is cookieless. No consent banner.
+
+| Key | Type | Class |
+|---|---|---|
+| *(none)* | — | — |
+| Vercel Analytics (`@vercel/analytics/react`) | — | Cookieless |
+
+No advertising trackers. Optional future privacy blurb may mention Vercel Analytics without requiring a cookie banner.
