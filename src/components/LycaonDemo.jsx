@@ -4,17 +4,17 @@ const QUERY = "Where is the gap between AI hype and real business value?"
 
 const DEMO_SECTIONS = [
   { key: "PRESENT STATE", n: "01", accent: "#D4891E",
-    text: "AI adoption is accelerating in spend but decelerating in genuine impact. Most organisations have tools deployed – few have outcomes delivered." },
+    text: "AI adoption is accelerating in spend but decelerating in genuine impact. Most organisations have tools deployed — few have outcomes delivered." },
   { key: "DEEP PATTERNS", n: "02", accent: "#D4891E",
-    text: "Every technology cycle produces the same pattern: hype arrives before infrastructure. The gap is not AI's limitations – it is the absence of people who translate capability into strategy." },
+    text: "Every technology cycle produces the same pattern: hype arrives before infrastructure. The gap is not AI's limitations — it is the absence of people who translate capability into strategy." },
   { key: "EMERGING SIGNALS", n: "03", accent: "#1EC8A8",
     text: "A new profile is forming: the AI strategist who combines domain knowledge, systems thinking, and anticipatory intelligence. Boards are actively searching." },
   { key: "TRAJECTORIES", n: "04", accent: "#1EC8A8",
-    text: "High probability: independent AI strategists with business depth displace generic implementation firms within 36 months. The differentiator will not be technical – it will be judgement." },
+    text: "High probability: independent AI strategists with business depth displace generic implementation firms within 36 months. The differentiator will not be technical — it will be judgement." },
   { key: "UNCERTAINTY MAP", n: "05", accent: "#8A8278",
     text: "The rate of AI capability change makes specific forecasts unreliable. What remains constant: the value of knowing how to read terrain ahead of others." },
   { key: "THE MOVE NO ONE IS MAKING", n: "06", accent: "#F0A828", featured: true,
-    text: "Build anticipatory intelligence before the market asks for it. The consultants who will lead this decade are not learning AI – they are learning how to think ahead of it." },
+    text: "Build anticipatory intelligence before the market asks for it. The consultants who will lead this decade are not learning AI — they are learning how to think ahead of it." },
 ]
 
 export default function LycaonDemo() {
@@ -277,8 +277,10 @@ export default function LycaonDemo() {
           <div style={{ position:'absolute', left:`${cursorX}%`, top:`${cursorY}%`, transform:'translate(-50%,-50%)', width:'24px', height:'24px', borderRadius:'50%', border:'1px solid rgba(212,137,30,0.18)', transition:'left 1s cubic-bezier(0.4,0,0.2,1),top 1s cubic-bezier(0.4,0,0.2,1)', pointerEvents:'none', zIndex:29 }} />
         </div>
 
-        <div style={{ textAlign:'center', marginTop:'20px', fontFamily:"'JetBrains Mono',monospace", fontSize:'8px', color:'#3A3020', letterSpacing:'0.3em', textTransform:'uppercase' }}>
-          LYCAON · Six dimensions · Illustrative preview — scripted, not live
+        <div style={{ textAlign:'center', marginTop:'20px', fontFamily:"'JetBrains Mono',monospace", fontSize:'8px', color:'#3A3020', letterSpacing:'0.22em', textTransform:'uppercase', lineHeight:1.8 }}>
+          LYCAON · Six dimensions · Illustrative preview — scripted, not live AI
+          <br />
+          Limited-risk disclosure · Human-authored demo sequence · See Privacy
         </div>
         <div style={{ textAlign:'center', marginTop:'18px' }}>
           <a href="https://lycaon.vercel.app" target="_blank" rel="noreferrer" style={{ textDecoration:'none' }}>

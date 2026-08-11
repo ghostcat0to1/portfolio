@@ -3,6 +3,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Analytics } from '@vercel/analytics/react'
 import Nav from './components/Nav'
 import Portfolio from './pages/Portfolio'
+import Privacy from './pages/Privacy'
+import Terms from './pages/Terms'
 import NotFound from './pages/NotFound'
 
 export default function App() {
@@ -13,6 +15,8 @@ export default function App() {
       <Nav theme={theme} onToggleTheme={toggleTheme} />
       <Routes>
         <Route path="/" element={<Portfolio theme={theme} />} />
+        <Route path="/privacy" element={<Privacy theme={theme} />} />
+        <Route path="/terms" element={<Terms theme={theme} />} />
         <Route path="*" element={<NotFound theme={theme} />} />
       </Routes>
       <Analytics />
