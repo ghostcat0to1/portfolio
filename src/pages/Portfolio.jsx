@@ -374,7 +374,7 @@ function Story({ isLight }) {
   )
 }
 
-function ProductCard({ n, accent, category, name, tagline, description, tags, challenge, status, nonCommercial, href, isLight, centerCategory = false }) {
+function ProductCard({ n, accent, category, name, tagline, description, tags, challenge, status, nonCommercial, href, privateNote, isLight, centerCategory = false }) {
   const cardBg         = isLight ? 'rgba(255,248,235,0.95)' : '#0A0908'
   const cardBorder     = isLight ? 'rgba(212,137,30,0.12)' : 'rgba(255,255,255,0.03)'
   const nameColor      = isLight ? '#1A0E04' : '#F0E8D8'
@@ -405,17 +405,28 @@ function ProductCard({ n, accent, category, name, tagline, description, tags, ch
         </div>
       )}
       <div style={{ fontFamily: "'Fraunces', serif", fontSize: 'clamp(28px, 3.5vw, 40px)', fontWeight: 200, fontStyle: 'italic', color: nameColor, letterSpacing: '-0.03em', lineHeight: 0.9 }}>{name}</div>
-      <div style={{ fontFamily: "'Lora', serif", fontSize: '14px', fontStyle: 'italic', color: accent, lineHeight: 1.65 }}>{tagline}</div>
-      <div style={{ fontFamily: "'Lora', serif", fontSize: '13.5px', color: descColor, lineHeight: 1.75, textAlign: 'left' }}>{description}</div>
+      {tagline && (
+        <div style={{ fontFamily: "'Lora', serif", fontSize: '14px', fontStyle: 'italic', color: accent, lineHeight: 1.65 }}>{tagline}</div>
+      )}
+      {description && (
+        <div style={{ fontFamily: "'Lora', serif", fontSize: '13.5px', color: descColor, lineHeight: 1.75, textAlign: 'left' }}>{description}</div>
+      )}
       <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
         {tags.map(tag => (
           <div key={tag} style={{ padding: '4px 10px', border: `1px solid ${accent}30`, borderRadius: '100px', fontFamily: "'JetBrains Mono', monospace", fontSize: '7.5px', color: accent, letterSpacing: '0.1em' }}>{tag}</div>
         ))}
       </div>
-      <div style={{ borderTop: `1px solid ${isLight ? 'rgba(212,137,30,0.12)' : 'rgba(255,255,255,0.04)'}`, paddingTop: '14px' }}>
-        <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '7.5px', color: accent, opacity: 0.6, letterSpacing: '0.2em', textTransform: 'uppercase' }}>The challenge — </span>
-        <span style={{ fontFamily: "'Lora', serif", fontSize: '12.5px', fontStyle: 'italic', color: challengeColor, lineHeight: 1.6 }}>{challenge}</span>
-      </div>
+      {challenge && (
+        <div style={{ borderTop: `1px solid ${isLight ? 'rgba(212,137,30,0.12)' : 'rgba(255,255,255,0.04)'}`, paddingTop: '14px' }}>
+          <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '7.5px', color: accent, opacity: 0.6, letterSpacing: '0.2em', textTransform: 'uppercase' }}>The challenge — </span>
+          <span style={{ fontFamily: "'Lora', serif", fontSize: '12.5px', fontStyle: 'italic', color: challengeColor, lineHeight: 1.6 }}>{challenge}</span>
+        </div>
+      )}
+      {privateNote && (
+        <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '9px', color: neutralColor, letterSpacing: '0.06em', lineHeight: 1.6, opacity: 0.85 }}>
+          {privateNote}
+        </div>
+      )}
       {href && (
         <a href={href} target="_blank" rel="noreferrer" style={{ textDecoration: 'none', marginTop: '4px' }}>
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '8px 18px', border: `1px solid ${accent}`, borderRadius: '1px', fontFamily: "'Syne', sans-serif", fontSize: '9px', fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase', color: accent, transition: 'all 0.2s', cursor: 'pointer' }}
@@ -539,7 +550,18 @@ function Work({ isLight }) {
               <div style={{ flex: 1, height: '1px', background: isLight ? 'rgba(212,137,30,0.15)' : 'rgba(255,255,255,0.05)' }} />
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr', gap: '4px' }}>
-              <ProductCard n="—" accent="#6A93B0" category="Personal Projects Dashboard" name="FORGE" tagline='"One dashboard for every personal project, deployment, and session in one place."' description="Private dashboard tracking personal coding projects, deployments, and session history in one place. Built for personal use and intentionally private: no live link, requires authentication." tags={['Deployment Tracking', 'Session History', 'Private / Internal']} challenge="Keeping track of several personal projects means state lives in many different places. Forge is where it all comes together." status="Active · Private" centerCategory isLight={isLight} />
+              <ProductCard
+                n="—"
+                accent="#6A93B0"
+                category="Personal Projects Dashboard"
+                name="FORGE"
+                tagline="Private dashboard for tracking deployments, project state, and session history across my prototypes."
+                tags={['Deployment Tracking', 'Session History', 'Private / Internal']}
+                status="Active · Private"
+                privateNote="forge.henriquemoreira.eu (private — no public access)"
+                centerCategory
+                isLight={isLight}
+              />
             </div>
             <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '8.5px', letterSpacing: '0.15em', color: isLight ? '#8A6A30' : '#5A5040', textAlign: 'center', marginTop: '20px' }}>
               Built with Claude Code.
