@@ -1,15 +1,14 @@
 import { LegalShell, LegalH2, LegalP, LegalUl } from '../components/LegalShell'
 
-const LAST_UPDATED = '11 August 2026'
+const LAST_UPDATED = '12 August 2026'
 const CONTACT = 'hqe.moreira@gmail.com'
 
 export default function Privacy({ theme = 'dark' }) {
   return (
     <LegalShell theme={theme} title="Privacy" lastUpdated={LAST_UPDATED}>
       <LegalP>
-        This is the personal website of Henrique Moreira (Espoo, Finland). It presents biography,
-        project descriptions, and an illustrative LYCAON preview. It is not a commercial storefront
-        and does not create user accounts.
+        This is the personal website of Henrique Moreira (Espoo, Finland). It presents biography
+        and project descriptions. It is not a commercial storefront and does not create user accounts.
       </LegalP>
 
       <section>
@@ -49,14 +48,14 @@ export default function Privacy({ theme = 'dark' }) {
         </LegalP>
         <LegalUl>
           <li>
-            <strong>Embedded LYCAON preview</strong> — scripted illustrative demo. The on-page sequence is
-            not a live model response. Labels on the demo state that it is an illustrative preview.
+            This Site currently has <strong>no embedded live AI demo</strong>. Project cards may link
+            to separate personal prototypes (including shelved ones such as LYCAON).
           </li>
           <li>
-            <strong>Any live AI endpoint</strong> on this deployment (including the Mistral-backed API route)
-            discloses AI at the point of exposure, uses <strong>Mistral only</strong>, and is subject to human
-            oversight by the operator. Portal/UI chrome is human-authored; model text is AI-generated when a
-            live call occurs.
+            <strong>Any live AI endpoint</strong> on this deployment (including the Mistral-backed API route,
+            if enabled) discloses AI at the point of exposure, uses <strong>Mistral only</strong>, and is
+            subject to human oversight by the operator. Portal/UI chrome is human-authored; model text is
+            AI-generated when a live call occurs.
           </li>
           <li>Article 50 transparency: AI is disclosed where AI output is shown; humans remain responsible for the site and linked projects.</li>
         </LegalUl>
