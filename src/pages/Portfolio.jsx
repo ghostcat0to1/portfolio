@@ -496,6 +496,14 @@ function Work({ isLight }) {
               </div>
             </a>
           </div>
+          <video
+            src="/gryps-resilience-signature.mp4"
+            poster="/gryps-resilience-signature.png"
+            controls
+            playsInline
+            preload="metadata"
+            style={{ width: '100%', marginTop: '4px', borderRadius: '2px', border: '1px solid rgba(79,168,255,0.2)', background: '#080C12' }}
+          />
 
           <div style={{
             fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', letterSpacing: '0.35em',
