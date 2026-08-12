@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import LycaonDemo from '../components/LycaonDemo'
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion'
 import { useEffect, useRef, useState } from 'react'
 
@@ -315,8 +314,8 @@ function Story({ isLight }) {
     { label: 'Background', value: 'International Business Management · Packaging · Forest Industry' },
     { label: 'Corporate Tools', value: 'SAP · Power BI · CRM · BW' },
     { label: 'Regions', value: 'Portugal · South East Europe · EMEA' },
-    { label: 'Building', value: 'LYCAON · GRYPS · Velu · Grantemia FI/PT' },
-    { label: 'Earlier Work', value: 'DisclAI · Litrix · Iraun — explored, shelved' },
+    { label: 'Building', value: 'GRYPS' },
+    { label: 'Earlier prototypes', value: 'LitrixEU · Grantemia · Velu · Lycaon · DisclAI · Iraun' },
     { label: 'Stack', value: 'React · Next.js · Neon · Vercel · Resend · Cloudflare · Mistral' },
     { label: 'Focus', value: 'AI research · EU compliance · Systems Intelligence' },
   ]
@@ -440,31 +439,9 @@ function ProductCard({ n, accent, category, name, tagline, description, tags, ch
   )
 }
 
-function EarlierWorkItem({ accent, name, description, href, isLight }) {
-  const nameColor = isLight ? '#1A0E04' : '#F0E8D8'
-  const descColor = isLight ? '#4A3A20' : '#7A7268'
-  const cardBg    = isLight ? 'rgba(255,248,235,0.6)' : 'rgba(255,255,255,0.015)'
-  const content = (
-    <div style={{ background: cardBg, borderLeft: `2px solid ${accent}`, padding: '12px 18px', textAlign: 'left', display: 'flex', flexDirection: 'column', gap: '5px', height: '100%' }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
-        <span style={{ fontFamily: "'Syne', sans-serif", fontSize: '11px', fontWeight: 700, letterSpacing: '0.15em', color: nameColor }}>{name}</span>
-        <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '6.5px', letterSpacing: '0.1em', color: accent, opacity: 0.75, textTransform: 'uppercase', padding: '2px 7px', border: `1px dashed ${accent}70`, borderRadius: '100px' }}>Personal</span>
-      </div>
-      <div style={{ fontFamily: "'Lora', serif", fontSize: '12px', fontStyle: 'italic', color: descColor, lineHeight: 1.55 }}>{description}</div>
-    </div>
-  )
-  return href
-    ? <a href={href} target="_blank" rel="noreferrer" style={{ textDecoration: 'none', display: 'block', height: '100%' }}>{content}</a>
-    : content
-}
-
 function Work({ isLight }) {
-  const isMobile    = useIsMobile()
+  const isMobile = useIsMobile()
   const headingColor = isLight ? '#1A0E04' : '#F0E8D8'
-  const lycaonBg     = isLight ? 'rgba(255,248,220,0.95)' : '#100C04'
-  const lycaonBorder = isLight ? 'rgba(240,168,40,0.25)' : 'rgba(240,168,40,0.15)'
-  const taglineColor = isLight ? '#7A5A00' : '#C8B070'
-  const descColor    = isLight ? '#2A1A08' : '#8A7A50'
   return (
     <Section id="work" isLight={isLight}>
       <RevealWrapper>
@@ -472,77 +449,136 @@ function Work({ isLight }) {
         <h2 style={{ fontFamily: "'Fraunces', serif", fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: 200, fontStyle: 'italic', color: headingColor, lineHeight: 1.1, letterSpacing: '-0.02em', marginBottom: '12px' }}>
           What I explore.<br /><span style={{ color: '#D4891E' }}>What I bring.</span>
         </h2>
-        <div style={{ fontFamily: "'Lora', serif", fontSize: '13px', fontStyle: 'italic', color: isLight ? '#8A6A30' : '#4A4030', marginBottom: '12px', textAlign: 'center' }}>
-          Personal R&D projects — built independently as research and learning initiatives.
-        </div>
-        <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '9px', letterSpacing: '0.18em', color: isLight ? '#8A6A30' : '#6A5A3A', textAlign: 'center', marginBottom: '40px' }}>
-          LYCAON · GRYPS · Velu · Grantemia FI/PT — Non-commercial Research Projects
+        <div style={{ fontFamily: "'Lora', serif", fontSize: '13px', fontStyle: 'italic', color: isLight ? '#8A6A30' : '#4A4030', marginBottom: '40px', textAlign: 'center' }}>
+          Personal R&D — Gryps is live. Everything below is context.
         </div>
       </RevealWrapper>
       <RevealWrapper delay={150}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
-          {/* LYCAON */}
-          <div style={{ background: lycaonBg, border: `1px solid ${lycaonBorder}`, borderLeft: '4px solid #F0A828', borderRadius: '2px', padding: isMobile ? '24px 20px' : '40px 44px', position: 'relative', overflow: 'hidden' }}>
-            <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', background: 'radial-gradient(ellipse at 0% 50%, rgba(240,168,40,0.06) 0%, transparent 55%)' }} />
-            <div style={{ position: 'relative' }}>
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '14px', marginBottom: '20px', flexWrap: 'wrap' }}>
-                <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', color: '#F0A828', opacity: 0.6, letterSpacing: '0.1em' }}>01</div>
-                <div style={{ fontFamily: "'Syne', sans-serif", fontSize: '10px', fontWeight: 700, letterSpacing: '0.3em', textTransform: 'uppercase', color: '#F0A828' }}>Anticipatory Intelligence</div>
-                <div style={{ flex: 1, height: '1px', background: 'linear-gradient(to right, rgba(240,168,40,0.2), transparent)', maxWidth: '120px' }} />
-                <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
-                  <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', color: isLight ? '#8A6A20' : '#8A7A60', letterSpacing: '0.1em', padding: '4px 10px', border: '1px solid rgba(240,168,40,0.3)', borderRadius: '100px' }}>Personal project</div>
-                  <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', color: isLight ? '#5A5040' : '#8A8070', letterSpacing: '0.1em', padding: '4px 10px', border: `1px dashed ${isLight ? '#5A504060' : '#8A807060'}`, borderRadius: '100px' }}>Non-commercial Research Project</div>
-                </div>
-              </div>
-              <div style={{ fontFamily: "'Fraunces', serif", fontSize: 'clamp(36px, 5vw, 56px)', fontWeight: 200, fontStyle: 'italic', color: isLight ? '#1A0E04' : '#F0E8D8', letterSpacing: '-0.03em', lineHeight: 0.9, marginBottom: '16px' }}>LYCAON</div>
-              <div style={{ fontFamily: "'Lora', serif", fontSize: '17px', fontStyle: 'italic', color: taglineColor, lineHeight: 1.8, maxWidth: '560px', margin: '0 auto', marginBottom: '24px' }}>"Not what is. What comes next."</div>
-              <div style={{ fontFamily: "'Lora', serif", fontSize: '15px', color: descColor, lineHeight: 1.7, maxWidth: '560px', margin: '0 auto', marginBottom: '28px' }}>
-                Anticipatory intelligence across six temporal dimensions. Reads terrain ahead, maps trajectories, identifies the move no one is making.
-              </div>
-              <div style={{ display: 'flex', gap: '8px', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '28px' }}>
-                {['Temporal Analysis', 'Pattern Recognition', 'Strategic Foresight'].map(tag => (
-                  <div key={tag} style={{ padding: '5px 14px', border: '1px solid rgba(240,168,40,0.3)', borderRadius: '100px', fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', color: isLight ? '#8A6A20' : '#8A7A50', letterSpacing: '0.12em' }}>{tag}</div>
-                ))}
-              </div>
-              <a href="https://lycaon.vercel.app" target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}>
-                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '12px', padding: '12px 26px', border: '1px solid #F0A828', borderRadius: '1px', fontFamily: "'Syne', sans-serif", fontSize: '10px', fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', color: '#F0A828', transition: 'all 0.2s', cursor: 'pointer' }}
-                  onMouseEnter={e => { e.currentTarget.style.background = '#F0A828'; e.currentTarget.style.color = '#07080D' }}
-                  onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#F0A828' }}>
-                  Visit LYCAON ↗
-                </div>
-              </a>
+          <div style={{
+            fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', letterSpacing: '0.35em',
+            textTransform: 'uppercase', color: isLight ? '#8A6A30' : '#6A5A3A',
+            textAlign: 'center', marginBottom: '16px',
+          }}>
+            Live · Non-commercial Research Project
+          </div>
+          <div style={{
+            background: isLight ? 'rgba(240,248,255,0.95)' : '#080C12',
+            border: `1px solid ${isLight ? 'rgba(79,168,255,0.25)' : 'rgba(79,168,255,0.15)'}`,
+            borderLeft: '4px solid #4FA8FF', borderRadius: '2px',
+            padding: isMobile ? '24px 20px' : '36px 40px',
+            textAlign: 'left',
+          }}>
+            <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', marginBottom: '14px' }}>
+              <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', color: '#4FA8FF', letterSpacing: '0.1em', padding: '4px 10px', border: '1px solid rgba(79,168,255,0.35)', borderRadius: '100px' }}>Live</div>
+              <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', color: isLight ? '#5A5040' : '#8A8070', letterSpacing: '0.1em', padding: '4px 10px', border: `1px dashed ${isLight ? '#5A504060' : '#8A807060'}`, borderRadius: '100px' }}>Non-commercial Research Project</div>
             </div>
+            <div style={{ fontFamily: "'Fraunces', serif", fontSize: 'clamp(36px, 5vw, 56px)', fontWeight: 200, fontStyle: 'italic', color: isLight ? '#1A0E04' : '#F0E8D8', letterSpacing: '-0.03em', lineHeight: 0.9, marginBottom: '16px' }}>
+              GRYPS
+            </div>
+            <div style={{ fontFamily: "'Lora', serif", fontSize: '15px', color: isLight ? '#2A1A08' : '#A8B0B8', lineHeight: 1.7, maxWidth: '560px', marginBottom: '10px' }}>
+              Connectivity resilience for autonomous and remote operations in the Nordics, Arctic, and Iceland.
+            </div>
+            <div style={{ fontFamily: "'Lora', serif", fontSize: '15px', color: isLight ? '#2A1A08' : '#A8B0B8', lineHeight: 1.7, maxWidth: '560px', marginBottom: '24px' }}>
+              Resilience Signature scoring for NIS2/CER compliance.
+            </div>
+            <a href="https://gryps.vercel.app" target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}>
+              <div style={{
+                display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '10px 22px',
+                border: '1px solid #4FA8FF', borderRadius: '1px',
+                fontFamily: "'Syne', sans-serif", fontSize: '10px', fontWeight: 700,
+                letterSpacing: '0.22em', textTransform: 'uppercase', color: '#4FA8FF', cursor: 'pointer',
+              }}
+                onMouseEnter={e => { e.currentTarget.style.background = '#4FA8FF'; e.currentTarget.style.color = '#07080D' }}
+                onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#4FA8FF' }}
+              >
+                gryps.vercel.app →
+              </div>
+            </a>
           </div>
 
-          {/* grid */}
+          <div style={{
+            fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', letterSpacing: '0.35em',
+            textTransform: 'uppercase', color: isLight ? '#8A6A30' : '#6A5A3A',
+            textAlign: 'center', margin: '48px 0 16px',
+          }}>
+            Earlier prototypes
+          </div>
           <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '4px' }}>
-            <ProductCard n="02" accent="#4FA8FF" category="Satellite Connectivity Intelligence" name="GRYPS" tagline='"Satellite connectivity should be as simple to manage as any other network."' description="Intelligence platform for satellite connectivity operations. Monitors link quality, predicts outages, and surfaces actionable signals across LEO, MEO, and GEO constellations — built for operators who can't afford blind spots." tags={['Link Intelligence', 'Outage Prediction', 'Constellation Monitoring']} challenge="Satellite networks are uniquely opaque. Ground teams react to outages they could have seen coming." status="Live" nonCommercial href="https://gryps.vercel.app" isLight={isLight} />
-            <ProductCard n="03" accent="#1EC8A8" category="Operational Intelligence" name="VELU" tagline='"The operational clarity big organisations take for granted — explored here for everyone else."' description="Five intelligence modules covering pipeline, email performance, market signals, competitive position, and operational health. No analyst required." tags={['Pipeline Intelligence', 'Market Signals', 'Competitive Watch']} challenge="Large analytics suites are notoriously complex and costly to run. This project explores a simpler alternative." status="Personal project" nonCommercial href="https://velu.fi" isLight={isLight} />
-            <ProductCard n="04" accent="#5BA89A" category="Research Intelligence · Finland & EU" name="GRANTEMIA FI" tagline='"2,400 active funders. One researcher. One perfect match."' description="AI-matched grant discovery for Finnish and EU researchers. Tracks deadlines, surfaces new announcements, manages the application pipeline — so researchers spend time on research, not spreadsheets." tags={['AI Matching', 'Deadline Intelligence', 'Funding Discovery']} challenge="The funding landscape never stops moving. Most researchers only ever see a fraction of what they're eligible for." status="Personal project" nonCommercial href="https://grantemia.fi" isLight={isLight} />
-            <ProductCard n="05" accent="#4A9B8C" category="Research Intelligence · Portugal & EU" name="GRANTEMIA PT" tagline='"Portuguese funding landscape. Same matching loop. Different map."' description="AI-matched grant discovery for Portuguese and EU researchers. Same product loop as Grantemia FI — deadlines, announcements, and application pipeline — tuned to Portugal's funding terrain." tags={['AI Matching', 'Deadline Intelligence', 'Funding Discovery']} challenge="Portugal's funding map is fragmented across national and EU programmes. Most researchers never see the full picture." status="Personal project" nonCommercial href="https://removed.vercel.app" isLight={isLight} />
+            <ProductCard
+              n="02"
+              accent="#C8A050"
+              category="EU AI Act compliance demo"
+              name="LITRIXEU"
+              description="Personal project exploring AI literacy and transparency obligations under EU law — a narrow compliance demo adjacent to Gryps on the regulatory axis."
+              tags={['EU AI Act', 'AI Literacy', 'Transparency']}
+              status="Personal project"
+              nonCommercial
+              href="https://litrixeu.vercel.app"
+              isLight={isLight}
+            />
+            <ProductCard
+              n="03"
+              accent="#5BA89A"
+              category="Research funding intelligence"
+              name="GRANTEMIA"
+              description="AI-matched grant and funding discovery for Finnish and EU researchers — deadlines, announcements, and application pipeline in one loop."
+              tags={['AI Matching', 'Deadline Intelligence', 'Funding Discovery']}
+              status="Personal project"
+              nonCommercial
+              href="https://grantemia.fi"
+              isLight={isLight}
+            />
+            <ProductCard
+              n="04"
+              accent="#1EC8A8"
+              category="B2B operations intelligence"
+              name="VELU"
+              description="Five intelligence modules covering pipeline, email performance, market signals, competitive position, and operational health. No analyst required."
+              tags={['Pipeline Intelligence', 'Market Signals', 'Competitive Watch']}
+              status="Personal project"
+              nonCommercial
+              href="https://velu.fi"
+              isLight={isLight}
+            />
+            <ProductCard
+              n="05"
+              accent="#F0A828"
+              category="Anticipatory intelligence"
+              name="LYCAON"
+              description="Anticipatory intelligence across six temporal dimensions. Explored and shelved — not actively developed."
+              tags={['Temporal Analysis', 'Pattern Recognition', 'Strategic Foresight']}
+              status="Earlier work"
+              nonCommercial
+              href="https://lycaon.vercel.app"
+              privateNote="Exploratory demo — not actively developed."
+              isLight={isLight}
+            />
+            <ProductCard
+              n="06"
+              accent="#B8334C"
+              category="EU AI Act documentation"
+              name="DISCLAI"
+              description="EU AI Act compliance documents — transparency notices, impact assessments, harm taxonomies. Explored and shelved."
+              tags={['Transparency', 'Impact Assessment', 'Harm Taxonomy']}
+              status="Earlier work"
+              nonCommercial
+              isLight={isLight}
+            />
+            <ProductCard
+              n="07"
+              accent="#8A7ADB"
+              category="Personal AI ops assistant"
+              name="IRAUN"
+              description="A personal AI ops assistant for managing several projects at once. Explored and shelved."
+              tags={['Ops Assistant', 'Multi-project']}
+              status="Earlier work"
+              nonCommercial
+              href="https://iraun.vercel.app"
+              isLight={isLight}
+            />
           </div>
 
-          {/* Earlier Work */}
-          <div style={{ marginTop: '48px' }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '16px' }}>
-              <div style={{ flex: 1, height: '1px', background: isLight ? 'rgba(212,137,30,0.15)' : 'rgba(255,255,255,0.05)' }} />
-              <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', letterSpacing: '0.35em', textTransform: 'uppercase', color: isLight ? '#8A6A30' : '#6A5A3A' }}>Earlier Work</div>
-              <div style={{ flex: 1, height: '1px', background: isLight ? 'rgba(212,137,30,0.15)' : 'rgba(255,255,255,0.05)' }} />
-            </div>
-            <div style={{ fontFamily: "'Lora', serif", fontSize: '12px', fontStyle: 'italic', color: isLight ? '#8A6A30' : '#4A4030', textAlign: 'center', marginBottom: '20px' }}>
-              Explored and shelved — built for learning, not currently active.
-            </div>
-            <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(3, 1fr)', gap: '4px' }}>
-              <EarlierWorkItem accent="#B8334C" name="DISCLAI" description="EU AI Act compliance documents — transparency notices, impact assessments, harm taxonomies." isLight={isLight} />
-              <EarlierWorkItem accent="#C8A050" name="LITRIX" description="AI literacy training compliance under EU law, since February 2025." isLight={isLight} />
-              <EarlierWorkItem accent="#8A7ADB" name="IRAUN" description="A personal AI ops assistant for managing several projects at once." href="https://iraun.vercel.app" isLight={isLight} />
-            </div>
-            <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '8.5px', letterSpacing: '0.15em', color: isLight ? '#8A6A30' : '#5A5040', textAlign: 'center', marginTop: '28px' }}>
-              Mistral · Neon · Vercel · Resend — solo-built, zero infrastructure overhead by design.
-            </div>
-          </div>
-
-          {/* Internal Tooling */}
           <div style={{ marginTop: '48px' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '16px' }}>
               <div style={{ flex: 1, height: '1px', background: isLight ? 'rgba(212,137,30,0.15)' : 'rgba(255,255,255,0.05)' }} />
@@ -661,7 +697,7 @@ export default function Portfolio({ theme = 'dark' }) {
       "url": "https://henriquemoreira.eu",
       "email": "hqe.moreira@gmail.com",
       "jobTitle": "AI Builder & Systems Thinker",
-      "description": "AI builder and systems thinker based in Espoo, Finland. Building LYCAON, Velu, Grantemia FI/PT, DisclAI, Litrix and GRYPS — intelligence tools for the decade ahead.",
+      "description": "AI builder and systems thinker based in Espoo, Finland. Building GRYPS — connectivity resilience intelligence for Nordic and Arctic remote operations. Earlier prototypes include LitrixEU, Grantemia, Velu, Lycaon, DisclAI and Iraun.",
       "address": { "@type": "PostalAddress", "addressLocality": "Espoo", "addressCountry": "FI" },
       "sameAs": ["https://www.linkedin.com/in/hqemoreira"],
       "knowsAbout": ["Artificial Intelligence", "Systems Thinking", "Software Development", "EU AI Act", "Supply Chain", "International Business"],
@@ -686,7 +722,6 @@ export default function Portfolio({ theme = 'dark' }) {
       <Hero isLight={isLight} />
       <Story isLight={isLight} />
       <Work isLight={isLight} />
-      <LycaonDemo />
       <Contact isLight={isLight} />
     </div>
   )

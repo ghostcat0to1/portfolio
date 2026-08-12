@@ -1,6 +1,6 @@
 import { LegalShell, LegalH2, LegalP, LegalUl } from '../components/LegalShell'
 
-const LAST_UPDATED = '11 August 2026'
+const LAST_UPDATED = '12 August 2026'
 const CONTACT = 'hqe.moreira@gmail.com'
 
 export default function Terms({ theme = 'dark' }) {
@@ -49,8 +49,9 @@ export default function Terms({ theme = 'dark' }) {
           <li>Article 50: AI is disclosed at the point of exposure; human oversight applies; no prohibited or high-risk claims are made.</li>
           <li>The Site does not make automated decisions with legal or similarly significant effects on individuals.</li>
           <li>
-            The embedded LYCAON preview is a <strong>scripted illustrative demo</strong> — not live AI output.
-            Portal chrome is human-authored. Where a live AI call returns text, that text is AI-generated.
+            The Site does not currently embed a live AI demo. Linked prototypes are separate and may be
+            exploratory or shelved. Portal chrome is human-authored. Where a live AI call returns text,
+            that text is AI-generated.
           </li>
         </LegalUl>
       </section>

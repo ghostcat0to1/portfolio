@@ -1,6 +1,6 @@
 # Portfolio — Codebook
 
-> Personal portfolio — animated particle canvas, scripted LYCAON illustrative demo, Privacy/Terms, dark/light theme.
+> Personal portfolio — animated particle canvas, GRYPS live featured project, earlier prototypes, Privacy/Terms, dark/light theme.
 > Stack: Vite + React + React Router · Pure inline styles (no CSS files) · Canvas RAF animation · Vercel
 
 ---
@@ -14,7 +14,7 @@
 | Styling | Inline styles (no CSS files, no Tailwind) | Full control, no class naming friction, theme via prop drilling |
 | Theme | `useState('dark')` in `App.jsx`, prop-drilled as `theme` | Simple — one boolean driving all color decisions inline |
 | Canvas | RAF loop in `useParticles` hook | Same particle system as LYCAON/GRYPS — shared visual language |
-| Demo embed | `LycaonDemo` — scripted illustrative preview (not live AI) | Shows LYCAON's six-dimension UI without a live model call |
+| Projects | GRYPS featured Live card; earlier prototypes in grid | Gryps owns Live; Lycaon/DisclAI/Iraun/etc. are context |
 | Legal | `/privacy` + `/terms` (EN) | EU AI Act + GDPR disclosures; footer-linked |
 | Deployment | Vercel — `henriquemoreira.eu` | Auto-deploy from GitHub push |
 
@@ -48,8 +48,9 @@ return (
 
 - **UI language:** English only (spoken-languages section is biography, not UI locale).
 - **Dashes:** em dash (—) for sentence breaks; middle dot (·) for coords/meta lists; hyphen for compounds.
-- **Product names:** LYCAON · GRYPS · Velu · Grantemia FI / removed · FORGE (card marks may be uppercase).
+- **Product names:** GRYPS (live) · LitrixEU · Grantemia · Velu · Lycaon · DisclAI · Iraun · FORGE.
 - **FORGE:** personal/internal projects dashboard only — not a public product. Show `forge.henriquemoreira.eu (private — no public access)`; do not deep-link visitors to login.
+- **LycaonDemo:** component may remain in repo but is not mounted on the portfolio page.
 
 ---
 
@@ -63,7 +64,7 @@ Must stay accurate (not legal advice):
 - AI provider for live model calls: **Mistral only** (no Gemini/OpenAI unless that becomes true)
 - Classification: **limited-risk** under Regulation (EU) 2024/1689 — **not** minimal-risk
 - Article 50: AI disclosed at the point of exposure; human oversight; no prohibited/high-risk claims; no automated decisions with legal or similarly significant effects
-- What is / isn’t AI-generated (portal chrome vs AI); LycaonDemo is **scripted**, not live AI
+- What is / isn’t AI-generated (portal chrome vs AI); no embedded live AI demo on the portfolio page today
 - “Last updated: …” bumped whenever AI features or processors change
 - GDPR: categories, processors (Vercel, Analytics, Google Fonts, Mistral when used), retention, rights
 - Copyright footer: `© {year} Henrique Moreira · All rights reserved`
