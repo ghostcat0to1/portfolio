@@ -49,6 +49,7 @@ return (
 - **UI language:** English only (spoken-languages section is biography, not UI locale).
 - **Dashes:** em dash (—) for sentence breaks; middle dot (·) for coords/meta lists; hyphen for compounds.
 - **Product names:** LYCAON · GRYPS · Velu · Grantemia FI / removed · FORGE (card marks may be uppercase).
+- **FORGE:** personal/internal projects dashboard only — not a public product. Show `forge.henriquemoreira.eu (private — no public access)`; do not deep-link visitors to login.
 
 ---
 
