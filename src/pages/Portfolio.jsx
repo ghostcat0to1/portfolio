@@ -376,7 +376,7 @@ function Story({ isLight }) {
   )
 }
 
-function ProductCard({ n, accent, category, name, tagline, description, tags, challenge, status, nonCommercial, href, privateNote, isLight, centerCategory = false }) {
+function ProductCard({ n, accent, category, name, tagline, description, tags, challenge, status, href, privateNote, isLight, centerCategory = false }) {
   const cardBg         = isLight ? 'rgba(255,248,235,0.95)' : '#0A0908'
   const cardBorder     = isLight ? 'rgba(212,137,30,0.12)' : 'rgba(255,255,255,0.03)'
   const nameColor      = isLight ? '#1A0E04' : '#F0E8D8'
@@ -389,9 +389,6 @@ function ProductCard({ n, accent, category, name, tagline, description, tags, ch
       ...(centerCategory ? { justifyContent: 'center' } : { marginLeft: 'auto' }),
     }}>
       <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '7.5px', color: accent, opacity: 0.7, letterSpacing: '0.1em', padding: '3px 8px', border: `1px solid ${accent}40`, borderRadius: '100px' }}>{status}</div>
-      {nonCommercial && (
-        <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '7.5px', color: neutralColor, letterSpacing: '0.1em', padding: '3px 8px', border: `1px dashed ${neutralColor}60`, borderRadius: '100px' }}>Non-commercial Research Project</div>
-      )}
     </div>
   )
   return (
@@ -522,7 +519,6 @@ function Work({ isLight }) {
               description="A compliance-focused prototype demonstrating AI literacy training workflows under EU AI Act Article 4. Built to explore regulatory product design and verification systems."
               tags={['EU AI Act', 'AI Literacy', 'Transparency']}
               status="Research prototype"
-              nonCommercial
               href="https://litrixeu.vercel.app"
               isLight={isLight}
             />
@@ -534,7 +530,6 @@ function Work({ isLight }) {
               description="A research-funding prototype demonstrating AI matching, deadline intelligence, and pipeline UX design for academic and institutional use cases."
               tags={['AI Matching', 'Deadline Intelligence', 'Funding Discovery']}
               status="Research prototype"
-              nonCommercial
               href="https://grantemia.fi"
               isLight={isLight}
             />
@@ -546,7 +541,6 @@ function Work({ isLight }) {
               description="A B2B operations prototype demonstrating five intelligence modules — pipeline analysis, email triage, market mapping, and task tracking. Explores how AI can interpret unstructured operational data."
               tags={['Pipeline Intelligence', 'Market Signals', 'Competitive Watch']}
               status="Research prototype"
-              nonCommercial
               href="https://velu.fi"
               isLight={isLight}
             />
@@ -558,7 +552,6 @@ function Work({ isLight }) {
               description="An exploratory prototype in strategic foresight and temporal signal analysis. Shelved — retained as a demonstration of conceptual product design."
               tags={['Temporal Analysis', 'Pattern Recognition', 'Strategic Foresight']}
               status="Exploratory prototype"
-              nonCommercial
               href="https://lycaon.vercel.app"
               privateNote="Exploratory demo — not actively developed."
               isLight={isLight}
@@ -571,7 +564,6 @@ function Work({ isLight }) {
               description="A document-automation prototype exploring EU AI Act transparency templates. Shelved — demonstrates AI-assisted drafting and risk-tier classification logic."
               tags={['Transparency', 'Impact Assessment', 'Harm Taxonomy']}
               status="Exploratory prototype"
-              nonCommercial
               isLight={isLight}
             />
             <ProductCard
@@ -582,7 +574,6 @@ function Work({ isLight }) {
               description="A personal productivity prototype exploring multi-project AI assistance. Shelved — demonstrates workflow automation and prompt engineering."
               tags={['Ops Assistant', 'Multi-project']}
               status="Exploratory prototype"
-              nonCommercial
               href="https://iraun.vercel.app"
               isLight={isLight}
             />
