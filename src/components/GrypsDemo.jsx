@@ -87,7 +87,6 @@ const ui = "'Syne', system-ui, sans-serif"
 export default function GrypsDemo() {
   const [phase, setPhase] = useState(PHASE.INPUT)
   const [visibleOptions, setVisibleOptions] = useState(0)
-  const [showBadge, setShowBadge] = useState(false)
   const [opacity, setOpacity] = useState(0)
   const [scanning, setScanning] = useState(false)
   const [reduced, setReduced] = useState(false)
@@ -109,7 +108,6 @@ export default function GrypsDemo() {
     clearAll()
     setPhase(PHASE.INPUT)
     setVisibleOptions(0)
-    setShowBadge(false)
     setScanning(false)
     setOpacity(0)
 
@@ -135,7 +133,6 @@ export default function GrypsDemo() {
 
     at(() => {
       setPhase(PHASE.ADVISORY)
-      setShowBadge(true)
     }, 35000)
 
     at(() => setPhase(PHASE.CLOSE), 48000)
@@ -182,7 +179,6 @@ export default function GrypsDemo() {
         setOpacity(1)
         setPhase(PHASE.ADVISORY)
         setVisibleOptions(3)
-        setShowBadge(true)
       }, 0)
       return clearAll
     }
@@ -307,32 +303,21 @@ export default function GrypsDemo() {
           <div style={{ display: 'grid', gridTemplateColumns: showOpts ? 'minmax(160px, 0.9fr) 1.4fr' : '1fr', gap: 14, flex: 1, minHeight: 0, overflow: 'hidden' }}>
             <div
               style={{
-                border: '1px solid rgba(239,68,68,0.45)',
-                background: 'rgba(239,68,68,0.06)',
+                border: '2px solid rgba(239,68,68,0.55)',
+                background: 'rgba(239,68,68,0.1)',
                 borderRadius: 2,
-                padding: '16px 18px',
+                padding: '18px 20px',
                 animation: 'grypsIn 0.35s ease',
                 minHeight: 0,
                 overflowY: 'auto',
+                flexShrink: 0,
               }}
             >
-              <div style={{ fontSize: 8, letterSpacing: '0.16em', color: '#EF4444', marginBottom: 8 }}>RESILIENCE SIGNATURE</div>
-              <div style={{ display: 'flex', alignItems: 'baseline', gap: 14 }}>
-                <div style={{ fontSize: 56, fontWeight: 900, color: '#EF4444', lineHeight: 1, letterSpacing: '-0.04em' }}>{GOLDEN.score}</div>
-                <div
-                  style={{
-                    fontSize: 22,
-                    fontWeight: 900,
-                    color: '#EF4444',
-                    border: '1px solid rgba(239,68,68,0.55)',
-                    padding: '2px 10px',
-                    borderRadius: 4,
-                  }}
-                >
-                  {GOLDEN.grade}
-                </div>
+              <div style={{ display: 'flex', alignItems: 'baseline', gap: 16, marginBottom: 12 }}>
+                <div style={{ fontSize: 72, fontWeight: 900, color: '#EF4444', lineHeight: 0.9, letterSpacing: '-0.05em' }}>{GOLDEN.score}</div>
+                <div style={{ fontSize: 32, fontWeight: 900, color: '#EF4444', border: '2px solid rgba(239,68,68,0.65)', padding: '4px 14px', borderRadius: 4, lineHeight: 1 }}>{GOLDEN.grade}</div>
               </div>
-              <div style={{ fontSize: 10, color: '#CBD5E1', lineHeight: 1.55, marginTop: 12 }}>{GOLDEN.summary}</div>
+              <div style={{ fontSize: 10, color: '#CBD5E1', lineHeight: 1.55, fontFamily: mono }}>{GOLDEN.summary}</div>
               <div style={{ marginTop: 14, display: 'flex', flexDirection: 'column', gap: 8 }}>
                 {GOLDEN.risks.map((r) => (
                   <div key={r.label} style={{ borderLeft: '2px solid #EF4444', paddingLeft: 10 }}>
@@ -352,28 +337,26 @@ export default function GrypsDemo() {
             </div>
 
             {showOpts && (
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 8, minHeight: 0, overflowY: 'auto' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 8, minHeight: 0, overflowY: 'auto', opacity: 0.72 }}>
                 <div style={{ fontSize: 8, letterSpacing: '0.14em', color: '#64748B' }}>CONNECTIVITY OPTIONS · CONFIDENCE</div>
                 {GOLDEN.options.slice(0, visibleOptions).map((o) => (
                   <div
                     key={o.provider}
                     style={{
-                      border: o.highlight ? '1px solid rgba(16,185,129,0.55)' : '1px solid rgba(148,163,184,0.2)',
-                      background: o.highlight ? 'rgba(16,185,129,0.08)' : 'rgba(148,163,184,0.04)',
+                      border: '1px solid rgba(148,163,184,0.18)',
+                      background: 'rgba(148,163,184,0.04)',
                       borderRadius: 2,
-                      padding: '10px 12px',
-                      animation: o.highlight && !reduced
-                        ? 'grypsIn 0.3s ease, grypsPulse 2.4s ease-in-out infinite'
-                        : 'grypsIn 0.3s ease',
+                      padding: '8px 10px',
+                      animation: 'grypsIn 0.3s ease',
                     }}
                   >
                     <div style={{ display: 'flex', justifyContent: 'space-between', gap: 8, flexWrap: 'wrap' }}>
-                      <div style={{ fontSize: 11, color: '#E2E8F0' }}>
+                      <div style={{ fontSize: 10, color: '#94A3B8' }}>
                         {o.provider} · {o.type}
                       </div>
-                      <div style={{ fontSize: 11, color: o.highlight ? '#10B981' : '#94A3B8' }}>confidence {o.confidence}</div>
+                      <div style={{ fontSize: 10, color: '#64748B' }}>confidence {o.confidence}</div>
                     </div>
-                    <div style={{ fontSize: 9, color: '#94A3B8', marginTop: 4, lineHeight: 1.45 }}>{o.note}</div>
+                    <div style={{ fontSize: 9, color: '#64748B', marginTop: 4, lineHeight: 1.45 }}>{o.note}</div>
                   </div>
                 ))}
               </div>
@@ -381,54 +364,20 @@ export default function GrypsDemo() {
           </div>
         )}
 
-        {/* ACT III — advisory (replaces diagnosis grid; no overlap) */}
         {showAdv && (
-          <div style={{ flex: 1, minHeight: 0, display: 'grid', gridTemplateColumns: 'minmax(140px, 0.55fr) 1fr', gap: 14, animation: 'grypsIn 0.4s ease', overflow: 'hidden' }}>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 10, minHeight: 0 }}>
-              <div
-                style={{
-                  border: '1px solid rgba(239,68,68,0.45)',
-                  background: 'rgba(239,68,68,0.06)',
-                  borderRadius: 2,
-                  padding: '14px 16px',
-                }}
-              >
-                <div style={{ fontSize: 8, letterSpacing: '0.16em', color: '#EF4444', marginBottom: 8 }}>RESILIENCE SIGNATURE</div>
-                <div style={{ display: 'flex', alignItems: 'baseline', gap: 10 }}>
-                  <div style={{ fontSize: 40, fontWeight: 900, color: '#EF4444', lineHeight: 1 }}>{GOLDEN.score}</div>
-                  <div style={{ fontSize: 18, fontWeight: 900, color: '#EF4444', border: '1px solid rgba(239,68,68,0.55)', padding: '2px 8px', borderRadius: 4 }}>{GOLDEN.grade}</div>
-                </div>
+          <div style={{ flex: 1, minHeight: 0, display: 'grid', gridTemplateColumns: 'minmax(100px, 0.35fr) 1fr', gap: 14, animation: 'grypsIn 0.4s ease', overflow: 'hidden' }}>
+            <div style={{ display: 'flex', alignItems: 'flex-start', minHeight: 0 }}>
+              <div style={{ fontSize: 28, fontWeight: 900, color: '#EF4444', lineHeight: 1, letterSpacing: '-0.03em' }}>
+                {GOLDEN.score} · {GOLDEN.grade}
               </div>
-              {showBadge && (
-                <div
-                  style={{
-                    border: '1px solid rgba(239,68,68,0.55)',
-                    background: '#0B0F17',
-                    padding: '10px 14px',
-                    borderRadius: 2,
-                    textAlign: 'center',
-                  }}
-                >
-                  <div style={{ fontSize: 8, letterSpacing: '0.16em', color: '#EF4444' }}>SIGNATURE LOCKED</div>
-                  <div style={{ fontSize: 18, fontWeight: 900, color: '#EF4444' }}>
-                    {GOLDEN.score} · {GOLDEN.grade}
-                  </div>
-                </div>
-              )}
             </div>
-            <div style={{ minHeight: 0, overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: 10 }}>
-              <div>
-                <div style={{ fontSize: 8, letterSpacing: '0.14em', color: '#4FA8FF', marginBottom: 6 }}>RECOMMENDATION</div>
-                <div style={{ fontSize: 10, color: '#E2E8F0', lineHeight: 1.55 }}>{GOLDEN.recommendation}</div>
-              </div>
-              <div>
-                <div style={{ fontSize: 8, letterSpacing: '0.14em', color: '#64748B', marginBottom: 6 }}>CAVEATS</div>
-                {GOLDEN.caveats.map((c) => (
-                  <div key={c} style={{ fontSize: 9, color: '#94A3B8', lineHeight: 1.5, marginBottom: 4 }}>
-                    · {c}
-                  </div>
-                ))}
-              </div>
+            <div style={{ minHeight: 0, overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: 10, fontFamily: mono }}>
+              <div style={{ fontSize: 10, color: '#E2E8F0', lineHeight: 1.55 }}>{GOLDEN.recommendation}</div>
+              {GOLDEN.caveats.map((c) => (
+                <div key={c} style={{ fontSize: 9, color: '#94A3B8', lineHeight: 1.5 }}>
+                  · {c}
+                </div>
+              ))}
               <div style={{ fontSize: 8, color: '#475569', letterSpacing: '0.08em' }}>
                 terrain evidence · score {GOLDEN.realData.realDataScore} · elev {GOLDEN.realData.elevationCenterM} m ±
                 {GOLDEN.realData.elevationVarianceM}
@@ -456,7 +405,7 @@ export default function GrypsDemo() {
             </div>
             <div style={{ fontSize: 11, color: '#4FA8FF', letterSpacing: '0.14em', marginTop: 8 }}>gryps.vercel.app</div>
             <div style={{ fontSize: 8, color: '#475569', marginTop: 16, letterSpacing: '0.12em' }}>
-              Resilience Signature · Score {GOLDEN.score} · Grade {GOLDEN.grade} · Free · ~60 seconds
+              {GOLDEN.score} · {GOLDEN.grade} · Free · ~60 seconds
             </div>
           </div>
         )}
