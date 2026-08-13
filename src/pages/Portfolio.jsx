@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import GrypsDemo from '../components/GrypsDemo'
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion'
 import { useEffect, useRef, useState } from 'react'
 
@@ -496,14 +497,13 @@ function Work({ isLight }) {
               </div>
             </a>
           </div>
-          <video
-            src="/gryps-resilience-signature.mp4"
-            poster="/gryps-resilience-signature.png"
-            controls
-            playsInline
-            preload="metadata"
-            style={{ width: '100%', marginTop: '4px', borderRadius: '2px', border: '1px solid rgba(79,168,255,0.2)', background: '#080C12' }}
-          />
+          <GrypsDemo />
+          <div style={{
+            fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', letterSpacing: '0.12em',
+            color: isLight ? '#8A6A30' : '#6A5A3A', marginTop: '10px', textAlign: 'left',
+          }}>
+            Resilience Signature for a site at 68.2°N — golden Advisor run · Score 40 · Grade D · loops every 60s.
+          </div>
 
           <div style={{
             fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', letterSpacing: '0.35em',
