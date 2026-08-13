@@ -231,10 +231,13 @@ function Hero({ isLight }) {
             <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#1EC8A8', display: 'inline-block', animation: 'hmPulse 2.2s ease-in-out infinite', flexShrink: 0 }} />
             <span style={{
               fontFamily: "'JetBrains Mono', monospace",
-              fontSize: isMobile ? '8px' : '9px',
-              letterSpacing: isMobile ? '0.18em' : '0.28em',
+              fontSize: isMobile ? '7.5px' : '8.5px',
+              letterSpacing: isMobile ? '0.06em' : '0.1em',
               color: '#1EC8A8', textTransform: 'uppercase',
-            }}>Open to opportunities</span>
+              textAlign: 'left',
+              maxWidth: isMobile ? '220px' : 'none',
+              lineHeight: 1.4,
+            }}>Seeking product and commercial roles in Nordic industrial tech</span>
           </div>
         </div>
         <h1 style={{ margin: 0, animation: 'hmTitleIn 1.4s cubic-bezier(0.16,1,0.3,1) both' }}>
@@ -262,7 +265,7 @@ function Hero({ isLight }) {
           color: isLight ? 'rgba(80,40,5,0.85)' : 'rgba(240,232,216,0.75)',
           lineHeight: 1.6, maxWidth: '520px', margin: '0 auto 28px', letterSpacing: '0.01em',
         }}>
-          18 years in Nordic forest industry commercial operations — now building AI-native products for the industries that need them most.
+          Eighteen years in Nordic industrial operations — developing skills in predictive AI and systems intelligence through functional prototypes.
         </div>
         <div style={{
           fontFamily: "'JetBrains Mono', monospace",
@@ -286,7 +289,7 @@ function Hero({ isLight }) {
           display: 'flex', gap: '10px', justifyContent: 'center', flexWrap: 'wrap',
           marginBottom: isMobile ? '40px' : '56px',
         }}>
-          {['Systems Thinker', 'AI Builder', 'Global Citizen'].map(pill => (
+          {['Industrial Operations', 'Commercial Strategy', 'AI Systems'].map(pill => (
             <div key={pill} style={{
               padding: '8px 18px', border: `1px solid ${pillBorder}`, borderRadius: '100px',
               fontFamily: "'Syne', sans-serif", fontSize: '9px', fontWeight: 700,
@@ -344,8 +347,9 @@ function Story({ isLight }) {
             </h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '18px', marginBottom: '28px' }}>
               {[
-                "I saw where remote work fails when connectivity fails.",
-                "GRYPS is how I turn that into scored, auditable resilience — before you deploy.",
+                "Modern AI software usually fails because the builder never lived the problem.",
+                "My systems perspective was built across eighteen years of Nordic industrial operations — evolving from frontline client friction, to commercial workflow design, to market-facing leadership.",
+                "I am now developing my skills in predictive AI and systems intelligence, building functional prototypes to demonstrate how domain expertise and engineering can close operational gaps I saw from the inside out.",
               ].map((para, i) => (
                 <p key={i} style={{ fontFamily: "'Lora', serif", fontSize: isMobile ? '15px' : '16px', lineHeight: '1.85', color: bodyColor, letterSpacing: '0.01em' }}>{para}</p>
               ))}
@@ -448,10 +452,10 @@ function Work({ isLight }) {
       <RevealWrapper>
         <SectionEyebrow>Projects</SectionEyebrow>
         <h2 style={{ fontFamily: "'Fraunces', serif", fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: 200, fontStyle: 'italic', color: headingColor, lineHeight: 1.1, letterSpacing: '-0.02em', marginBottom: '12px' }}>
-          What I explore.<br /><span style={{ color: '#D4891E' }}>What I bring.</span>
+          Selected prototypes demonstrating systems thinking, product design, and domain fluency.
         </h2>
         <div style={{ fontFamily: "'Lora', serif", fontSize: '13px', fontStyle: 'italic', color: isLight ? '#8A6A30' : '#4A4030', marginBottom: '40px', textAlign: 'center' }}>
-          Personal R&D — Gryps is live. Everything below is context.
+          Skill demonstrations — functional prototypes built to explore AI systems design across operations, compliance, and research funding.
         </div>
       </RevealWrapper>
       <RevealWrapper delay={150}>
@@ -461,7 +465,7 @@ function Work({ isLight }) {
             textTransform: 'uppercase', color: isLight ? '#8A6A30' : '#6A5A3A',
             textAlign: 'center', marginBottom: '16px',
           }}>
-            Live · Non-commercial Research Project
+            Skill demonstration · Functional prototype
           </div>
           <div style={{
             background: isLight ? 'rgba(240,248,255,0.95)' : '#080C12',
@@ -471,17 +475,14 @@ function Work({ isLight }) {
             textAlign: 'left',
           }}>
             <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', marginBottom: '14px' }}>
-              <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', color: '#4FA8FF', letterSpacing: '0.1em', padding: '4px 10px', border: '1px solid rgba(79,168,255,0.35)', borderRadius: '100px' }}>Live</div>
-              <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', color: isLight ? '#5A5040' : '#8A8070', letterSpacing: '0.1em', padding: '4px 10px', border: `1px dashed ${isLight ? '#5A504060' : '#8A807060'}`, borderRadius: '100px' }}>Non-commercial Research Project</div>
+              <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', color: '#4FA8FF', letterSpacing: '0.1em', padding: '4px 10px', border: '1px solid rgba(79,168,255,0.35)', borderRadius: '100px' }}>Skill demonstration</div>
+              <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', color: isLight ? '#5A5040' : '#8A8070', letterSpacing: '0.1em', padding: '4px 10px', border: `1px dashed ${isLight ? '#5A504060' : '#8A807060'}`, borderRadius: '100px' }}>Functional prototype</div>
             </div>
             <div style={{ fontFamily: "'Fraunces', serif", fontSize: 'clamp(36px, 5vw, 56px)', fontWeight: 200, fontStyle: 'italic', color: isLight ? '#1A0E04' : '#F0E8D8', letterSpacing: '-0.03em', lineHeight: 0.9, marginBottom: '16px' }}>
               GRYPS
             </div>
-            <div style={{ fontFamily: "'Lora', serif", fontSize: '15px', color: isLight ? '#2A1A08' : '#A8B0B8', lineHeight: 1.7, maxWidth: '560px', marginBottom: '10px' }}>
-              Connectivity resilience for autonomous and remote operations in the Nordics, Arctic, and Iceland.
-            </div>
             <div style={{ fontFamily: "'Lora', serif", fontSize: '15px', color: isLight ? '#2A1A08' : '#A8B0B8', lineHeight: 1.7, maxWidth: '560px', marginBottom: '24px' }}>
-              Resilience Signature scoring for NIS2/CER compliance.
+              A functional prototype exploring connectivity risk scoring for remote industrial operations. Demonstrates product design, regulatory mapping (NIS2/CER), and AI-assisted technical architecture for high-stakes environments.
             </div>
             <a href="https://gryps.vercel.app" target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}>
               <div style={{
@@ -493,21 +494,16 @@ function Work({ isLight }) {
                 onMouseEnter={e => { e.currentTarget.style.background = '#4FA8FF'; e.currentTarget.style.color = '#07080D' }}
                 onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#4FA8FF' }}
               >
-                gryps.vercel.app →
+                View prototype →
               </div>
             </a>
           </div>
           <GrypsDemo />
           <div style={{
-            fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', letterSpacing: '0.08em',
+            fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', letterSpacing: '0.12em',
             color: isLight ? '#8A6A30' : '#6A5A3A', marginTop: '10px', textAlign: 'left', lineHeight: 1.7,
           }}>
-            <div style={{ fontFamily: "'Lora', serif", fontSize: '13px', fontStyle: 'italic', letterSpacing: '0.01em', marginBottom: '8px', color: isLight ? '#5A3A10' : '#A8B0B8' }}>
-              Watch a Resilience Signature generate in 60 seconds
-            </div>
-            Site: 68.2°N, 27.4°E · Forestry · Autonomous · Safety-critical<br />
-            Current setup: Starlink standard kit, no backup<br />
-            Result: Score 40 · Grade D — high risk, no redundancy
+            Prototype output: simulated Resilience Signature for a site at 68.2°N · Score 40 · Grade D
           </div>
 
           <div style={{
@@ -523,7 +519,7 @@ function Work({ isLight }) {
               accent="#C8A050"
               category="EU AI Act compliance demo"
               name="LITRIX"
-              description="Personal project exploring AI literacy and transparency obligations under EU law — a narrow compliance demo adjacent to Gryps on the regulatory axis."
+              description="A compliance-focused prototype demonstrating AI literacy training workflows under EU AI Act Article 4. Built to explore regulatory product design and verification systems."
               tags={['EU AI Act', 'AI Literacy', 'Transparency']}
               status="Research prototype"
               nonCommercial
@@ -535,7 +531,7 @@ function Work({ isLight }) {
               accent="#5BA89A"
               category="Research funding intelligence"
               name="GRANTEMIA"
-              description="AI-matched grant and funding discovery for Finnish and EU researchers — deadlines, announcements, and application pipeline in one loop."
+              description="A research-funding prototype demonstrating AI matching, deadline intelligence, and pipeline UX design for academic and institutional use cases."
               tags={['AI Matching', 'Deadline Intelligence', 'Funding Discovery']}
               status="Research prototype"
               nonCommercial
@@ -547,7 +543,7 @@ function Work({ isLight }) {
               accent="#1EC8A8"
               category="B2B operations intelligence"
               name="VELU"
-              description="Five intelligence modules covering pipeline, email performance, market signals, competitive position, and operational health. No analyst required."
+              description="A B2B operations prototype demonstrating five intelligence modules — pipeline analysis, email triage, market mapping, and task tracking. Explores how AI can interpret unstructured operational data."
               tags={['Pipeline Intelligence', 'Market Signals', 'Competitive Watch']}
               status="Research prototype"
               nonCommercial
@@ -559,7 +555,7 @@ function Work({ isLight }) {
               accent="#F0A828"
               category="Anticipatory intelligence"
               name="LYCAON"
-              description="Anticipatory intelligence across six temporal dimensions. Explored and shelved — not actively developed."
+              description="An exploratory prototype in strategic foresight and temporal signal analysis. Shelved — retained as a demonstration of conceptual product design."
               tags={['Temporal Analysis', 'Pattern Recognition', 'Strategic Foresight']}
               status="Exploratory prototype"
               nonCommercial
@@ -572,7 +568,7 @@ function Work({ isLight }) {
               accent="#B8334C"
               category="EU AI Act documentation"
               name="DISCLAI"
-              description="EU AI Act compliance documents — transparency notices, impact assessments, harm taxonomies. Explored and shelved."
+              description="A document-automation prototype exploring EU AI Act transparency templates. Shelved — demonstrates AI-assisted drafting and risk-tier classification logic."
               tags={['Transparency', 'Impact Assessment', 'Harm Taxonomy']}
               status="Exploratory prototype"
               nonCommercial
@@ -583,7 +579,7 @@ function Work({ isLight }) {
               accent="#8A7ADB"
               category="Personal AI ops assistant"
               name="IRAUN"
-              description="A personal AI ops assistant for managing several projects at once. Explored and shelved."
+              description="A personal productivity prototype exploring multi-project AI assistance. Shelved — demonstrates workflow automation and prompt engineering."
               tags={['Ops Assistant', 'Multi-project']}
               status="Exploratory prototype"
               nonCommercial
@@ -604,7 +600,7 @@ function Work({ isLight }) {
                 accent="#6A93B0"
                 category="Personal Projects Dashboard"
                 name="FORGE"
-                tagline="Private dashboard for tracking deployments, project state, and session history across my prototypes."
+                tagline="Personal dashboard for tracking my learning projects and prototype deployments. Used to manage my professional development portfolio."
                 tags={['Deployment Tracking', 'Session History', 'Private / Internal']}
                 status="Active · Private"
                 privateNote="forge.henriquemoreira.eu (private — no public access)"
@@ -643,11 +639,11 @@ function Contact({ isLight }) {
     <Section id="contact" isLight={isLight} style={{ textAlign: 'center', paddingBottom: isMobile ? '40px' : '56px' }}>
       <RevealWrapper>
         <SectionEyebrow>Contact</SectionEyebrow>
-        <h2 style={{ fontFamily: "'Fraunces', serif", fontSize: 'clamp(40px, 6vw, 80px)', fontWeight: 200, fontStyle: 'italic', color: headingColor, lineHeight: 1.05, letterSpacing: '-0.03em', marginBottom: '24px' }}>
-          Let's think<br /><span style={{ color: '#D4891E' }}>ahead together.</span>
+        <h2 style={{ fontFamily: "'Fraunces', serif", fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 200, fontStyle: 'italic', color: headingColor, lineHeight: 1.2, letterSpacing: '-0.02em', marginBottom: '24px', maxWidth: '720px', marginLeft: 'auto', marginRight: 'auto' }}>
+          Open to product, commercial, and strategy roles in Nordic industrial and AI-led companies.
         </h2>
-        <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '10px', color: bodyColor, lineHeight: 1.7, maxWidth: '440px', margin: '0 auto 52px' }}>
-          Whether you're building something, exploring AI, or simply want to connect — reach out.
+        <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '10px', color: bodyColor, lineHeight: 1.7, maxWidth: '520px', margin: '0 auto 52px' }}>
+          If you are hiring or want to discuss how operations experience translates into systems design, I would welcome a conversation.
         </div>
         <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '40px' }}>
           <a href="mailto:hqe.moreira@gmail.com" style={{ textDecoration: 'none' }}>
