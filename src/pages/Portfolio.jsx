@@ -376,7 +376,7 @@ function Story({ isLight }) {
   )
 }
 
-function ProductCard({ n, accent, category, name, tagline, description, tags, challenge, status, href, privateNote, isLight, centerCategory = false }) {
+function ProductCard({ n, accent, category, name, tagline, description, tags, challenge, status, href, linkRel = 'noreferrer', privateNote, isLight, centerCategory = false }) {
   const cardBg         = isLight ? 'rgba(255,248,235,0.95)' : '#0A0908'
   const cardBorder     = isLight ? 'rgba(212,137,30,0.12)' : 'rgba(255,255,255,0.03)'
   const nameColor      = isLight ? '#1A0E04' : '#F0E8D8'
@@ -429,7 +429,7 @@ function ProductCard({ n, accent, category, name, tagline, description, tags, ch
         </div>
       )}
       {href && (
-        <a href={href} target="_blank" rel="noreferrer" style={{ textDecoration: 'none', marginTop: '4px' }}>
+        <a href={href} target="_blank" rel={linkRel} style={{ textDecoration: 'none', marginTop: '4px' }}>
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '8px 18px', border: `1px solid ${accent}`, borderRadius: '1px', fontFamily: "'Syne', sans-serif", fontSize: '9px', fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase', color: accent, transition: 'all 0.2s', cursor: 'pointer' }}
             onMouseEnter={e => { e.currentTarget.style.background = accent; e.currentTarget.style.color = '#07080D' }}
             onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = accent }}>
@@ -502,10 +502,16 @@ function Work({ isLight }) {
           <div style={{
             fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', letterSpacing: '0.35em',
             textTransform: 'uppercase', color: isLight ? '#8A6A30' : '#6A5A3A',
-            textAlign: 'center', margin: '48px 0 16px',
+            textAlign: 'center', margin: '48px 0 8px',
           }}>
             Earlier prototypes
           </div>
+          <p style={{
+            fontFamily: "'JetBrains Mono', monospace", fontSize: '9px', letterSpacing: '0.06em',
+            color: isLight ? '#8A6A30' : '#5A5040', textAlign: 'center', margin: '0 0 16px', lineHeight: 1.6,
+          }}>
+            Linked from this page only · not submitted to search engines
+          </p>
           <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '4px' }}>
             <ProductCard
               n="02"
@@ -516,6 +522,7 @@ function Work({ isLight }) {
               tags={['EU AI Act', 'AI Literacy', 'Transparency']}
               status="Research prototype"
               href="https://litrixeu.vercel.app"
+              linkRel="nofollow noreferrer"
               isLight={isLight}
             />
             <ProductCard
@@ -527,6 +534,7 @@ function Work({ isLight }) {
               tags={['AI Matching', 'Deadline Intelligence', 'Funding Discovery']}
               status="Research prototype"
               href="https://grantemia.fi"
+              linkRel="nofollow noreferrer"
               isLight={isLight}
             />
             <ProductCard
@@ -538,6 +546,7 @@ function Work({ isLight }) {
               tags={['Pipeline Intelligence', 'Market Signals', 'Competitive Watch']}
               status="Research prototype"
               href="https://velu.fi"
+              linkRel="nofollow noreferrer"
               isLight={isLight}
             />
             <ProductCard
@@ -549,6 +558,7 @@ function Work({ isLight }) {
               tags={['Temporal Analysis', 'Pattern Recognition', 'Strategic Foresight']}
               status="Exploratory prototype"
               href="https://lycaon.vercel.app"
+              linkRel="nofollow noreferrer"
               privateNote="Exploratory demo — not actively developed."
               isLight={isLight}
             />
@@ -560,6 +570,8 @@ function Work({ isLight }) {
               description="A document-automation prototype exploring EU AI Act transparency templates. Shelved — demonstrates AI-assisted drafting and risk-tier classification logic."
               tags={['Transparency', 'Impact Assessment', 'Harm Taxonomy']}
               status="Exploratory prototype"
+              href="https://disclai.vercel.app"
+              linkRel="nofollow noreferrer"
               isLight={isLight}
             />
             <ProductCard
@@ -571,6 +583,7 @@ function Work({ isLight }) {
               tags={['Ops Assistant', 'Multi-project']}
               status="Exploratory prototype"
               href="https://iraun.vercel.app"
+              linkRel="nofollow noreferrer"
               isLight={isLight}
             />
           </div>
