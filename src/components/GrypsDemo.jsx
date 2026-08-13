@@ -200,9 +200,10 @@ export default function GrypsDemo() {
     }
   }, [reduced, run, clearAll, at])
 
-  const showDiag = phase >= PHASE.DIAGNOSIS && phase < PHASE.CLOSE
-  const showOpts = phase >= PHASE.OPTIONS && phase < PHASE.CLOSE
-  const showAdv = phase >= PHASE.ADVISORY && phase < PHASE.CLOSE
+  // ADVISORY must not stack on DIAGNOSIS — that caused recommendation text overlap.
+  const showDiag = phase >= PHASE.DIAGNOSIS && phase < PHASE.ADVISORY
+  const showOpts = phase >= PHASE.OPTIONS && phase < PHASE.ADVISORY
+  const showAdv = phase === PHASE.ADVISORY
   const showClose = phase === PHASE.CLOSE
 
   return (
@@ -237,7 +238,7 @@ export default function GrypsDemo() {
         }}
       />
 
-      <div style={{ position: 'relative', zIndex: 1, padding: '20px 22px', height: '100%', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', gap: 12 }}>
+      <div style={{ position: 'relative', zIndex: 1, padding: '20px 22px', height: '100%', boxSizing: 'border-box', display: 'flex', flexDirection: 'column', gap: 12, overflow: 'hidden' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
           <div style={{ fontSize: 10, letterSpacing: '0.18em', color: '#4FA8FF' }}>GRYPS · RESILIENCE ADVISOR</div>
           <div style={{ fontSize: 9, letterSpacing: '0.12em', color: '#64748B' }}>
@@ -302,8 +303,8 @@ export default function GrypsDemo() {
           </div>
         )}
 
-        {showDiag && !showClose && (
-          <div style={{ display: 'grid', gridTemplateColumns: showOpts ? 'minmax(160px, 0.9fr) 1.4fr' : '1fr', gap: 14, flex: 1, minHeight: 0 }}>
+        {showDiag && (
+          <div style={{ display: 'grid', gridTemplateColumns: showOpts ? 'minmax(160px, 0.9fr) 1.4fr' : '1fr', gap: 14, flex: 1, minHeight: 0, overflow: 'hidden' }}>
             <div
               style={{
                 border: '1px solid rgba(239,68,68,0.45)',
@@ -311,6 +312,8 @@ export default function GrypsDemo() {
                 borderRadius: 2,
                 padding: '16px 18px',
                 animation: 'grypsIn 0.35s ease',
+                minHeight: 0,
+                overflowY: 'auto',
               }}
             >
               <div style={{ fontSize: 8, letterSpacing: '0.16em', color: '#EF4444', marginBottom: 8 }}>RESILIENCE SIGNATURE</div>
@@ -349,7 +352,7 @@ export default function GrypsDemo() {
             </div>
 
             {showOpts && (
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 8, minHeight: 0 }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 8, minHeight: 0, overflowY: 'auto' }}>
                 <div style={{ fontSize: 8, letterSpacing: '0.14em', color: '#64748B' }}>CONNECTIVITY OPTIONS · CONFIDENCE</div>
                 {GOLDEN.options.slice(0, visibleOptions).map((o) => (
                   <div
@@ -378,40 +381,59 @@ export default function GrypsDemo() {
           </div>
         )}
 
-        {showAdv && !showClose && (
-          <div style={{ animation: 'grypsIn 0.4s ease' }}>
-            <div style={{ fontSize: 8, letterSpacing: '0.14em', color: '#4FA8FF', marginBottom: 6 }}>RECOMMENDATION</div>
-            <div style={{ fontSize: 11, color: '#E2E8F0', lineHeight: 1.55, marginBottom: 12 }}>{GOLDEN.recommendation}</div>
-            <div style={{ fontSize: 8, letterSpacing: '0.14em', color: '#64748B', marginBottom: 6 }}>CAVEATS</div>
-            {GOLDEN.caveats.map((c) => (
-              <div key={c} style={{ fontSize: 9, color: '#94A3B8', lineHeight: 1.5, marginBottom: 4 }}>
-                · {c}
-              </div>
-            ))}
-            <div style={{ fontSize: 8, color: '#475569', marginTop: 10, letterSpacing: '0.08em' }}>
-              terrain evidence · score {GOLDEN.realData.realDataScore} · elev {GOLDEN.realData.elevationCenterM} m ±
-              {GOLDEN.realData.elevationVarianceM}
-            </div>
-            {showBadge && (
+        {/* ACT III — advisory (replaces diagnosis grid; no overlap) */}
+        {showAdv && (
+          <div style={{ flex: 1, minHeight: 0, display: 'grid', gridTemplateColumns: 'minmax(140px, 0.55fr) 1fr', gap: 14, animation: 'grypsIn 0.4s ease', overflow: 'hidden' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 10, minHeight: 0 }}>
               <div
                 style={{
-                  position: 'absolute',
-                  right: 18,
-                  bottom: 16,
-                  border: '1px solid rgba(239,68,68,0.55)',
-                  background: '#0B0F17',
-                  padding: '10px 14px',
+                  border: '1px solid rgba(239,68,68,0.45)',
+                  background: 'rgba(239,68,68,0.06)',
                   borderRadius: 2,
-                  textAlign: 'center',
-                  animation: 'grypsIn 0.35s ease',
+                  padding: '14px 16px',
                 }}
               >
-                <div style={{ fontSize: 8, letterSpacing: '0.16em', color: '#EF4444' }}>SIGNATURE LOCKED</div>
-                <div style={{ fontSize: 22, fontWeight: 900, color: '#EF4444', letterSpacing: '-0.03em' }}>
-                  {GOLDEN.score} · {GOLDEN.grade}
+                <div style={{ fontSize: 8, letterSpacing: '0.16em', color: '#EF4444', marginBottom: 8 }}>RESILIENCE SIGNATURE</div>
+                <div style={{ display: 'flex', alignItems: 'baseline', gap: 10 }}>
+                  <div style={{ fontSize: 40, fontWeight: 900, color: '#EF4444', lineHeight: 1 }}>{GOLDEN.score}</div>
+                  <div style={{ fontSize: 18, fontWeight: 900, color: '#EF4444', border: '1px solid rgba(239,68,68,0.55)', padding: '2px 8px', borderRadius: 4 }}>{GOLDEN.grade}</div>
                 </div>
               </div>
-            )}
+              {showBadge && (
+                <div
+                  style={{
+                    border: '1px solid rgba(239,68,68,0.55)',
+                    background: '#0B0F17',
+                    padding: '10px 14px',
+                    borderRadius: 2,
+                    textAlign: 'center',
+                  }}
+                >
+                  <div style={{ fontSize: 8, letterSpacing: '0.16em', color: '#EF4444' }}>SIGNATURE LOCKED</div>
+                  <div style={{ fontSize: 18, fontWeight: 900, color: '#EF4444' }}>
+                    {GOLDEN.score} · {GOLDEN.grade}
+                  </div>
+                </div>
+              )}
+            </div>
+            <div style={{ minHeight: 0, overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: 10 }}>
+              <div>
+                <div style={{ fontSize: 8, letterSpacing: '0.14em', color: '#4FA8FF', marginBottom: 6 }}>RECOMMENDATION</div>
+                <div style={{ fontSize: 10, color: '#E2E8F0', lineHeight: 1.55 }}>{GOLDEN.recommendation}</div>
+              </div>
+              <div>
+                <div style={{ fontSize: 8, letterSpacing: '0.14em', color: '#64748B', marginBottom: 6 }}>CAVEATS</div>
+                {GOLDEN.caveats.map((c) => (
+                  <div key={c} style={{ fontSize: 9, color: '#94A3B8', lineHeight: 1.5, marginBottom: 4 }}>
+                    · {c}
+                  </div>
+                ))}
+              </div>
+              <div style={{ fontSize: 8, color: '#475569', letterSpacing: '0.08em' }}>
+                terrain evidence · score {GOLDEN.realData.realDataScore} · elev {GOLDEN.realData.elevationCenterM} m ±
+                {GOLDEN.realData.elevationVarianceM}
+              </div>
+            </div>
           </div>
         )}
 
