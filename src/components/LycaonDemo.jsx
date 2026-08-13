@@ -287,7 +287,7 @@ export default function LycaonDemo() {
             <div style={{ display:'inline-flex', alignItems:'center', gap:'10px', padding:'10px 22px', border:'1px solid rgba(212,137,30,0.4)', borderRadius:'1px', fontFamily:"'Syne',sans-serif", fontSize:'9px', fontWeight:700, letterSpacing:'0.22em', textTransform:'uppercase', color:'#D4891E', transition:'all 0.2s', cursor:'pointer' }}
               onMouseEnter={e => { e.currentTarget.style.background = '#D4891E'; e.currentTarget.style.color = '#07080D' }}
               onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#D4891E' }}>
-              Try the real thing ↗
+              Open Lycaon prototype ↗
             </div>
           </a>
         </div>
