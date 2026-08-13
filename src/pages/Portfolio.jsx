@@ -316,8 +316,7 @@ function Story({ isLight }) {
     { label: 'Corporate Tools', value: 'SAP · Power BI · CRM · BW' },
     { label: 'Regions', value: 'Portugal · South East Europe · EMEA' },
     { label: 'Building', value: 'GRYPS' },
-    { label: 'Earlier prototypes', value: 'LitrixEU · Grantemia · Velu · Lycaon · DisclAI · Iraun' },
-    { label: 'Stack', value: 'React · Next.js · Neon · Vercel · Resend · Cloudflare · Mistral' },
+    { label: 'Earlier prototypes', value: 'Litrix · Grantemia · Velu · Lycaon · DisclAI · Iraun' },
     { label: 'Focus', value: 'AI research · EU compliance · Systems Intelligence' },
   ]
   return (
@@ -341,13 +340,12 @@ function Story({ isLight }) {
           {/* Text */}
           <div>
             <h2 style={{ fontFamily: "'Fraunces', serif", fontSize: isMobile ? '32px' : 'clamp(32px, 4vw, 52px)', fontWeight: 200, fontStyle: 'italic', color: headingColor, lineHeight: 1.05, letterSpacing: '-0.025em', marginBottom: '28px' }}>
-              Some people arrive.<br /><span style={{ color: '#D4891E' }}>Others keep moving.</span>
+              18 years in Nordic<br /><span style={{ color: '#D4891E' }}>commercial operations.</span>
             </h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '18px', marginBottom: '28px' }}>
               {[
-                "Systems thinking forged across two decades and multiple industries. Not methodology — necessity.",
-                "Six languages. Enough countries to lose count. The world stops feeling foreign when you stop treating it as one.",
-                "Now building intelligence that thinks ahead. The rest is in the work.",
+                "I saw where remote work fails when connectivity fails.",
+                "GRYPS is how I turn that into scored, auditable resilience — before you deploy.",
               ].map((para, i) => (
                 <p key={i} style={{ fontFamily: "'Lora', serif", fontSize: isMobile ? '15px' : '16px', lineHeight: '1.85', color: bodyColor, letterSpacing: '0.01em' }}>{para}</p>
               ))}
@@ -382,7 +380,10 @@ function ProductCard({ n, accent, category, name, tagline, description, tags, ch
   const challengeColor = isLight ? '#5A3A10' : '#5A5248'
   const neutralColor   = isLight ? '#5A5040' : '#8A8070'
   const statusBadges = (
-    <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', ...(centerCategory ? { justifySelf: 'end', justifyContent: 'flex-end' } : {}) }}>
+    <div style={{
+      display: 'flex', gap: '6px', flexWrap: 'wrap',
+      ...(centerCategory ? { justifyContent: 'center' } : { marginLeft: 'auto' }),
+    }}>
       <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '7.5px', color: accent, opacity: 0.7, letterSpacing: '0.1em', padding: '3px 8px', border: `1px solid ${accent}40`, borderRadius: '100px' }}>{status}</div>
       {nonCommercial && (
         <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '7.5px', color: neutralColor, letterSpacing: '0.1em', padding: '3px 8px', border: `1px dashed ${neutralColor}60`, borderRadius: '100px' }}>Non-commercial Research Project</div>
@@ -390,17 +391,16 @@ function ProductCard({ n, accent, category, name, tagline, description, tags, ch
     </div>
   )
   return (
-    <div style={{ background: cardBg, border: `1px solid ${cardBorder}`, borderLeft: `3px solid ${accent}`, borderRadius: '2px', padding: '32px 30px', display: 'flex', flexDirection: 'column', gap: '16px' }}>
+    <div style={{ background: cardBg, border: `1px solid ${cardBorder}`, borderLeft: `3px solid ${accent}`, borderRadius: '2px', padding: '32px 30px', display: 'flex', flexDirection: 'column', gap: '16px', ...(centerCategory ? { alignItems: 'center', textAlign: 'center' } : {}) }}>
       {centerCategory ? (
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr auto 1fr', alignItems: 'center', gap: '10px' }}>
-          <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', color: accent, opacity: 0.6, letterSpacing: '0.1em', justifySelf: 'start' }}>{n}</div>
-          <div style={{ fontFamily: "'Syne', sans-serif", fontSize: '9px', fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', color: accent, textAlign: 'center' }}>{category}</div>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px', width: '100%' }}>
+          <div style={{ fontFamily: "'Syne', sans-serif", fontSize: '9px', fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', color: accent }}>{category}</div>
           {statusBadges}
         </div>
       ) : (
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', flexWrap: 'wrap' }}>
-          <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', color: accent, opacity: 0.6, letterSpacing: '0.1em' }}>{n}</div>
-          <div style={{ fontFamily: "'Syne', sans-serif", fontSize: '9px', fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', color: accent, flex: 1 }}>{category}</div>
+        <div style={{ display: 'flex', alignItems: 'flex-start', gap: '10px', flexWrap: 'wrap', width: '100%' }}>
+          <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', color: accent, opacity: 0.6, letterSpacing: '0.1em', paddingTop: '2px' }}>{n}</div>
+          <div style={{ fontFamily: "'Syne', sans-serif", fontSize: '9px', fontWeight: 700, letterSpacing: '0.25em', textTransform: 'uppercase', color: accent, flex: '1 1 120px', minWidth: 0 }}>{category}</div>
           {statusBadges}
         </div>
       )}
@@ -409,9 +409,9 @@ function ProductCard({ n, accent, category, name, tagline, description, tags, ch
         <div style={{ fontFamily: "'Lora', serif", fontSize: '14px', fontStyle: 'italic', color: accent, lineHeight: 1.65 }}>{tagline}</div>
       )}
       {description && (
-        <div style={{ fontFamily: "'Lora', serif", fontSize: '13.5px', color: descColor, lineHeight: 1.75, textAlign: 'left' }}>{description}</div>
+        <div style={{ fontFamily: "'Lora', serif", fontSize: '13.5px', color: descColor, lineHeight: 1.75, textAlign: centerCategory ? 'center' : 'left' }}>{description}</div>
       )}
-      <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
+      <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', ...(centerCategory ? { justifyContent: 'center' } : {}) }}>
         {tags.map(tag => (
           <div key={tag} style={{ padding: '4px 10px', border: `1px solid ${accent}30`, borderRadius: '100px', fontFamily: "'JetBrains Mono', monospace", fontSize: '7.5px', color: accent, letterSpacing: '0.1em' }}>{tag}</div>
         ))}
@@ -499,10 +499,15 @@ function Work({ isLight }) {
           </div>
           <GrypsDemo />
           <div style={{
-            fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', letterSpacing: '0.12em',
-            color: isLight ? '#8A6A30' : '#6A5A3A', marginTop: '10px', textAlign: 'left',
+            fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', letterSpacing: '0.08em',
+            color: isLight ? '#8A6A30' : '#6A5A3A', marginTop: '10px', textAlign: 'left', lineHeight: 1.7,
           }}>
-            Resilience Signature for a site at 68.2°N — golden Advisor run · Score 40 · Grade D · loops every 60s.
+            <div style={{ fontFamily: "'Lora', serif", fontSize: '13px', fontStyle: 'italic', letterSpacing: '0.01em', marginBottom: '8px', color: isLight ? '#5A3A10' : '#A8B0B8' }}>
+              Watch a Resilience Signature generate in 60 seconds
+            </div>
+            Site: 68.2°N, 27.4°E · Forestry · Autonomous · Safety-critical<br />
+            Current setup: Starlink standard kit, no backup<br />
+            Result: Score 40 · Grade D — high risk, no redundancy
           </div>
 
           <div style={{
@@ -517,10 +522,10 @@ function Work({ isLight }) {
               n="02"
               accent="#C8A050"
               category="EU AI Act compliance demo"
-              name="LITRIXEU"
+              name="LITRIX"
               description="Personal project exploring AI literacy and transparency obligations under EU law — a narrow compliance demo adjacent to Gryps on the regulatory axis."
               tags={['EU AI Act', 'AI Literacy', 'Transparency']}
-              status="Personal project"
+              status="Research prototype"
               nonCommercial
               href="https://litrixeu.vercel.app"
               isLight={isLight}
@@ -532,7 +537,7 @@ function Work({ isLight }) {
               name="GRANTEMIA"
               description="AI-matched grant and funding discovery for Finnish and EU researchers — deadlines, announcements, and application pipeline in one loop."
               tags={['AI Matching', 'Deadline Intelligence', 'Funding Discovery']}
-              status="Personal project"
+              status="Research prototype"
               nonCommercial
               href="https://grantemia.fi"
               isLight={isLight}
@@ -544,7 +549,7 @@ function Work({ isLight }) {
               name="VELU"
               description="Five intelligence modules covering pipeline, email performance, market signals, competitive position, and operational health. No analyst required."
               tags={['Pipeline Intelligence', 'Market Signals', 'Competitive Watch']}
-              status="Personal project"
+              status="Research prototype"
               nonCommercial
               href="https://velu.fi"
               isLight={isLight}
@@ -556,7 +561,7 @@ function Work({ isLight }) {
               name="LYCAON"
               description="Anticipatory intelligence across six temporal dimensions. Explored and shelved — not actively developed."
               tags={['Temporal Analysis', 'Pattern Recognition', 'Strategic Foresight']}
-              status="Earlier work"
+              status="Exploratory prototype"
               nonCommercial
               href="https://lycaon.vercel.app"
               privateNote="Exploratory demo — not actively developed."
@@ -569,7 +574,7 @@ function Work({ isLight }) {
               name="DISCLAI"
               description="EU AI Act compliance documents — transparency notices, impact assessments, harm taxonomies. Explored and shelved."
               tags={['Transparency', 'Impact Assessment', 'Harm Taxonomy']}
-              status="Earlier work"
+              status="Exploratory prototype"
               nonCommercial
               isLight={isLight}
             />
@@ -580,7 +585,7 @@ function Work({ isLight }) {
               name="IRAUN"
               description="A personal AI ops assistant for managing several projects at once. Explored and shelved."
               tags={['Ops Assistant', 'Multi-project']}
-              status="Earlier work"
+              status="Exploratory prototype"
               nonCommercial
               href="https://iraun.vercel.app"
               isLight={isLight}
@@ -676,6 +681,12 @@ function Contact({ isLight }) {
           <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', color: footerColor, letterSpacing: '0.16em', lineHeight: 1.7 }}>
             © {year} Henrique Moreira · All rights reserved
           </div>
+          <div style={{
+            fontFamily: "'JetBrains Mono', monospace", fontSize: '7.5px', color: footerColor,
+            letterSpacing: '0.14em', lineHeight: 1.7, opacity: 0.75, marginTop: '4px',
+          }}>
+            React · Next.js · Neon · Vercel · Resend · Cloudflare · Mistral
+          </div>
         </div>
       </RevealWrapper>
     </Section>
@@ -705,7 +716,7 @@ export default function Portfolio({ theme = 'dark' }) {
       "url": "https://henriquemoreira.eu",
       "email": "hqe.moreira@gmail.com",
       "jobTitle": "AI Builder & Systems Thinker",
-      "description": "AI builder and systems thinker based in Espoo, Finland. Building GRYPS — connectivity resilience intelligence for Nordic and Arctic remote operations. Earlier prototypes include LitrixEU, Grantemia, Velu, Lycaon, DisclAI and Iraun.",
+      "description": "AI builder and systems thinker based in Espoo, Finland. Building GRYPS — connectivity resilience intelligence for Nordic and Arctic remote operations. Earlier prototypes include Litrix, Grantemia, Velu, Lycaon, DisclAI and Iraun.",
       "address": { "@type": "PostalAddress", "addressLocality": "Espoo", "addressCountry": "FI" },
       "sameAs": ["https://www.linkedin.com/in/hqemoreira"],
       "knowsAbout": ["Artificial Intelligence", "Systems Thinking", "Software Development", "EU AI Act", "Supply Chain", "International Business"],
