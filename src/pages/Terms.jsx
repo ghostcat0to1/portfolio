@@ -1,21 +1,21 @@
 import { LegalShell, LegalH2, LegalP, LegalUl } from '../components/LegalShell'
 
-const LAST_UPDATED = '12 August 2026'
+const LAST_UPDATED = '13 August 2026'
 const CONTACT = 'hqe.moreira@gmail.com'
 
 export default function Terms({ theme = 'dark' }) {
   return (
     <LegalShell theme={theme} title="Terms" lastUpdated={LAST_UPDATED}>
       <LegalP>
-        These terms cover the personal website at henriquemoreira.eu (the &quot;Site&quot;), operated by
+        These terms cover the personal website at henriquemoreira.eu (the &quot;Site&quot;), maintained by
         Henrique Moreira from Espoo, Finland. By using the Site you agree to these terms.
         This is not legal advice.
       </LegalP>
 
       <section>
-        <LegalH2>Operator</LegalH2>
+        <LegalH2>Site maintainer</LegalH2>
         <LegalP>
-          The Site is operated by Henrique Moreira, sole operator, based in Espoo, Finland.
+          The Site is maintained by Henrique Moreira, a private individual based in Espoo, Finland.
           Contact: <a href={`mailto:${CONTACT}`} style={{ color: '#D4891E' }}>{CONTACT}</a>.
         </LegalP>
       </section>
@@ -33,7 +33,7 @@ export default function Terms({ theme = 'dark' }) {
         <LegalH2>Intellectual property</LegalH2>
         <LegalP>
           Unless otherwise stated, the Site content, branding, and associated personal project materials
-          are owned by Henrique Moreira (sole operator, Espoo, Finland). All rights reserved.
+          are owned by Henrique Moreira (private individual, Espoo, Finland). All rights reserved.
           You may not copy, scrape, or redistribute Site content for commercial use without prior written permission.
         </LegalP>
       </section>
@@ -68,7 +68,7 @@ export default function Terms({ theme = 'dark' }) {
       <section>
         <LegalH2>Liability</LegalH2>
         <LegalP>
-          To the fullest extent permitted by applicable law, the operator is not liable for indirect or
+          To the fullest extent permitted by applicable law, the site maintainer is not liable for indirect or
           consequential damages arising from use of the Site. Nothing here limits liability that cannot
           be limited under Finnish or EU mandatory law.
         </LegalP>

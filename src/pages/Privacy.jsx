@@ -1,20 +1,20 @@
 import { LegalShell, LegalH2, LegalP, LegalUl } from '../components/LegalShell'
 
-const LAST_UPDATED = '12 August 2026'
+const LAST_UPDATED = '13 August 2026'
 const CONTACT = 'hqe.moreira@gmail.com'
 
 export default function Privacy({ theme = 'dark' }) {
   return (
     <LegalShell theme={theme} title="Privacy" lastUpdated={LAST_UPDATED}>
       <LegalP>
-        This is the personal website of Henrique Moreira (Espoo, Finland). It presents biography
+        This is the personal website of Henrique Moreira, maintained from Espoo, Finland. It presents biography
         and project descriptions. It is not a commercial storefront and does not create user accounts.
       </LegalP>
 
       <section>
-        <LegalH2>Operator & contact</LegalH2>
+        <LegalH2>Site maintainer & contact</LegalH2>
         <LegalP>
-          Operator: Henrique Moreira · Espoo, Finland.
+          Maintained by: Henrique Moreira, private individual · Espoo, Finland.
           Contact: <a href={`mailto:${CONTACT}`} style={{ color: '#D4891E' }}>{CONTACT}</a>.
         </LegalP>
       </section>
@@ -54,7 +54,7 @@ export default function Privacy({ theme = 'dark' }) {
           <li>
             <strong>Any live AI endpoint</strong> on this deployment (including the Mistral-backed API route,
             if enabled) discloses AI at the point of exposure, uses <strong>Mistral only</strong>, and is
-            subject to human oversight by the operator. Portal/UI chrome is human-authored; model text is
+            subject to human oversight by the site maintainer. Portal/UI chrome is human-authored; model text is
             AI-generated when a live call occurs.
           </li>
           <li>Article 50 transparency: AI is disclosed where AI output is shown; humans remain responsible for the site and linked projects.</li>
