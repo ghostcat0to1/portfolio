@@ -471,10 +471,6 @@ function Work({ isLight }) {
             padding: isMobile ? '24px 20px' : '36px 40px',
             textAlign: 'left',
           }}>
-            <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', marginBottom: '14px' }}>
-              <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', color: '#4FA8FF', letterSpacing: '0.1em', padding: '4px 10px', border: '1px solid rgba(79,168,255,0.35)', borderRadius: '100px' }}>Skill demonstration</div>
-              <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', color: isLight ? '#5A5040' : '#8A8070', letterSpacing: '0.1em', padding: '4px 10px', border: `1px dashed ${isLight ? '#5A504060' : '#8A807060'}`, borderRadius: '100px' }}>Functional prototype</div>
-            </div>
             <div style={{ fontFamily: "'Fraunces', serif", fontSize: 'clamp(36px, 5vw, 56px)', fontWeight: 200, fontStyle: 'italic', color: isLight ? '#1A0E04' : '#F0E8D8', letterSpacing: '-0.03em', lineHeight: 0.9, marginBottom: '16px' }}>
               GRYPS
             </div>
