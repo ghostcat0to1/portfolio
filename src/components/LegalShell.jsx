@@ -32,9 +32,13 @@ export function LegalShell({ theme = 'dark', title, lastUpdated, children }) {
         }}>
           {title}
         </h1>
-        <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '10px', color: muted, letterSpacing: '0.08em', marginBottom: '40px' }}>
-          Last updated: {lastUpdated}
-        </p>
+        {lastUpdated ? (
+          <p style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '10px', color: muted, letterSpacing: '0.08em', marginBottom: '40px' }}>
+            {lastUpdated}
+          </p>
+        ) : (
+          <div style={{ marginBottom: '40px' }} />
+        )}
 
         <div style={{
           fontFamily: "'Lora', serif", fontSize: '15px', lineHeight: 1.8, color: body,

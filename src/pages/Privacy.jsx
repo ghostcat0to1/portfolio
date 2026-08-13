@@ -1,11 +1,10 @@
 import { LegalShell, LegalH2, LegalP, LegalUl } from '../components/LegalShell'
 
-const LAST_UPDATED = '13 August 2026'
 const CONTACT = 'hqe.moreira@gmail.com'
 
 export default function Privacy({ theme = 'dark' }) {
   return (
-    <LegalShell theme={theme} title="Privacy" lastUpdated={LAST_UPDATED}>
+    <LegalShell theme={theme} title="Privacy">
       <LegalP>
         This is the personal website of Henrique Moreira, maintained from Espoo, Finland. It presents biography
         and project descriptions. It is not a commercial storefront and does not create user accounts.
@@ -83,8 +82,9 @@ export default function Privacy({ theme = 'dark' }) {
       <section>
         <LegalH2>Changes</LegalH2>
         <LegalP>
-          When AI surfaces or processors on this site change, this notice and the Terms page are updated
-          in the same change set, including the &quot;Last updated&quot; date above.
+          If this personal site&apos;s AI surfaces or processors change in a way that affects this notice,
+          the Privacy and Terms pages will be revised accordingly. This is a personal site notice, not a
+          commercial service schedule.
         </LegalP>
       </section>
     </LegalShell>
