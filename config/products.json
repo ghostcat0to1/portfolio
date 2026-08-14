@@ -13,15 +13,7 @@
     "status": "registered",
     "vercelHosted": true,
     "outboundFrom": "grantemia@henriquemoreira.eu",
-    "notes": "Outbound code uses grantemia@henriquemoreira.eu (commit 64582ab). Inbound hello@grantemia.fi on Cloudflare Email Routing — retest delivery later. Keep FI+PT email changes in parallel."
-  },
-  {
-    "product": "removed",
-    "domain": "grantemia.pt",
-    "status": "not_registered",
-    "vercelHosted": true,
-    "outboundFrom": "removed@henriquemoreira.eu",
-    "notes": "Domain not registered yet (NXDOMAIN). Outbound can ship now as removed@henriquemoreira.eu. Inbound hello@grantemia.pt waits on register → Cloudflare zone → Email Routing (mirror FI). Keep FI+PT email changes in parallel."
+    "notes": "Outbound grantemia@henriquemoreira.eu. Inbound hello@grantemia.fi on Cloudflare Email Routing."
   },
   {
     "product": "lycaon",
