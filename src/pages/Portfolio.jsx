@@ -494,10 +494,13 @@ function Work({ isLight }) {
           </div>
           <GrypsDemo />
           <div style={{
-            fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', letterSpacing: '0.12em',
+            fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', letterSpacing: '0.08em',
             color: isLight ? '#8A6A30' : '#6A5A3A', marginTop: '10px', textAlign: 'left', lineHeight: 1.7,
           }}>
-            Prototype output: simulated Resilience Signature for a site at 68.2°N · Score 40 · Grade D
+            <div style={{ fontFamily: "'Lora', serif", fontSize: '13px', fontStyle: 'italic', letterSpacing: '0.01em', marginBottom: '6px', color: isLight ? '#5A3A10' : '#A8B0B8' }}>
+              Example: remote forestry site, no backup link
+            </div>
+            Prototype output: simulated Resilience Signature · Score 40 · Grade D
           </div>
 
           <div style={{

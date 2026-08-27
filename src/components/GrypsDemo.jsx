@@ -1,7 +1,8 @@
 /**
- * GRYPS — 60s Path A motion demo (Golden Advisor whitelist only).
+ * GRYPS — Path A motion demo (Golden Advisor whitelist only).
  * Source: gryps-golden-advisor.json · captured 2026-08-12T15:10:12Z
  * No MEO, no countdowns, no invented metrics. Score 40 · Grade D.
+ * Timing: score by ~4.5s; full cycle ~38s (skim-friendly).
  */
 import { useCallback, useEffect, useRef, useState } from 'react'
 
@@ -114,29 +115,30 @@ export default function GrypsDemo() {
     at(() => setOpacity(1), 80)
     at(() => setPhase(PHASE.INPUT), 0)
 
+    // Front-load score for skim readers; full Path A still plays, tighter loop.
     at(() => {
       setPhase(PHASE.EXEC)
       setScanning(true)
-    }, 8000)
+    }, 2000)
 
     at(() => {
       setScanning(false)
       setPhase(PHASE.DIAGNOSIS)
-    }, 15000)
+    }, 4500)
 
     at(() => {
       setPhase(PHASE.OPTIONS)
       setVisibleOptions(1)
-    }, 25000)
-    at(() => setVisibleOptions(2), 26100)
-    at(() => setVisibleOptions(3), 27200)
+    }, 11000)
+    at(() => setVisibleOptions(2), 12000)
+    at(() => setVisibleOptions(3), 13000)
 
     at(() => {
       setPhase(PHASE.ADVISORY)
-    }, 35000)
+    }, 20000)
 
-    at(() => setPhase(PHASE.CLOSE), 48000)
-    at(() => runRef.current?.(), 60000)
+    at(() => setPhase(PHASE.CLOSE), 30000)
+    at(() => runRef.current?.(), 38000)
   }, [at, clearAll])
 
   useEffect(() => {
@@ -405,7 +407,7 @@ export default function GrypsDemo() {
             </div>
             <div style={{ fontSize: 11, color: '#4FA8FF', letterSpacing: '0.14em', marginTop: 8 }}>gryps.vercel.app</div>
             <div style={{ fontSize: 8, color: '#475569', marginTop: 16, letterSpacing: '0.12em' }}>
-              {GOLDEN.score} · {GOLDEN.grade} · Free · ~60 seconds
+              {GOLDEN.score} · {GOLDEN.grade} · Free · ~40 seconds
             </div>
           </div>
         )}
