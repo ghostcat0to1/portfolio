@@ -316,6 +316,7 @@ function Story({ isLight }) {
   const credBorder   = isLight ? 'rgba(212,137,30,0.2)' : 'rgba(212,137,30,0.12)'
   const credentials  = [
     { label: 'Background', value: 'International Business Management · Packaging · Forest Industry' },
+    { label: 'Practice', value: 'Account development · Pricing discipline · Cross-functional delivery · Commercial process design' },
     { label: 'Corporate Tools', value: 'SAP · Power BI · CRM · BW' },
     { label: 'Regions', value: 'Portugal · South East Europe · EMEA' },
     { label: 'Building', value: 'GRYPS' },
@@ -348,7 +349,7 @@ function Story({ isLight }) {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '18px', marginBottom: '28px' }}>
               {[
                 "Modern AI software usually fails because the builder never lived the problem.",
-                "My systems perspective was built across eighteen years of Nordic industrial operations — evolving from frontline client friction, to commercial workflow design, to market-facing leadership.",
+                "My systems perspective was built across eighteen years of Nordic industrial operations — evolving from frontline client friction, to commercial workflow design, to market-facing leadership in forest-industry paperboard — account development, pricing under volatility, and cross-functional delivery with production and logistics.",
                 "I am now developing my skills in predictive AI and systems intelligence, building functional prototypes to demonstrate how domain expertise and engineering can close operational gaps I saw from the inside out.",
               ].map((para, i) => (
                 <p key={i} style={{ fontFamily: "'Lora', serif", fontSize: isMobile ? '15px' : '16px', lineHeight: '1.85', color: bodyColor, letterSpacing: '0.01em' }}>{para}</p>
