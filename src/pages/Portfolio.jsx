@@ -476,7 +476,7 @@ function Work({ isLight }) {
               GRYPS
             </div>
             <div style={{ fontFamily: "'Lora', serif", fontSize: '15px', color: isLight ? '#2A1A08' : '#A8B0B8', lineHeight: 1.7, maxWidth: '560px', marginBottom: '24px' }}>
-              A functional prototype exploring connectivity risk scoring for remote industrial operations. Demonstrates product design, regulatory mapping (NIS2/CER), and AI-assisted technical architecture for high-stakes environments.
+              A functional prototype exploring connectivity risk scoring for remote industrial operations. Demonstrates how product design and regulatory mapping (NIS2/CER) can serve OT security and compliance teams dealing with connectivity risk in high-stakes environments.
             </div>
             <a href="https://gryps.vercel.app" target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}>
               <div style={{
