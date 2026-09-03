@@ -478,7 +478,7 @@ function Work({ isLight }) {
             <div style={{ fontFamily: "'Lora', serif", fontSize: '15px', color: isLight ? '#2A1A08' : '#A8B0B8', lineHeight: 1.7, maxWidth: '560px', marginBottom: '24px' }}>
               A functional prototype exploring connectivity risk scoring for remote industrial operations. Demonstrates how product design and regulatory mapping (NIS2/CER) can serve OT security and compliance teams dealing with connectivity risk in high-stakes environments.
             </div>
-            <a href="https://gryps.vercel.app" target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}>
+            <a href="https://gryps.vercel.app" target="_blank" rel="nofollow noreferrer" style={{ textDecoration: 'none' }}>
               <div style={{
                 display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '10px 22px',
                 border: '1px solid #4FA8FF', borderRadius: '1px',
@@ -498,9 +498,9 @@ function Work({ isLight }) {
             color: isLight ? '#8A6A30' : '#6A5A3A', marginTop: '10px', textAlign: 'left', lineHeight: 1.7,
           }}>
             <div style={{ fontFamily: "'Lora', serif", fontSize: '13px', fontStyle: 'italic', letterSpacing: '0.01em', marginBottom: '6px', color: isLight ? '#5A3A10' : '#A8B0B8' }}>
-              Example: remote forestry site, no backup link
+              Example: remote forestry site, northern Finland, no backup link
             </div>
-            Prototype output: simulated Resilience Signature · Score 40 · Grade D
+            Illustrative engine output · Score 40 / 100 · Grade D · Scale: A (≥80 resilient) → F (&lt;20 critical failure)
           </div>
 
           <div style={{
