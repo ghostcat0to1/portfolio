@@ -1,7 +1,17 @@
 # Portfolio — Codebook
 
-> Personal portfolio — animated particle canvas, GRYPS live featured project, earlier prototypes, Privacy/Terms, dark/light theme.
+> Personal portfolio — animated particle canvas, GRYPS live featured project (skill demo), earlier prototypes, Privacy/Terms, dark/light theme.
 > Stack: Vite + React + React Router · Pure inline styles (no CSS files) · Canvas RAF animation · Vercel
+
+---
+
+## Public posture
+
+- **Indexed:** this site + GRYPS only. Earlier prototypes are linked with `rel="nofollow noreferrer"` and stay noindex on their own hosts.
+- **Hierarchy:** GRYPS Live card first; Earlier prototypes grid (Litrix, Grantemia, Velu, Lycaon, DisclAI, Iraun). No Grantemia PT.
+- **CTAs:** prototype cards use **Open prototype** — not Try/Buy. Job-seeking commercial-role copy may exist elsewhere; prototypes are not a storefront.
+- **GrypsDemo:** Path A whitelist loop only (`src/components/GrypsDemo.jsx`) — Score 40 · Grade D golden Advisor run; no invented RF/countdown metrics; GOLDEN strings stay frozen.
+- **Audience for GRYPS:** OT security / compliance skill demonstration, not a SaaS pitch deck.
 
 ---
 
@@ -60,16 +70,16 @@ Required public pages: **Privacy** and **Terms**, linked from the footer.
 
 Must stay accurate (not legal advice):
 
-- Operator: Henrique Moreira · Espoo, Finland · contact `hqe.moreira@gmail.com`
+- Maintainer framing: private individual / maintained by Henrique Moreira · Espoo, Finland · contact `hqe.moreira@gmail.com` (avoid “sole operator”)
 - AI provider for live model calls: **Mistral only** (no Gemini/OpenAI unless that becomes true)
 - Classification: **limited-risk** under Regulation (EU) 2024/1689 — **not** minimal-risk
 - Article 50: AI disclosed at the point of exposure; human oversight; no prohibited/high-risk claims; no automated decisions with legal or similarly significant effects
-- What is / isn’t AI-generated (portal chrome vs AI); no embedded live AI demo on the portfolio page today
-- “Last updated: …” bumped whenever AI features or processors change
+- What is / isn’t AI-generated (portal chrome vs AI); GrypsDemo is illustrative Path A motion, not a live API call on the portfolio page
+- Do **not** use a living “Last updated: …” date in legal chrome
 - GDPR: categories, processors (Vercel, Analytics, Google Fonts, Mistral when used), retention, rights
 - Copyright footer: `© {year} Henrique Moreira · All rights reserved`
 
-**When adding or changing AI surfaces (demos, API routes, labels), update Privacy + Terms Last updated in the same PR.**
+**When adding or changing AI surfaces (demos, API routes, labels), keep Privacy + Terms processor claims accurate in the same PR.**
 
 Shared layout: `src/components/LegalShell.jsx`. Pages: `src/pages/Privacy.jsx`, `src/pages/Terms.jsx`.
 
