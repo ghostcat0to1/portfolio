@@ -7,11 +7,19 @@
 
 ## Public posture
 
-- **Indexed:** this site + GRYPS only. Earlier prototypes are linked with `rel="nofollow noreferrer"` and stay noindex on their own hosts.
+- **Indexed:** this site + GRYPS only. Earlier prototypes are linked with `rel="nofollow noreferrer"` and stay noindex on their own hosts. Forge is private ops (noindex).
 - **Hierarchy:** GRYPS Live card first; Earlier prototypes grid (Litrix, Grantemia, Velu, Lycaon, DisclAI, Iraun). No Grantemia PT.
 - **CTAs:** prototype cards use **Open prototype** — not Try/Buy. Job-seeking commercial-role copy may exist elsewhere; prototypes are not a storefront.
 - **GrypsDemo:** Path A whitelist loop only (`src/components/GrypsDemo.jsx`) — Score 40 · Grade D golden Advisor run; no invented RF/countdown metrics; GOLDEN strings stay frozen.
 - **Audience for GRYPS:** OT security / compliance skill demonstration, not a SaaS pitch deck.
+- **GitHub front door:** public `README.md` (posture + stack + how to run); architecture stays in this codebook. Proprietary `LICENSE` harmonized with sibling portfolio repos.
+
+### Changelog — 2026-09
+
+- Public README shipped as GitHub front door (posture + stack + how to run); architecture stays in this codebook.
+- Proprietary LICENSE harmonized across the portfolio (same wording family as sibling repos).
+- Active/indexed: Portfolio + GRYPS only. Forge is private ops (noindex).
+- Skill-demo framing; GrypsDemo Path A; Grantemia PT retired from public hierarchy.
 
 ---
 
