@@ -1,4 +1,4 @@
-﻿Copyright (c) 2026 Henrique Moreira
+Copyright (c) 2026 Henrique Moreira
 All rights reserved.
 
 PROPRIETARY SOFTWARE LICENSE
@@ -19,6 +19,13 @@ NOT PERMITTED without explicit written permission from the copyright holder:
 - Deploying this code to serve third parties
 - Reverse engineering this code to build a competing product or service
 - Removing or altering this copyright notice
+
+PRODUCT:     Portfolio
+DESCRIPTION: Personal site hub featuring GRYPS
+WEBSITE:     https://henriquemoreira.eu
+
+This software is provided "as is", without warranty of any kind.
+The author accepts no liability arising from the use of this software.
 
 For licensing inquiries or commercial use:
   Email:  hqe.moreira@gmail.com
