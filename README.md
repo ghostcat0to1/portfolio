@@ -1,16 +1,36 @@
-# React + Vite
+# Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal site hub for Henrique Moreira (Espoo, Finland). Indexed public surface featuring **GRYPS** as the live skill demo, with earlier prototypes linked for context — not a SaaS storefront.
 
-Currently, two official plugins are available:
+**Live:** [henriquemoreira.eu](https://henriquemoreira.eu)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## What’s on the site
 
-## React Compiler
+- Animated particle canvas + dark/light theme
+- GRYPS Live card (OT security / compliance skill demonstration)
+- Earlier prototypes grid (Litrix, Grantemia, Velu, Lycaon, DisclAI, Iraun) — `rel="nofollow"`
+- Privacy / Terms
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Stack
 
-## Expanding the ESLint configuration
+- Vite + React + React Router
+- Pure inline styles (no CSS files / Tailwind)
+- Canvas RAF particle system
+- Vercel
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Local development
+
+```bash
+npm install
+npm run dev
+```
+
+Optional server AI proxy uses `MISTRAL_API_KEY` on Vercel (`api/gemini.js` is Mistral-backed; filename is historical). Never commit secrets.
+
+## Docs
+
+Maintainer notes live in [`CODEBOOK.md`](./CODEBOOK.md).
+
+## License
+
+Proprietary — see [`LICENSE`](./LICENSE). All rights reserved.
