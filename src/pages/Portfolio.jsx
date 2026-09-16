@@ -237,7 +237,7 @@ function Hero({ isLight }) {
               textAlign: 'left',
               maxWidth: isMobile ? '220px' : 'none',
               lineHeight: 1.4,
-            }}>Seeking product and commercial roles in Nordic industrial tech</span>
+            }}>Seeking AI product and systems roles in Nordic industrial tech.</span>
           </div>
         </div>
         <h1 style={{ margin: 0, animation: 'hmTitleIn 1.4s cubic-bezier(0.16,1,0.3,1) both' }}>
@@ -289,7 +289,7 @@ function Hero({ isLight }) {
           display: 'flex', gap: '10px', justifyContent: 'center', flexWrap: 'wrap',
           marginBottom: isMobile ? '40px' : '56px',
         }}>
-          {['Industrial Operations', 'Commercial Strategy', 'AI Systems'].map(pill => (
+          {['Industrial Commercial Leadership', 'Applied AI', 'Nordic Markets'].map(pill => (
             <div key={pill} style={{
               padding: '8px 18px', border: `1px solid ${pillBorder}`, borderRadius: '100px',
               fontFamily: "'Syne', sans-serif", fontSize: '9px', fontWeight: 700,
@@ -650,7 +650,7 @@ function Contact({ isLight }) {
       <RevealWrapper>
         <SectionEyebrow>Contact</SectionEyebrow>
         <h2 style={{ fontFamily: "'Fraunces', serif", fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 200, fontStyle: 'italic', color: headingColor, lineHeight: 1.2, letterSpacing: '-0.02em', marginBottom: '24px', maxWidth: '720px', marginLeft: 'auto', marginRight: 'auto' }}>
-          Open to product, commercial, and strategy roles in Nordic industrial and AI-led companies.
+          Open to conversations about AI product and systems roles at Nordic industrial and AI-led companies.
         </h2>
         <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '10px', color: bodyColor, lineHeight: 1.7, maxWidth: '520px', margin: '0 auto 52px' }}>
           If you are hiring or want to discuss how operations experience translates into systems design, I would welcome a conversation.
