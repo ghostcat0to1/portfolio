@@ -449,12 +449,9 @@ function Work({ isLight }) {
     <Section id="work" isLight={isLight}>
       <RevealWrapper>
         <SectionEyebrow>Projects</SectionEyebrow>
-        <h2 style={{ fontFamily: "'Fraunces', serif", fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: 200, fontStyle: 'italic', color: headingColor, lineHeight: 1.1, letterSpacing: '-0.02em', marginBottom: '12px' }}>
-          Selected prototypes demonstrating systems thinking, product design, and domain fluency.
+        <h2 style={{ fontFamily: "'Fraunces', serif", fontSize: 'clamp(32px, 4vw, 52px)', fontWeight: 200, fontStyle: 'italic', color: headingColor, lineHeight: 1.1, letterSpacing: '-0.02em', marginBottom: '40px' }}>
+          Selected work — functional prototypes built to explore AI systems design across operations, compliance, and research funding.
         </h2>
-        <div style={{ fontFamily: "'Lora', serif", fontSize: '13px', fontStyle: 'italic', color: isLight ? '#8A6A30' : '#4A4030', marginBottom: '40px', textAlign: 'center' }}>
-          Skill demonstrations — functional prototypes built to explore AI systems design across operations, compliance, and research funding.
-        </div>
       </RevealWrapper>
       <RevealWrapper delay={150}>
         <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
@@ -463,7 +460,7 @@ function Work({ isLight }) {
             textTransform: 'uppercase', color: isLight ? '#8A6A30' : '#6A5A3A',
             textAlign: 'center', marginBottom: '16px',
           }}>
-            Skill demonstration · Functional prototype
+            R&D Prototype · Non-commercial · Model v0.3
           </div>
           <div style={{
             background: isLight ? 'rgba(240,248,255,0.95)' : '#080C12',
@@ -476,21 +473,30 @@ function Work({ isLight }) {
               GRYPS
             </div>
             <div style={{ fontFamily: "'Lora', serif", fontSize: '15px', color: isLight ? '#2A1A08' : '#A8B0B8', lineHeight: 1.7, maxWidth: '560px', marginBottom: '24px' }}>
-              A functional prototype exploring connectivity risk scoring for remote industrial operations. Demonstrates how product design and regulatory mapping (NIS2/CER) can serve OT security and compliance teams dealing with connectivity risk in high-stakes environments.
+              A research prototype scoring connectivity resilience for remote Nordic, Arctic, and Icelandic operations — forestry, maritime, mining, and autonomous fleets — against NIS2/CER requirements. Full methodology, data sources, and limitations documented on the project site.
             </div>
-            <a href="https://gryps.vercel.app" target="_blank" rel="nofollow noreferrer" style={{ textDecoration: 'none' }}>
-              <div style={{
-                display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '10px 22px',
-                border: '1px solid #4FA8FF', borderRadius: '1px',
-                fontFamily: "'Syne', sans-serif", fontSize: '10px', fontWeight: 700,
-                letterSpacing: '0.22em', textTransform: 'uppercase', color: '#4FA8FF', cursor: 'pointer',
-              }}
-                onMouseEnter={e => { e.currentTarget.style.background = '#4FA8FF'; e.currentTarget.style.color = '#07080D' }}
-                onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#4FA8FF' }}
-              >
-                View prototype →
-              </div>
-            </a>
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px', alignItems: 'center' }}>
+              <a href="https://gryps.vercel.app" target="_blank" rel="nofollow noreferrer" style={{ textDecoration: 'none' }}>
+                <div style={{
+                  display: 'inline-flex', alignItems: 'center', gap: '10px', padding: '10px 22px',
+                  border: '1px solid #4FA8FF', borderRadius: '1px',
+                  fontFamily: "'Syne', sans-serif", fontSize: '10px', fontWeight: 700,
+                  letterSpacing: '0.22em', textTransform: 'uppercase', color: '#4FA8FF', cursor: 'pointer',
+                }}
+                  onMouseEnter={e => { e.currentTarget.style.background = '#4FA8FF'; e.currentTarget.style.color = '#07080D' }}
+                  onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#4FA8FF' }}
+                >
+                  View prototype →
+                </div>
+              </a>
+              <a href="https://gryps.vercel.app/methodology" target="_blank" rel="nofollow noreferrer" style={{
+                fontFamily: "'JetBrains Mono', monospace", fontSize: '10px', letterSpacing: '0.12em',
+                textTransform: 'uppercase', color: isLight ? '#5A3A10' : '#A8B0B8', textDecoration: 'underline',
+                textUnderlineOffset: '3px',
+              }}>
+                Methodology →
+              </a>
+            </div>
           </div>
           <GrypsDemo />
           <div style={{
@@ -500,7 +506,7 @@ function Work({ isLight }) {
             <div style={{ fontFamily: "'Lora', serif", fontSize: '13px', fontStyle: 'italic', letterSpacing: '0.01em', marginBottom: '6px', color: isLight ? '#5A3A10' : '#A8B0B8' }}>
               Example: remote forestry site, northern Finland, no backup link
             </div>
-            Illustrative engine output · Score 40 / 100 · Grade D · Scale: A (≥80 resilient) → F (&lt;20 critical failure)
+            Illustrative engine output · Score 47 / 100 · Grade D · Scale: A (≥80 resilient) → F (&lt;20 critical failure)
           </div>
 
           <div style={{
@@ -522,7 +528,7 @@ function Work({ isLight }) {
               accent="#C8A050"
               category="EU AI Act compliance demo"
               name="LITRIX"
-              description="A compliance-focused prototype demonstrating AI literacy training workflows under EU AI Act Article 4. Built to explore regulatory product design and verification systems."
+              description="A compliance-focused prototype for AI literacy training workflows under EU AI Act Article 4. Built to explore regulatory product design and verification systems."
               tags={['EU AI Act', 'AI Literacy', 'Transparency']}
               status="Research prototype"
               href="https://litrixeu.vercel.app"
@@ -534,7 +540,7 @@ function Work({ isLight }) {
               accent="#5BA89A"
               category="Research funding intelligence"
               name="GRANTEMIA"
-              description="A research-funding prototype demonstrating AI matching, deadline intelligence, and pipeline UX design for academic and institutional use cases."
+              description="A research-funding prototype for AI matching, deadline intelligence, and pipeline UX design for academic and institutional use cases."
               tags={['AI Matching', 'Deadline Intelligence', 'Funding Discovery']}
               status="Research prototype"
               href="https://grantemia.fi"
@@ -546,7 +552,7 @@ function Work({ isLight }) {
               accent="#1EC8A8"
               category="B2B operations intelligence"
               name="VELU"
-              description="A B2B operations prototype demonstrating five intelligence modules — pipeline analysis, email triage, market mapping, and task tracking. Explores how AI can interpret unstructured operational data."
+              description="A B2B operations prototype exploring five intelligence modules — pipeline analysis, email triage, market mapping, and task tracking. Explores how AI can interpret unstructured operational data."
               tags={['Pipeline Intelligence', 'Market Signals', 'Competitive Watch']}
               status="Research prototype"
               href="https://velu.fi"

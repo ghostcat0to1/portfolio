@@ -1,7 +1,7 @@
 /**
  * GRYPS — Path A motion demo (Golden Advisor whitelist only).
  * Source: gryps-golden-advisor.json · captured 2026-08-12T15:10:12Z
- * No MEO, no countdowns, no invented metrics. Score 40 · Grade D.
+ * No MEO, no countdowns, no invented metrics. Score 47 · Grade D.
  * Timing: score by ~4.5s; full cycle ~38s (skim-friendly).
  */
 import { useCallback, useEffect, useRef, useState } from 'react'
@@ -13,7 +13,7 @@ const GOLDEN = {
   autonomy: 'autonomous',
   criticality: 'safety-critical',
   setup: 'Starlink standard kit, no backup',
-  score: 40,
+  score: 47,
   grade: 'D',
   summary:
     'Single-provider setup with no redundancy poses high operational risk for safety-critical autonomous forestry operations in Arctic conditions.',
