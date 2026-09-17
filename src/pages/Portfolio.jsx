@@ -652,6 +652,9 @@ function Contact({ isLight }) {
         <h2 style={{ fontFamily: "'Fraunces', serif", fontSize: 'clamp(28px, 4vw, 48px)', fontWeight: 200, fontStyle: 'italic', color: headingColor, lineHeight: 1.2, letterSpacing: '-0.02em', marginBottom: '24px', maxWidth: '720px', marginLeft: 'auto', marginRight: 'auto' }}>
           Open to conversations about AI product and systems roles at Nordic industrial and AI-led companies.
         </h2>
+        <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '10px', color: footerColor, letterSpacing: '0.12em', lineHeight: 1.7, maxWidth: '520px', margin: '0 auto 20px' }}>
+          industrial operator · builder at heart · customer-centric · Nordic-fluent
+        </div>
         <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: '10px', color: bodyColor, lineHeight: 1.7, maxWidth: '520px', margin: '0 auto 52px' }}>
           If you are hiring or want to discuss how operations experience translates into systems design, I would welcome a conversation.
         </div>
