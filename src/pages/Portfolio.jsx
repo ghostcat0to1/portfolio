@@ -237,7 +237,7 @@ function Hero({ isLight }) {
               textAlign: 'left',
               maxWidth: isMobile ? '220px' : 'none',
               lineHeight: 1.4,
-            }}>Seeking AI product and systems roles in Nordic industrial tech.</span>
+            }}>Seeking AI product and systems roles in Nordic industrial tech</span>
           </div>
         </div>
         <h1 style={{ margin: 0, animation: 'hmTitleIn 1.4s cubic-bezier(0.16,1,0.3,1) both' }}>
@@ -349,7 +349,7 @@ function Story({ isLight }) {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '18px', marginBottom: '28px' }}>
               {[
                 "Modern AI software usually fails because the builder never lived the problem.",
-                "My systems perspective was built across eighteen years of Nordic industrial operations — evolving from frontline client friction, to commercial workflow design, to market-facing leadership in forest-industry paperboard, where account volume grew by 10% a year and international pricing gains ran around 4% annually through structured negotiation, alongside cross-functional delivery with production and logistics.",
+                "My systems perspective comes from eighteen years in Nordic industrial operations — from frontline client work to market-facing leadership in forest-industry paperboard, growing account volume 10% a year and international pricing 4% annually, while coordinating closely with production and logistics.",
                 "I am now developing my skills in predictive AI and systems intelligence, building functional prototypes to demonstrate how domain expertise and engineering can close operational gaps I saw from the inside out.",
               ].map((para, i) => (
                 <p key={i} style={{ fontFamily: "'Lora', serif", fontSize: isMobile ? '15px' : '16px', lineHeight: '1.85', color: bodyColor, letterSpacing: '0.01em' }}>{para}</p>
