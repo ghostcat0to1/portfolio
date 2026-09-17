@@ -349,7 +349,7 @@ function Story({ isLight }) {
             <div style={{ display: 'flex', flexDirection: 'column', gap: '18px', marginBottom: '28px' }}>
               {[
                 "Modern AI software usually fails because the builder never lived the problem.",
-                "My systems perspective comes from eighteen years in Nordic industrial operations — from frontline client work to market-facing leadership in forest-industry paperboard, growing account volume 10% a year and international pricing 4% annually, while coordinating closely with production and logistics.",
+                "That experience runs from frontline client work to market-facing leadership in forest-industry paperboard — growing account volume 10% a year and international pricing 4% annually, while coordinating closely with production and logistics.",
                 "I am now developing my skills in predictive AI and systems intelligence, building functional prototypes to demonstrate how domain expertise and engineering can close operational gaps I saw from the inside out.",
               ].map((para, i) => (
                 <p key={i} style={{ fontFamily: "'Lora', serif", fontSize: isMobile ? '15px' : '16px', lineHeight: '1.85', color: bodyColor, letterSpacing: '0.01em' }}>{para}</p>
