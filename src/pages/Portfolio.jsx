@@ -336,7 +336,7 @@ function Story({ isLight }) {
               <source srcSet="/henrique.webp" type="image/webp" />
               <img
                 src="/henrique.jpg"
-                alt="Henrique Moreira presenting"
+                alt="Henrique Moreira presenting, holding notes and a clicker"
                 width={530}
                 height={1100}
                 loading="lazy"
