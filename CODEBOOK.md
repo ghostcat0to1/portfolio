@@ -16,6 +16,7 @@
 
 ### Changelog — 2026-09
 
+- **2026-09-18 (Forge s21):** GitHub owner URLs → `hqemoreira`. Hub remains under Forge `seo-geo-digest`; clicks ≠ visitors posture unchanged.
 - **2026-09-18 (Forge s20):** CODEBOOK synced with Forge journals. Hub copy aligned to AI product / systems roles; GRYPS Live + Open prototype framing; Forge `seo-geo-digest` + clicks≠visitors clarity.
 - Public README shipped as GitHub front door (posture + stack + how to run); architecture stays in this codebook.
 - Proprietary LICENSE harmonized across the portfolio (same wording family as sibling repos).
