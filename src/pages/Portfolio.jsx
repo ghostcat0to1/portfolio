@@ -666,6 +666,13 @@ function Contact({ isLight }) {
               Send a message
             </div>
           </a>
+          <a href="https://github.com/hqemoreira" target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}>
+            <div style={{ padding: '14px 32px', border: '1px solid rgba(212,137,30,0.4)', color: '#D4891E', fontFamily: "'Syne', sans-serif", fontSize: '11px', fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase', borderRadius: '1px', transition: 'all 0.2s' }}
+              onMouseEnter={e => e.currentTarget.style.background = 'rgba(212,137,30,0.08)'}
+              onMouseLeave={e => e.currentTarget.style.background = 'transparent'}>
+              GitHub ↗
+            </div>
+          </a>
           <a href="https://www.linkedin.com/in/hqemoreira" target="_blank" rel="noreferrer" style={{ textDecoration: 'none' }}>
             <div style={{ padding: '14px 32px', border: '1px solid rgba(212,137,30,0.4)', color: '#D4891E', fontFamily: "'Syne', sans-serif", fontSize: '11px', fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase', borderRadius: '1px', transition: 'all 0.2s' }}
               onMouseEnter={e => e.currentTarget.style.background = 'rgba(212,137,30,0.08)'}
