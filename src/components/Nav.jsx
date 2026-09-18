@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import HMSymbol from './HMSymbol'
 
 function useIsMobileNav() {
@@ -17,8 +17,18 @@ function useIsMobileNav() {
 export default function Nav({ theme, onToggleTheme }) {
   const isLight = theme === 'light'
   const isMobile = useIsMobileNav()
+  const location = useLocation()
   const border  = isLight ? 'rgba(212,137,30,0.2)' : 'rgba(212,137,30,0.08)'
   const bg      = isLight ? 'rgba(245,240,230,0.95)' : 'rgba(7,8,13,0.92)'
+
+  const handleLogoClick = (e) => {
+    if (location.pathname !== '/') return
+    e.preventDefault()
+    const hero = document.getElementById('hero')
+    if (hero) hero.scrollIntoView()
+    else window.scrollTo(0, 0)
+  }
+
   return (
     <nav style={{
       position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100,
@@ -29,7 +39,12 @@ export default function Nav({ theme, onToggleTheme }) {
       borderBottom: `0.5px solid ${border}`,
       transition: 'background 0.4s ease',
     }}>
-      <Link to="/" style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}>
+      <Link
+        to="/"
+        aria-label={location.pathname === '/' ? 'Back to top' : 'Home'}
+        onClick={handleLogoClick}
+        style={{ display: 'flex', alignItems: 'center', textDecoration: 'none' }}
+      >
         <HMSymbol size={44} theme={isLight ? 'light' : 'dark'} />
       </Link>
       <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
