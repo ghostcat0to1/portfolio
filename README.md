@@ -1,22 +1,28 @@
-# Portfolio
+# Portfolio — Henrique Moreira
 
-Personal site hub for Henrique Moreira (Espoo, Finland). Indexed public surface featuring **GRYPS** as the live skill demo, with earlier prototypes linked for context — not a SaaS storefront.
+Personal site hub for Henrique Moreira (Espoo, Finland). Public, indexed surface featuring **GRYPS** as the live skill demo, with earlier research prototypes linked for context.
+
+**Not a SaaS storefront.** Prototypes are non-commercial / research / skill demonstrations. CTAs use **Open prototype**.
 
 **Live:** [henriquemoreira.eu](https://henriquemoreira.eu)
 
 ## What’s on the site
 
 - Animated particle canvas + dark/light theme
-- GRYPS Live card (OT security / compliance skill demonstration)
-- Earlier prototypes grid (Litrix, Grantemia, Velu, Lycaon, DisclAI, Iraun) — `rel="nofollow"`
+- GRYPS Live card with Path A golden Advisor motion demo (Score 47 · Grade D)
+- Earlier prototypes grid (LitrixEU, Grantemia, Velu, Lycaon, DisclAI, Iraun) — `rel="nofollow noreferrer"`
+- FORGE listed as private internal tooling only (no public login link)
 - Privacy / Terms
 
 ## Stack
 
-- Vite + React + React Router
-- Pure inline styles (no CSS files / Tailwind)
+Technologies **this repository** actually uses:
+
+- Vite + React 19 + React Router
+- Pure inline styles (no Tailwind)
 - Canvas RAF particle system
-- Vercel
+- `@vercel/analytics` (cookieless)
+- Deployed on Vercel
 
 ## Local development
 
@@ -25,12 +31,23 @@ npm install
 npm run dev
 ```
 
-Optional server AI proxy uses `MISTRAL_API_KEY` on Vercel (`api/gemini.js` is Mistral-backed; filename is historical). Never commit secrets.
+```bash
+npm run lint
+npm run build
+```
+
+No API keys are required for local development. Never commit secrets; see [`.env.example`](./.env.example) and [`SECURITY.md`](./SECURITY.md).
 
 ## Docs
 
-Maintainer notes live in [`CODEBOOK.md`](./CODEBOOK.md).
+Maintainer notes: [`CODEBOOK.md`](./CODEBOOK.md)
 
 ## License
 
 Proprietary — see [`LICENSE`](./LICENSE). All rights reserved.
+
+## Contact
+
+- Email: hqe.moreira@gmail.com
+- LinkedIn: [linkedin.com/in/hqemoreira](https://www.linkedin.com/in/hqemoreira)
+- GitHub: [github.com/hqemoreira](https://github.com/hqemoreira)

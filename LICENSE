@@ -6,6 +6,11 @@ PROPRIETARY SOFTWARE LICENSE
 This repository contains proprietary source code owned exclusively by
 Henrique Moreira ("hqemoreira").
 
+PRODUCT:     Portfolio
+DESCRIPTION: Personal site hub featuring GRYPS (skill demo) and earlier research prototypes
+WEBSITE:     https://henriquemoreira.eu
+REPOSITORY:  https://github.com/hqemoreira/portfolio
+
 PERMITTED:
 - Viewing and reading this code for educational and reference purposes
 - Forking this repository on GitHub for the purpose of submitting
@@ -16,13 +21,12 @@ NOT PERMITTED without explicit written permission from the copyright holder:
 - Using this code, in whole or in part, in any commercial product or service
 - Copying, modifying, merging, publishing, distributing, or sublicensing
   this code or any derivative works
-- Deploying this code to serve third parties
+- Deploying this code to serve third parties (except the copyright holder’s own hosting)
 - Reverse engineering this code to build a competing product or service
 - Removing or altering this copyright notice
 
-PRODUCT:     Portfolio
-DESCRIPTION: Personal site hub featuring GRYPS
-WEBSITE:     https://henriquemoreira.eu
+Linked prototype projects (GRYPS, LitrixEU, Grantemia, Velu, Lycaon, DisclAI, Iraun, and others)
+remain under their own licenses and terms where published separately.
 
 This software is provided "as is", without warranty of any kind.
 The author accepts no liability arising from the use of this software.

@@ -44,13 +44,14 @@ export default function Terms({ theme = 'dark' }) {
             AI features associated with this Site are classified as <strong>limited-risk</strong> under
             Regulation (EU) 2024/1689 — not minimal-risk.
           </li>
-          <li>AI provider for live model calls: <strong>Mistral only</strong> (no Gemini or OpenAI on this Site).</li>
+          <li>
+            The GRYPS panel is an illustrative Path A motion demo (frozen strings), not a live model call
+            from this Site. Linked prototypes are separate and may use their own AI providers.
+          </li>
           <li>Article 50: AI is disclosed at the point of exposure; human oversight applies; no prohibited or high-risk claims are made.</li>
           <li>The Site does not make automated decisions with legal or similarly significant effects on individuals.</li>
           <li>
-            The Site does not currently embed a live AI demo. Linked prototypes are separate and may be
-            exploratory or shelved. Portal chrome is human-authored. Where a live AI call returns text,
-            that text is AI-generated.
+            Portal chrome is human-authored. This deployment currently has no live AI API route.
           </li>
         </LegalUl>
       </section>
