@@ -33,8 +33,7 @@ export default function Privacy({ theme = 'dark' }) {
           <li><strong>Vercel</strong> — hosts this site. Standard server/request logs may be processed by the hosting provider.</li>
           <li><strong>Vercel Analytics</strong> — cookieless page analytics (no consent banner required for this mechanism alone).</li>
           <li><strong>Google Fonts</strong> — fonts load from Google&apos;s CDN; your IP address may be visible to Google when fonts are fetched.</li>
-          <li><strong>Mistral</strong> — AI provider for any live model calls served by this project&apos;s API routes. No Gemini or OpenAI models are used.</li>
-          <li>Linked product sites (LYCAON, GRYPS, Velu, Grantemia FI/PT, and others) have their own privacy notices where applicable.</li>
+          <li>Linked product sites (GRYPS, LitrixEU, Grantemia, Velu, Lycaon, DisclAI, Iraun, and others) have their own privacy notices where applicable.</li>
         </LegalUl>
       </section>
 
@@ -47,14 +46,15 @@ export default function Privacy({ theme = 'dark' }) {
         </LegalP>
         <LegalUl>
           <li>
-            This Site currently has <strong>no embedded live AI demo</strong>. Project cards may link
-            to separate personal prototypes (including shelved ones such as LYCAON).
+            The GRYPS Path A panel on the home page is an <strong>illustrative motion demo</strong> (frozen golden
+            Advisor strings · Score 47 · Grade D). It does <strong>not</strong> call a live model API from this site.
           </li>
           <li>
-            <strong>Any live AI endpoint</strong> on this deployment (including the Mistral-backed API route,
-            if enabled) discloses AI at the point of exposure, uses <strong>Mistral only</strong>, and is
-            subject to human oversight by the site maintainer. Portal/UI chrome is human-authored; model text is
-            AI-generated when a live call occurs.
+            Project cards may link to separate personal prototypes (including shelved ones). Those hosts
+            publish their own notices when they use live AI.
+          </li>
+          <li>
+            This deployment currently has <strong>no live AI API route</strong>. Portal/UI chrome is human-authored.
           </li>
           <li>Article 50 transparency: AI is disclosed where AI output is shown; humans remain responsible for the site and linked projects.</li>
         </LegalUl>
