@@ -1,7 +1,8 @@
+import { lazy, Suspense, useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-import GrypsDemo from '../components/GrypsDemo'
 import { usePrefersReducedMotion } from '../hooks/usePrefersReducedMotion'
-import { useEffect, useRef, useState } from 'react'
+
+const GrypsDemo = lazy(() => import('../components/GrypsDemo'))
 
 function useIsMobile() {
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768)
@@ -320,7 +321,7 @@ function Story({ isLight }) {
     { label: 'Corporate Tools', value: 'SAP · Power BI · CRM · BW' },
     { label: 'Regions', value: 'Portugal · South East Europe · EMEA' },
     { label: 'Building', value: 'GRYPS' },
-    { label: 'Earlier prototypes', value: 'Litrix · Grantemia · Velu · Lycaon · DisclAI · Iraun' },
+                { label: 'Earlier prototypes', value: 'LitrixEU · Grantemia · Velu · Lycaon · DisclAI · Iraun' },
     { label: 'Focus', value: 'AI research · EU compliance · Systems Intelligence' },
   ]
   return (
@@ -331,11 +332,18 @@ function Story({ isLight }) {
         <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: isMobile ? '32px' : '60px', alignItems: 'center', marginBottom: isMobile ? '32px' : '60px', textAlign: 'left' }}>
           {/* Photo */}
           <div style={{ position: 'relative', overflow: 'hidden', borderRadius: '2px', border: `1px solid ${isLight ? 'rgba(212,137,30,0.2)' : 'rgba(212,137,30,0.08)'}`, background: '#1A1612' }}>
-            <img
-              src="/henrique.png"
-              alt="Henrique Moreira presenting"
-              style={{ width: '100%', display: 'block', objectFit: 'cover', objectPosition: '50% 15%', maxHeight: isMobile ? '360px' : '520px', filter: isLight ? 'brightness(1.05)' : 'brightness(0.92)' }}
-            />
+            <picture>
+              <source srcSet="/henrique.webp" type="image/webp" />
+              <img
+                src="/henrique.jpg"
+                alt="Henrique Moreira presenting"
+                width={530}
+                height={1100}
+                loading="lazy"
+                decoding="async"
+                style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'cover', objectPosition: '50% 15%', maxHeight: isMobile ? '360px' : '520px', filter: isLight ? 'brightness(1.05)' : 'brightness(0.92)' }}
+              />
+            </picture>
             <div style={{ position: 'absolute', bottom: 0, left: 0, right: 0, height: '100px', background: `linear-gradient(to top, #1A1612, transparent)`, pointerEvents: 'none' }} />
             <div style={{ position: 'absolute', bottom: '20px', left: '20px', fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', letterSpacing: '0.25em', color: '#D4891E', textTransform: 'uppercase', opacity: 0.8 }}>
               Espoo, Finland · 2025
@@ -434,7 +442,7 @@ function ProductCard({ n, accent, category, name, tagline, description, tags, ch
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '8px 18px', border: `1px solid ${accent}`, borderRadius: '1px', fontFamily: "'Syne', sans-serif", fontSize: '9px', fontWeight: 700, letterSpacing: '0.22em', textTransform: 'uppercase', color: accent, transition: 'all 0.2s', cursor: 'pointer' }}
             onMouseEnter={e => { e.currentTarget.style.background = accent; e.currentTarget.style.color = '#07080D' }}
             onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = accent }}>
-            Visit {name} ↗
+            Open prototype ↗
           </div>
         </a>
       )}
@@ -486,7 +494,7 @@ function Work({ isLight }) {
                   onMouseEnter={e => { e.currentTarget.style.background = '#4FA8FF'; e.currentTarget.style.color = '#07080D' }}
                   onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#4FA8FF' }}
                 >
-                  View prototype →
+                  Open prototype →
                 </div>
               </a>
               <a href="https://gryps.vercel.app/methodology" target="_blank" rel="nofollow noreferrer" style={{
@@ -498,7 +506,17 @@ function Work({ isLight }) {
               </a>
             </div>
           </div>
-          <GrypsDemo />
+          <Suspense fallback={
+            <div
+              aria-hidden
+              style={{
+                marginTop: 4, minHeight: 280, borderRadius: 2,
+                border: '1px solid rgba(79,168,255,0.12)', background: '#0B0F17',
+              }}
+            />
+          }>
+            <GrypsDemo />
+          </Suspense>
           <div style={{
             fontFamily: "'JetBrains Mono', monospace", fontSize: '8px', letterSpacing: '0.08em',
             color: isLight ? '#8A6A30' : '#6A5A3A', marginTop: '10px', textAlign: 'left', lineHeight: 1.7,
@@ -527,7 +545,7 @@ function Work({ isLight }) {
               n="02"
               accent="#C8A050"
               category="EU AI Act compliance demo"
-              name="LITRIX"
+              name="LitrixEU"
               description="A compliance-focused prototype for AI literacy training workflows under EU AI Act Article 4. Built to explore regulatory product design and verification systems."
               tags={['EU AI Act', 'AI Literacy', 'Transparency']}
               status="Research prototype"
@@ -694,7 +712,7 @@ function Contact({ isLight }) {
             fontFamily: "'JetBrains Mono', monospace", fontSize: '7.5px', color: footerColor,
             letterSpacing: '0.14em', lineHeight: 1.7, opacity: 0.75, marginTop: '4px',
           }}>
-            React · Next.js · Neon · Vercel · Resend · Cloudflare · Mistral
+            Vite · React · React Router · Vercel
           </div>
         </div>
       </RevealWrapper>

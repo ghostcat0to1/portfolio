@@ -33,7 +33,11 @@ export default function Nav({ theme, onToggleTheme }) {
         <HMSymbol size={44} theme={isLight ? 'light' : 'dark'} />
       </Link>
       <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-        <button onClick={onToggleTheme} style={{
+        <button
+          type="button"
+          onClick={onToggleTheme}
+          aria-label={isLight ? 'Switch to dark theme' : 'Switch to light theme'}
+          style={{
           background: 'transparent',
           border: `1px solid ${isLight ? 'rgba(212,137,30,0.35)' : 'rgba(212,137,30,0.25)'}`,
           borderRadius: '2px', padding: '6px 14px', cursor: 'pointer',
