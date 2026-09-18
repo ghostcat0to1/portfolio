@@ -17,6 +17,7 @@
 
 ### Changelog — 2026-09
 
+- **2026-09-18 (Forge s22 / portfolio-s11):** Professional cleanup journaled in Forge; Contact GitHub profile link; nav logo scrolls to top on home. Hub remains skill-demo (no storefront).
 - **2026-09-18 (professional cleanup):** Removed Vite scaffold assets, unused Gryps video/PNG, unused `icons.svg`, unmounted `LycaonDemo`, and unused `api/gemini.js`. CTAs → Open prototype. GrypsDemo Score 47 · Grade D synced. Photo compressed (WebP/JPEG + lazy). Dependabot commit prefix fixed (`chore` + scope → `chore(deps):`). Privacy/Terms: no live AI API on this deployment; GrypsDemo disclosed as illustrative motion.
 - **2026-09-18 (Forge s21):** GitHub owner URLs → `hqemoreira`. Hub remains under Forge `seo-geo-digest`; clicks ≠ visitors posture unchanged.
 - **2026-09-18 (Forge s20):** CODEBOOK synced with Forge journals. Hub copy aligned to AI product / systems roles; GRYPS Live + Open prototype framing; Forge `seo-geo-digest` + clicks≠visitors clarity.
